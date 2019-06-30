@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package GUI;
 
 import java.awt.event.WindowAdapter;
@@ -6,10 +10,14 @@ import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 
-public class VentanaMadre extends JFrame{
-    public VentanaMadre(){
-        this.setSize(800,600);
-        this.setTitle("La Furia de Guáitara");
+/**
+ *
+ * @author HP
+ */
+public class VentanaSecundaria extends JFrame{
+    public VentanaSecundaria(){
+        this.setSize(500,370);
+        this.setTitle("");
         this.setLocationRelativeTo(null);
         close();
         this.setResizable(false);
@@ -29,11 +37,10 @@ public class VentanaMadre extends JFrame{
             e.printStackTrace();
         }
     }
-    
     public void confirmarSalida(){
         int valor = JOptionPane.showConfirmDialog(this, "¿Desea Salir?", "SALIR", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
         if(valor == JOptionPane.YES_OPTION){
-            System.exit(0);
+            this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         }
     }
     

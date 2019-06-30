@@ -5,11 +5,22 @@
  */
 package GUI;
 
+import java.awt.Color;
+import static java.awt.Color.*;
+import javax.swing.*;
+
 /**
  *
  * @author Diego
  */
-public class CargarPartida {
+public class CargarPartida extends VentanaSecundaria{
+
+    public CargarPartida(){
+        JPanel panelP =  new JPanel();
+        this.add(panelP);
+        panelP.setBackground(red);
+    }
+    
     public PantallaJuego seleccionarPartida(){
         return null;
     }

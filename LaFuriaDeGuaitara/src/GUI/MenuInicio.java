@@ -5,11 +5,16 @@
  */
 package GUI;
 
+import java.awt.Color;
+import static java.awt.Color.*;
+
 /**
  *
  * @author Diego
  */
-public class MenuInicio {
+public class MenuInicio extends VentanaSecundaria{
+    
+    
     public void volumenMusica(){
         
     }
