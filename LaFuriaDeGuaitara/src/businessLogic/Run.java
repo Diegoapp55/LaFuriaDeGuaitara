@@ -6,6 +6,7 @@
 package businessLogic;
 
 import GUI.*;
+import data.*;
 
 /**
  *
@@ -20,8 +21,6 @@ public class Run {
         PantallaInicio v1 = new PantallaInicio();
         v1.setVisible(true);
         
-        //VentanaSecundaria v2 =  new VentanaSecundaria();
-        //v2.setVisible(true);
     }
     
 }

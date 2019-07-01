@@ -21,7 +21,10 @@ public class Partida {
         this.mapaActual = mapaActual;
         this.jugadorActual = jugadorActual;
     }
-
+        
+    public Partida(){
+    }
+        
     public long getTiempo() {
         return tiempo;
     }
