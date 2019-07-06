@@ -1,19 +1,21 @@
  
 package GUI;
 
+import GUIsoundManagement.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 
 public class VentanaMadre extends JFrame{
+    public static Efectos botonSound = new Efectos();
     public VentanaMadre(){
-        this.setSize(800,600);
-        this.setTitle("La Furia de Guáitara");
-        this.setLocationRelativeTo(null);
+        setSize(800,600);
+        setTitle("La Furia de Guáitara");
+        setLocationRelativeTo(null);
         close();
-        this.setResizable(false);
-        this.setIconImage(new ImageIcon(getClass().getResource("/Images/viejo desnudo.jpg")).getImage());
+        setResizable(false);
+        setIconImage(new ImageIcon(getClass().getResource("/Images/viejo desnudo.jpg")).getImage());
     }
     
     public void close(){
@@ -31,6 +33,7 @@ public class VentanaMadre extends JFrame{
     }
     
     public void confirmarSalida(){
+        botonSound.playSalir();
         int valor = JOptionPane.showConfirmDialog(this, "¿Desea Salir?", "SALIR", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
         if(valor == JOptionPane.YES_OPTION){
             System.exit(0);

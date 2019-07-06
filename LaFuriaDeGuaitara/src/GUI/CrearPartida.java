@@ -15,8 +15,10 @@ import javax.swing.*;
 
 public class CrearPartida extends VentanaSecundaria{
     private Boton continuar =  new Boton(250,270,160,40,"continuar",25);
-
+    public static boolean estado = false;
+    
     public CrearPartida(){
+        System.out.println(estado);
         this.setTitle("Nueva Partida");
         JPanel panel =  new JPanel();
         this.add(panel);
@@ -104,14 +106,19 @@ public class CrearPartida extends VentanaSecundaria{
     public Partida crearPartida(Boton a, JTextField b, ButtonGroup c){
         Partida nuevaPartida = new Partida();
         Jugador nuevoJugador = new Jugador(null, null, null, null);
+        Mapa nuevoMapa = new Mapa(null,null,null);  
         long tiempoTotal = System.currentTimeMillis();
         ActionListener action = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                nuevoJugador.setNombre(b.getText());
+                /*nuevoJugador.setNombre(b.getText());
                 nuevoJugador.setGenero(c.getSelection().toString());
                 nuevaPartida.setTiempo((System.currentTimeMillis()-tiempoTotal)/1000);
-                nuevaPartida.setJugadorActual(nuevoJugador);
+                nuevaPartida.setJugadorActual(nuevoJugador);*/
+                PantallaJuego nuevaPantalla = new PantallaJuego();
+                estado = true;
+                System.out.println(estado);
+                dispose();
             }
         };
         a.addActionListener(action);

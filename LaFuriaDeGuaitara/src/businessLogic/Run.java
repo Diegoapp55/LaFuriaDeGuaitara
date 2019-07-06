@@ -7,7 +7,10 @@ package businessLogic;
 
 import GUI.*;
 import data.*;
-
+import GUIsoundManagement.*;
+import java.awt.Graphics;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author Diego
@@ -18,9 +21,13 @@ public class Run {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        PantallaInicio v1 = new PantallaInicio();
-        v1.setVisible(true);
+        VentanaMadre v1 =  new VentanaMadre();
+        PantallaInicio panelInicio =  new PantallaInicio();
+        v1.add(panelInicio);
         
+        
+        
+        v1.setVisible(true);
     }
     
 }
