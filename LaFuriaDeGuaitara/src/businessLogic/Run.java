@@ -23,10 +23,9 @@ public class Run {
     public static void main(String[] args) {
         VentanaMadre v1 =  new VentanaMadre();
         PantallaInicio panelInicio =  new PantallaInicio();
+        
         v1.add(panelInicio);
-        
-        
-        
+
         v1.setVisible(true);
     }
     

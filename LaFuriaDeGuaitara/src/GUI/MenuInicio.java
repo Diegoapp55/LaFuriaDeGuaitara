@@ -139,8 +139,12 @@ public class MenuInicio extends VentanaSecundaria {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //botón salir
-        
+        //botón guardar
+        Efectos e1 = new Efectos();
+        e1.playClickPositivo();
+        int volMusica = jSlider1.getValue();
+        int volFx = jSlider2.getValue();
+        dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -178,21 +182,6 @@ public class MenuInicio extends VentanaSecundaria {
         });
     }
     
-    public void volumenMusica(){
-        
-    }
-    
-    public void volumenEfectos(){
-        
-    }
-    
-    public void teclado(){
-        
-    }
-    
-    public void guardarCambios(){
-        
-    }
     @Override
     public void confirmarSalida(){
         Efectos e1 = new Efectos();
