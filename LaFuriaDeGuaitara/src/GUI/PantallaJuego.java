@@ -5,15 +5,22 @@
  */
 package GUI;
 
+import businessLogic.Teclado;
 import data.Mapa;
+import javax.swing.*;
 
 /**
  *
  * @author Diego
  */
 public class PantallaJuego extends VentanaMadre{
-    private Mapa mapa;
 
+    private Mapa mapa;
+    
+    public PantallaJuego(){
+        stage_1();
+    }
+    
     public Mapa getMapa() {
         return mapa;
     }
@@ -23,7 +30,8 @@ public class PantallaJuego extends VentanaMadre{
     }
     
     public void stage_1(){
-        
+        Teclado t = new Teclado();
+        this.add(t);
     }
     
     public void stage_2(){
@@ -44,5 +52,15 @@ public class PantallaJuego extends VentanaMadre{
     
     public MenuJuego opciones(){
         return null;
+    }
+    
+    @Override
+    public void confirmarSalida(){
+        VentanaMadre.botonSound.playSalir();
+        int valor = JOptionPane.showConfirmDialog(this, "¿Desea Salir?", "SALIR", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
+        if(valor == JOptionPane.YES_OPTION){
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        }
+        PantallaInicio nuevaPantallaInicio = new PantallaInicio();
     }
 }

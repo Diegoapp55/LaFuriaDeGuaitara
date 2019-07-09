@@ -5,13 +5,14 @@
  */
 package data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Diego
  */
-class PuntoDeGuardado extends Personaje{
+class PuntoDeGuardado extends Personaje implements Serializable{
     private int estadoPartida;
 
     public PuntoDeGuardado(int estadoPartida, String nombre, String genero, String[] dialogos) {

@@ -6,13 +6,14 @@
 package data;
 
 import GUI.VentanaInventario;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Diego
  */
-public class Inventario {
+public class Inventario implements Serializable{
     private ArrayList<ItemPickeable> contenido;
     private VentanaInventario enlaceGUI;
 

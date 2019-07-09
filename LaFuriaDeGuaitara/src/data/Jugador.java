@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Diego
  */
-public class Jugador extends Personaje{
+public class Jugador extends Personaje implements Serializable{
     private Inventario inventario;
 
     public Jugador(Inventario inventario, String nombre, String genero, String[] dialogos) {
@@ -35,4 +37,9 @@ public class Jugador extends Personaje{
         return "";
     }
     
+    @Override
+    public String toString()
+    {
+        return "Nombre:" + this.getNombre() + ", del género " + this.getGenero();
+    }
 }
