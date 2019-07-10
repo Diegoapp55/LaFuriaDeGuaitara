@@ -12,8 +12,8 @@ package data;
 public class Jugador extends Personaje{
     private Inventario inventario;
 
-    public Jugador(Inventario inventario, String nombre, String genero, String[] dialogos) {
-        super(nombre, genero, dialogos);
+    public Jugador(Inventario inventario, String nombre, String genero) {
+        super(nombre, genero);
         this.inventario = inventario;
     }
 
@@ -29,10 +29,4 @@ public class Jugador extends Personaje{
     public void moverse() {
         
     }
-
-    @Override
-    public String dialogo(String[] dialogos) {
-        return "";
-    }
-    
 }

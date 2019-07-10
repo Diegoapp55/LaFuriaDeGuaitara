@@ -12,12 +12,10 @@ package data;
 public abstract class Personaje implements Accion{
     private String nombre;
     private String genero;
-    private String[] dialogos;
 
-    public Personaje(String nombre, String genero, String[] dialogos) {
+    public Personaje(String nombre, String genero) {
         this.nombre = nombre;
         this.genero = genero;
-        this.dialogos = dialogos;
     }
 
     public String getNombre() {
@@ -34,13 +32,5 @@ public abstract class Personaje implements Accion{
 
     public void setGenero(String genero) {
         this.genero = genero;
-    }
-
-    public String[] getDialogos() {
-        return dialogos;
-    }
-
-    public void setDialogos(String[] dialogos) {
-        this.dialogos = dialogos;
     }
 }

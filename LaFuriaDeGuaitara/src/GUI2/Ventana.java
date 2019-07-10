@@ -97,6 +97,10 @@ public class Ventana extends javax.swing.JFrame {
 
     private void btNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaPartidaActionPerformed
         // TODO add your handling code here:
+        Efectos e1 = new Efectos();
+        e1.playClickPositivo();
+        CrearPartida cp1 =  new CrearPartida();
+        cp1.setVisible(true);
     }//GEN-LAST:event_btNuevaPartidaActionPerformed
 
     private void btOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOpcionesActionPerformed

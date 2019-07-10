@@ -11,5 +11,4 @@ package data;
  */
 public interface Accion {
     void moverse();
-    String dialogo(String[] dialogos);
 }

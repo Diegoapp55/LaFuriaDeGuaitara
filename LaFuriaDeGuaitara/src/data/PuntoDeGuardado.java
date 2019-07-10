@@ -14,8 +14,8 @@ import java.util.ArrayList;
 class PuntoDeGuardado extends Personaje{
     private int estadoPartida;
 
-    public PuntoDeGuardado(int estadoPartida, String nombre, String genero, String[] dialogos) {
-        super(nombre, genero, dialogos);
+    public PuntoDeGuardado(int estadoPartida, String nombre, String genero) {
+        super(nombre, genero);
         this.estadoPartida = estadoPartida;
     }
 
@@ -35,10 +35,4 @@ class PuntoDeGuardado extends Personaje{
     public void moverse() {
         
     }
-
-    @Override
-    public String dialogo(String[] dialogos) {
-        return "";
-    }
-    
 }

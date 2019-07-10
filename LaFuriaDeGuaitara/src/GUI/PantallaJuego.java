@@ -61,6 +61,5 @@ public class PantallaJuego extends VentanaMadre{
         if(valor == JOptionPane.YES_OPTION){
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         }
-        PantallaInicio nuevaPantallaInicio = new PantallaInicio();
     }
 }
