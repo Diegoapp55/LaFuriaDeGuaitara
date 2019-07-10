@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI2.MenuJuego;
 import businessLogic.Teclado;
 import data.Mapa;
 import javax.swing.*;

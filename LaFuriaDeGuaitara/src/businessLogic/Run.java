@@ -6,6 +6,7 @@
 package businessLogic;
 
 import GUI.*;
+import GUI2.*;
 import data.*;
 import GUIsoundManagement.*;
 import java.awt.Graphics;
@@ -21,11 +22,13 @@ public class Run {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VentanaMadre v1 =  new VentanaMadre();
+        /*VentanaMadre v1 =  new VentanaMadre();
         PantallaInicio panelInicio =  new PantallaInicio();
         
         v1.add(panelInicio);
 
+        v1.setVisible(true);*/
+        Ventana v1 = new Ventana();
         v1.setVisible(true);
     }
     

@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class MenuInicio extends VentanaSecundaria {
-
+    int volMusica;
+    int volEfectos;
     /**
      * Creates new form MenuInicio
      */
@@ -142,8 +143,8 @@ public class MenuInicio extends VentanaSecundaria {
         //botón guardar
         Efectos e1 = new Efectos();
         e1.playClickPositivo();
-        int volMusica = jSlider1.getValue();
-        int volFx = jSlider2.getValue();
+        volMusica = jSlider1.getValue();
+        volEfectos = jSlider2.getValue();
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 

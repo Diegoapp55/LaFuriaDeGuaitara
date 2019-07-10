@@ -1,6 +1,6 @@
 package businessLogic;
 
-import GUI.MenuJuego;
+import GUI2.MenuJuego;
 import GUIsoundManagement.Efectos;
 import java.awt.Color;
 import java.awt.Graphics;
