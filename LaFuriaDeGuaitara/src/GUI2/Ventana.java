@@ -5,8 +5,12 @@
  */
 package GUI2;
 
+import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
+import java.awt.BorderLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -31,6 +35,7 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panelContenedor = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btNuevaPartida = new javax.swing.JButton();
         btCargarPartida = new javax.swing.JButton();
@@ -38,7 +43,8 @@ public class Ventana extends javax.swing.JFrame {
         btSalir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -79,47 +85,42 @@ public class Ventana extends javax.swing.JFrame {
         Fondo.setAlignmentY(0.0F);
         jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
 
+        javax.swing.GroupLayout panelContenedorLayout = new javax.swing.GroupLayout(panelContenedor);
+        panelContenedor.setLayout(panelContenedorLayout);
+        panelContenedorLayout.setHorizontalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelContenedorLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        panelContenedorLayout.setVerticalGroup(
+            panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(panelContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelContenedorLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaPartidaActionPerformed
-        // TODO add your handling code here:
-        Efectos e1 = new Efectos();
-        e1.playClickPositivo();
-        CrearPartida cp1 =  new CrearPartida();
-        cp1.setVisible(true);
-    }//GEN-LAST:event_btNuevaPartidaActionPerformed
-
-    private void btOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOpcionesActionPerformed
-        // TODO add your handling code here:
-        Efectos e1 = new Efectos();
-        e1.playAbrirMenu();
-        MenuJuego mj = new MenuJuego();
-        mj.setVisible(true);
-    }//GEN-LAST:event_btOpcionesActionPerformed
-
-    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
-        // TODO add your handling code here:
-        Efectos e1 = new Efectos();
-        e1.playClickCerrar();
-        int value = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "salir", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
-        if(value == JOptionPane.YES_OPTION){
-            System.exit(0);
-        }   
-    }//GEN-LAST:event_btSalirActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
@@ -130,6 +131,40 @@ public class Ventana extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_formWindowClosing
 
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+        // TODO add your handling code here:
+        Efectos e1 = new Efectos();
+        e1.playClickCerrar();
+        int value = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "salir", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
+        if(value == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btSalirActionPerformed
+
+    private void btOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOpcionesActionPerformed
+        // TODO add your handling code here:
+        Efectos e1 = new Efectos();
+        e1.playAbrirMenu();
+        MenuJuego mj = new MenuJuego();
+        mj.setVisible(true);
+    }//GEN-LAST:event_btOpcionesActionPerformed
+
+    private void btNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaPartidaActionPerformed
+        // TODO add your handling code here:
+        Efectos e1 = new Efectos();
+        e1.playClickPositivo();
+        CrearPartida cp1 =  new CrearPartida();
+        cp1.setVisible(true);
+    }//GEN-LAST:event_btNuevaPartidaActionPerformed
+
+    public JPanel getPanelContenedor() {
+        return panelContenedor;
+    }
+    public void setPanelContenedor(JPanel panelContenedor) {
+        this.panelContenedor = panelContenedor;
+    }
+
+    
     /**
      * @param args the command line arguments
      */
@@ -172,5 +207,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton btOpciones;
     private javax.swing.JButton btSalir;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelContenedor;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,6 +12,8 @@ import data.Partida;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Map;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -20,15 +22,18 @@ import javax.swing.JTextField;
  * @author HP
  */
 public class CrearPartida extends javax.swing.JFrame {
+
     ArrayList<Partida> partidas;
-    Partida partida =  new Partida(0, null, null, null);
-    Jugador jugador =  new Jugador(null, null, null);
-    Boolean estado = false;
+    Partida partida = new Partida(0, null, null, null);
+    Jugador jugador = new Jugador(null, null, null);
+    static int estado = 0;
+    private final Ventana v1 =  new Ventana();
     /**
      * Creates new form CrearPartida
      */
     public CrearPartida() {
         initComponents();
+        setLocationRelativeTo(null);
         clickText(txtNombre);
     }
 
@@ -134,7 +139,7 @@ public class CrearPartida extends javax.swing.JFrame {
 
     private void btContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContinuarActionPerformed
         // TODO add your handling code here:
-        if(txtNombre.getText().equals("nombre") || txtNombre.getText().isEmpty()){
+        /*if(txtNombre.getText().equals("nombre") || txtNombre.getText().isEmpty()){
             JOptionPane.showConfirmDialog(this, "nombre demasiado corto" , "error", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE);
         }else{
@@ -148,13 +153,22 @@ public class CrearPartida extends javax.swing.JFrame {
             jugador.setGenero("Indefinido");
         }
         partida.setJugadorActual(jugador);
-        partidas.add(partida);
-        Cinematicas cInicio = new Cinematicas();
-        cInicio.setVisible(true);
+        partidas.add(partida);*/
+        Cinematicas cine = new Cinematicas();
+        cine.setVisible(true);
+        estado = 1;
         dispose();
     }//GEN-LAST:event_btContinuarActionPerformed
+
+    public static int getEstado() {
+        return estado;
+    }
+
+    public static void setEstado(int estado) {
+        CrearPartida.estado = estado;
+    }
     
-    public void clickText(JTextField a){
+    public void clickText(JTextField a) {
         MouseListener click = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -179,6 +193,7 @@ public class CrearPartida extends javax.swing.JFrame {
         };
         a.addMouseListener(click);
     }
+
     /**
      * @param args the command line arguments
      */

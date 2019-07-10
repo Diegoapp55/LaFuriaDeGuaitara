@@ -29,6 +29,8 @@ public class Run {
 
         v1.setVisible(true);*/
         Ventana v1 = new Ventana();
+        
+        
         v1.setVisible(true);
     }
     

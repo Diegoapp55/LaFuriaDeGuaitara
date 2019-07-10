@@ -17,8 +17,8 @@ public class menuInicio extends javax.swing.JFrame {
      * Creates new form menuInicio
      */
     public menuInicio() {
-        
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

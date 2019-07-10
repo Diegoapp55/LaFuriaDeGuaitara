@@ -6,18 +6,20 @@
 package GUI2;
 
 import GUI.PantallaJuego;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
  * @author HP
  */
 public class Cinematicas extends javax.swing.JFrame {
-
     /**
      * Creates new form Cinematicas
      */
     public Cinematicas() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -29,13 +31,18 @@ public class Cinematicas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelCine = new javax.swing.JPanel();
         siguiente = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelCine.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCiner.png"))); // NOI18N
         siguiente.setPreferredSize(new java.awt.Dimension(150, 40));
@@ -44,20 +51,20 @@ public class Cinematicas extends javax.swing.JFrame {
                 siguienteActionPerformed(evt);
             }
         });
-        jPanel1.add(siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, -1, -1));
+        panelCine.add(siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cineInicio.png"))); // NOI18N
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelCine.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelCine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelCine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -69,6 +76,25 @@ public class Cinematicas extends javax.swing.JFrame {
         pj.setVisible(false);
     }//GEN-LAST:event_siguienteActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
+        // TODO add your handling code here:
+        int value = JOptionPane.showConfirmDialog(this,"¿Desea Salir?", "salir", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if(value == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }  
+    }   
+    public JPanel getPanelCine() {
+        return panelCine;
+    }
+    public void setPanelCine(JPanel panelCine) {
+        this.panelCine = panelCine;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -106,7 +132,7 @@ public class Cinematicas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelCine;
     private javax.swing.JButton siguiente;
     // End of variables declaration//GEN-END:variables
 }
