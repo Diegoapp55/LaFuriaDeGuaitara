@@ -32,7 +32,7 @@ public class PanelTutorial extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCiner.png"))); // NOI18N
+        btSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btSiguiente.png"))); // NOI18N
         add(btSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 530, 150, 40));
 
         backgorund.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/tutorial.png"))); // NOI18N

@@ -21,7 +21,7 @@
     <Component class="javax.swing.JButton" name="btSiguiente">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Images/btCiner.png"/>
+          <Image iconType="3" name="/Images/btSiguiente.png"/>
         </Property>
       </Properties>
       <Constraints>

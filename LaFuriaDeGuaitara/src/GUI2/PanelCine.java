@@ -34,7 +34,7 @@ public class PanelCine extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCiner.png"))); // NOI18N
+        siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btSiguiente.png"))); // NOI18N
         siguiente.setPreferredSize(new java.awt.Dimension(150, 40));
         siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
