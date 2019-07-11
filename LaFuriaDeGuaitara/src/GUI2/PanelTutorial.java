@@ -9,12 +9,12 @@ package GUI2;
  *
  * @author HP
  */
-public class panelTutorial extends javax.swing.JPanel {
+public class PanelTutorial extends javax.swing.JPanel {
 
     /**
      * Creates new form panelTutorial
      */
-    public panelTutorial() {
+    public PanelTutorial() {
         initComponents();
     }
 

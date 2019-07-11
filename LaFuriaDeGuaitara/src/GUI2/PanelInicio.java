@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class PanelInicio extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form panelInicio
      */
@@ -47,6 +47,11 @@ public class PanelInicio extends javax.swing.JPanel {
         add(btNuevaPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 200, 50));
 
         btCargarPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCargarPartida.png"))); // NOI18N
+        btCargarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCargarPartidaActionPerformed(evt);
+            }
+        });
         add(btCargarPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 50));
 
         btOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btOpciones.png"))); // NOI18N
@@ -95,6 +100,12 @@ public class PanelInicio extends javax.swing.JPanel {
             System.exit(0);
         }
     }//GEN-LAST:event_btSalirActionPerformed
+
+    private void btCargarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarPartidaActionPerformed
+        // TODO add your handling code here:
+        PanelCargarPartida cargar = new PanelCargarPartida();
+        
+    }//GEN-LAST:event_btCargarPartidaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

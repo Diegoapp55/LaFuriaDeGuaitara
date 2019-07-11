@@ -11,12 +11,12 @@ import GUIsoundManagement.Efectos;
  *
  * @author HP
  */
-public class panelCrearPartida extends javax.swing.JPanel {
+public class PanelCrearPartida extends javax.swing.JPanel {
 
     /**
      * Creates new form panelCrearPartida
      */
-    public panelCrearPartida() {
+    public PanelCrearPartida() {
         initComponents();
     }
 
