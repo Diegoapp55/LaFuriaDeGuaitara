@@ -44,7 +44,6 @@ public class Ventana extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -63,6 +62,11 @@ public class Ventana extends javax.swing.JFrame {
         jPanel1.add(btNuevaPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 200, 50));
 
         btCargarPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCargarPartida.png"))); // NOI18N
+        btCargarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCargarPartidaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btCargarPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 50));
 
         btOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btOpciones.png"))); // NOI18N
@@ -157,13 +161,21 @@ public class Ventana extends javax.swing.JFrame {
         cp1.setVisible(true);
     }//GEN-LAST:event_btNuevaPartidaActionPerformed
 
+    private void btCargarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarPartidaActionPerformed
+        // TODO add your handling code here:
+        Efectos e1 = new Efectos();
+        e1.playClickPositivo();
+        CargarPartida cp1 =  new CargarPartida();
+        cp1.setVisible(true);
+    }//GEN-LAST:event_btCargarPartidaActionPerformed
+
     public JPanel getPanelContenedor() {
         return panelContenedor;
     }
     public void setPanelContenedor(JPanel panelContenedor) {
         this.panelContenedor = panelContenedor;
     }
-
+    
     
     /**
      * @param args the command line arguments

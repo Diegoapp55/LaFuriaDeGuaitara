@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class PanelInicio extends javax.swing.JPanel {
-    
     /**
      * Creates new form panelInicio
      */
