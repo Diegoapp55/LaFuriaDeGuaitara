@@ -9,6 +9,8 @@ import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -17,6 +19,7 @@ import javax.swing.JPanel;
  * @author HP
  */
 public class Ventana extends javax.swing.JFrame {
+    boolean opacity = true;
     /**
      * Creates new form Ventana
      */
@@ -45,9 +48,17 @@ public class Ventana extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                formComponentAdded(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -149,8 +160,8 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playAbrirMenu();
-        MenuJuego mj = new MenuJuego();
-        mj.setVisible(true);
+        MenuInicio mi = new MenuInicio();
+        mi.setVisible(true);
     }//GEN-LAST:event_btOpcionesActionPerformed
 
     private void btNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaPartidaActionPerformed
@@ -168,6 +179,14 @@ public class Ventana extends javax.swing.JFrame {
         CargarPartida cp1 =  new CargarPartida();
         cp1.setVisible(true);
     }//GEN-LAST:event_btCargarPartidaActionPerformed
+
+    private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentAdded
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     public JPanel getPanelContenedor() {
         return panelContenedor;

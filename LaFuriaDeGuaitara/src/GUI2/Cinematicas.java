@@ -37,6 +37,9 @@ public class Cinematicas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -79,14 +82,16 @@ public class Cinematicas extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         int value = JOptionPane.showConfirmDialog(this,"¿Desea Salir?", "salir", 
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if(value == JOptionPane.YES_OPTION){
             System.exit(0);
         }  
-    }   
+    }//GEN-LAST:event_formWindowClosing
+  
     public JPanel getPanelCine() {
         return panelCine;
     }
