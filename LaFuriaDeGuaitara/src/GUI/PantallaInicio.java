@@ -7,6 +7,8 @@ package GUI;
 import GUIsoundManagement.*;
 import javax.swing.*;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,14 +33,14 @@ public class PantallaInicio extends JPanel{
        cargarPartida(cargarPartida);
        menuInicio(opciones);
        cerrarJuego(salir);
-
+       
        add(nuevaPartida);
        add(cargarPartida);
        add(opciones);
        add(salir);
        add(mainTitle1);
        add(mainTitle2);
-      
+
     }
     
     public void nuevaPartida(Boton a){

@@ -24,9 +24,6 @@ public class Run {
         VentanaMadre v1 =  new VentanaMadre();
         PantallaInicio panelInicio =  new PantallaInicio();
         v1.add(panelInicio);
-        
-        
-        
         v1.setVisible(true);
     }
     

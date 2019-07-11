@@ -14,7 +14,7 @@ import javax.swing.*;
  * @author Diego
  */
 public class PantallaJuego extends VentanaMadre{
-
+    
     private Mapa mapa;
     
     public PantallaJuego(){

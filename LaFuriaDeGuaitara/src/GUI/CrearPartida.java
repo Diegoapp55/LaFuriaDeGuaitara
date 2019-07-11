@@ -45,7 +45,7 @@ public class CrearPartida extends VentanaSecundaria{
         ImageIcon male = new ImageIcon(new ImageIcon(getClass().getResource("/images/male.png")).getImage().getScaledInstance(60,60, Image.SCALE_SMOOTH));
         JLabel iconMale = new JLabel(male);
         iconMale.setBounds(60,180,60,60);
-        
+
         JRadioButton mujer = new JRadioButton("Mujer");
         mujer.setFont(new Font("consolas", 0 ,20));
         mujer.setBounds(180, 150, 100, 20);
@@ -61,8 +61,8 @@ public class CrearPartida extends VentanaSecundaria{
         ImageIcon indef = new ImageIcon(new ImageIcon(getClass().getResource("/images/agender.png")).getImage().getScaledInstance(60,60, Image.SCALE_SMOOTH));
         JLabel iconInd = new JLabel(indef);
         iconInd.setBounds(300,180,60,60);
-        
 
+        
         grupo.add(hombre);
         grupo.add(mujer);
         grupo.add(ind);
@@ -147,5 +147,147 @@ public class CrearPartida extends VentanaSecundaria{
         a.addActionListener(action);
         return nuevaPartida;
     }
-    
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        btnGroup = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        rbtHombre = new javax.swing.JRadioButton();
+        rbtMujer = new javax.swing.JRadioButton();
+        rbtIndefinido = new javax.swing.JRadioButton();
+        btnContinuar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(500, 370));
+        setName("Nueva Partida"); // NOI18N
+
+        jPanel1.setMinimumSize(new java.awt.Dimension(500, 370));
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 370));
+
+        jLabel1.setFont(new java.awt.Font("Consolas", 1, 25)); // NOI18N
+        jLabel1.setText("Crear nueva partida");
+        jLabel1.setMinimumSize(new java.awt.Dimension(300, 40));
+        jLabel1.setName(""); // NOI18N
+
+        txtNombre.setFont(new java.awt.Font("Consolas", 0, 20)); // NOI18N
+        txtNombre.setText("nombre");
+        txtNombre.setMinimumSize(new java.awt.Dimension(350, 40));
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
+            }
+        });
+
+        btnGroup.add(rbtHombre);
+        rbtHombre.setFont(new java.awt.Font("Consolas", 0, 20)); // NOI18N
+        rbtHombre.setText("Hombre");
+        rbtHombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtHombreActionPerformed(evt);
+            }
+        });
+
+        btnGroup.add(rbtMujer);
+        rbtMujer.setFont(new java.awt.Font("Consolas", 0, 20)); // NOI18N
+        rbtMujer.setText("Mujer");
+
+        btnGroup.add(rbtIndefinido);
+        rbtIndefinido.setFont(new java.awt.Font("Consolas", 0, 20)); // NOI18N
+        rbtIndefinido.setText("Indefinido");
+
+        btnContinuar.setFont(new java.awt.Font("Consolas", 0, 25)); // NOI18N
+        btnContinuar.setText("continuar");
+        btnContinuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContinuarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 43, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(13, 13, 13)
+                            .addComponent(rbtHombre)
+                            .addGap(35, 35, 35)
+                            .addComponent(rbtMujer)
+                            .addGap(32, 32, 32)
+                            .addComponent(rbtIndefinido)))
+                    .addComponent(btnContinuar))
+                .addGap(70, 70, 70))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtHombre)
+                    .addComponent(rbtMujer)
+                    .addComponent(rbtIndefinido))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(btnContinuar)
+                .addGap(25, 25, 25))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+        PantallaJuego nuevaPantalla = new PantallaJuego();
+                estado = true;
+                System.out.println(estado);
+                dispose();
+    }//GEN-LAST:event_btnContinuarActionPerformed
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+        txtNombre.setText("");
+    }//GEN-LAST:event_txtNombreMouseClicked
+
+    private void rbtHombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtHombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtHombreActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnContinuar;
+    private javax.swing.ButtonGroup btnGroup;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton rbtHombre;
+    private javax.swing.JRadioButton rbtIndefinido;
+    private javax.swing.JRadioButton rbtMujer;
+    private javax.swing.JTextField txtNombre;
+    // End of variables declaration//GEN-END:variables
+
 }
