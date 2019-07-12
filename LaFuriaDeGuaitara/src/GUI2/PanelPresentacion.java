@@ -32,7 +32,8 @@ public class PanelPresentacion extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/presentacion0.png"))); // NOI18N
-        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        background.setPreferredSize(new java.awt.Dimension(800, 600));
+        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -13,9 +13,9 @@ public class VentanaMadre extends JFrame{
         setSize(800,600);
         setTitle("La Furia de Guáitara");
         setLocationRelativeTo(null);
-        close();
+        /*close();*/
         setResizable(false);
-        setIconImage(new ImageIcon(getClass().getResource("/Images/viejo desnudo.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Images/LFDGlogo.png")).getImage());
     }
     
     public void close(){

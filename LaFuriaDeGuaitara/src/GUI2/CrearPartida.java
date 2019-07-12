@@ -9,12 +9,14 @@ import GUI2.Cinematicas;
 import GUIsoundManagement.Efectos;
 import data.Jugador;
 import data.Partida;
+import java.awt.BorderLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -23,18 +25,17 @@ import javax.swing.JTextField;
  */
 public class CrearPartida extends javax.swing.JFrame {
 
-    ArrayList<Partida> partidas;
+    ArrayList<Partida> partidas = new ArrayList<>();
     Partida partida = new Partida(0, null, null, null);
     Jugador jugador = new Jugador(null, null, null);
     static int estado = 0;
-    private final Ventana v1 =  new Ventana();
     /**
      * Creates new form CrearPartida
      */
     public CrearPartida() {
         initComponents();
         setLocationRelativeTo(null);
-        clickText(txtNombre);
+        cargaCrearPartida();
     }
 
     /**
@@ -47,127 +48,37 @@ public class CrearPartida extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        txtNombre = new javax.swing.JTextField();
-        rbtFemale = new javax.swing.JRadioButton();
-        rbtMale = new javax.swing.JRadioButton();
-        rbtUndefined = new javax.swing.JRadioButton();
-        btVolver = new javax.swing.JButton();
-        btContinuar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jMain = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txtNombre.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("nombre");
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 220, 30));
-
-        rbtFemale.setBackground(new java.awt.Color(153, 153, 255));
-        buttonGroup1.add(rbtFemale);
-        rbtFemale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtFemaleActionPerformed(evt);
-            }
-        });
-        jPanel1.add(rbtFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
-
-        rbtMale.setBackground(new java.awt.Color(153, 153, 255));
-        buttonGroup1.add(rbtMale);
-        jPanel1.add(rbtMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 20, -1));
-
-        rbtUndefined.setBackground(new java.awt.Color(153, 153, 255));
-        buttonGroup1.add(rbtUndefined);
-        jPanel1.add(rbtUndefined, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, -1, -1));
-
-        btVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
-        btVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVolverActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 150, 40));
-
-        btContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btcontinuarr.png"))); // NOI18N
-        btContinuar.setPreferredSize(new java.awt.Dimension(150, 40));
-        btContinuar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btContinuarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackNuevaPartida.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
+        javax.swing.GroupLayout jMainLayout = new javax.swing.GroupLayout(jMain);
+        jMain.setLayout(jMainLayout);
+        jMainLayout.setHorizontalGroup(
+            jMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 513, Short.MAX_VALUE)
+        );
+        jMainLayout.setVerticalGroup(
+            jMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void rbtFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFemaleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtFemaleActionPerformed
-
-    private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
-        // TODO add your handling code here:
-        Efectos e1 = new Efectos();
-        e1.playQuitarPausa();
-        dispose();
-    }//GEN-LAST:event_btVolverActionPerformed
-
-    private void btContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContinuarActionPerformed
-        // TODO add your handling code here:
-        /*if(txtNombre.getText().equals("nombre") || txtNombre.getText().isEmpty()){
-            JOptionPane.showConfirmDialog(this, "nombre demasiado corto" , "error", 
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE);
-        }else{
-            jugador.setNombre(txtNombre.getText());
-        }
-        if(rbtFemale.isSelected()){
-            jugador.setGenero("Mujer");
-        }else if(rbtMale.isSelected()){
-            jugador.setGenero("Hombre");
-        }else if(rbtUndefined.isSelected()){
-            jugador.setGenero("Indefinido");
-        }
-        partida.setJugadorActual(jugador);
-        partidas.add(partida);*/
-        Cinematicas cine = new Cinematicas();
-        cine.setVisible(true);
-        estado = 1;
-        dispose();
-    }//GEN-LAST:event_btContinuarActionPerformed
-
-    public static int getEstado() {
-        return estado;
-    }
-
-    public static void setEstado(int estado) {
-        CrearPartida.estado = estado;
-    }
-    
     public void clickText(JTextField a) {
         MouseListener click = new MouseListener() {
             @Override
@@ -197,7 +108,7 @@ public class CrearPartida extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -230,14 +141,23 @@ public class CrearPartida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btContinuar;
-    private javax.swing.JButton btVolver;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton rbtFemale;
-    private javax.swing.JRadioButton rbtMale;
-    private javax.swing.JRadioButton rbtUndefined;
-    private javax.swing.JTextField txtNombre;
+    public static javax.swing.JPanel jMain;
     // End of variables declaration//GEN-END:variables
+
+    public void cargaCrearPartida()
+    {
+        PanelCrearPartida pcp = new PanelCrearPartida();
+        pcp.setSize(CrearPartida.getJpanel().getWidth(), CrearPartida.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        CrearPartida.getJpanel().removeAll();
+        CrearPartida.getJpanel().add(pcp);
+        CrearPartida.getJpanel().revalidate();
+        CrearPartida.getJpanel().repaint();
+    }
+    public static JPanel getJpanel()
+    {
+        return jMain;
+    }
 }

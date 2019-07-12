@@ -28,9 +28,7 @@ public class Run {
         v1.add(panelInicio);
 
         v1.setVisible(true);*/
-        Ventana v1 = new Ventana();
-        
-        
+        Window v1 = new Window();
         v1.setVisible(true);
     }
     

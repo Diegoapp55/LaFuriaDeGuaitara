@@ -31,7 +31,7 @@ public class PanelInicio extends javax.swing.JPanel {
 
         btNuevaPartida = new javax.swing.JButton();
         btCargarPartida = new javax.swing.JButton();
-        btOpciones = new javax.swing.JButton();
+        btMenuInicio = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
@@ -53,13 +53,13 @@ public class PanelInicio extends javax.swing.JPanel {
         });
         add(btCargarPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 50));
 
-        btOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btOpciones.png"))); // NOI18N
-        btOpciones.addActionListener(new java.awt.event.ActionListener() {
+        btMenuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btOpciones.png"))); // NOI18N
+        btMenuInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btOpcionesActionPerformed(evt);
+                btMenuInicioActionPerformed(evt);
             }
         });
-        add(btOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 200, 50));
+        add(btMenuInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 200, 50));
 
         btSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btSalir.png"))); // NOI18N
         btSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -78,17 +78,8 @@ public class PanelInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playClickPositivo();
-        CrearPartida cp1 =  new CrearPartida();
-        cp1.setVisible(true);
+        cargaCreaPartida();
     }//GEN-LAST:event_btNuevaPartidaActionPerformed
-
-    private void btOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btOpcionesActionPerformed
-        // TODO add your handling code here:
-        Efectos e1 = new Efectos();
-        e1.playAbrirMenu();
-        MenuJuego mj = new MenuJuego();
-        mj.setVisible(true);
-    }//GEN-LAST:event_btOpcionesActionPerformed
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         // TODO add your handling code here:
@@ -102,16 +93,58 @@ public class PanelInicio extends javax.swing.JPanel {
 
     private void btCargarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarPartidaActionPerformed
         // TODO add your handling code here:
-        PanelCargarPartida cargar = new PanelCargarPartida();
-        
+        Efectos e1 = new Efectos();
+        e1.playClickPositivo();
+        cargaCargaPartida();
     }//GEN-LAST:event_btCargarPartidaActionPerformed
 
+    private void btMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuInicioActionPerformed
+        // TODO add your handling code here:
+        Efectos e1 = new Efectos();
+        e1.playAbrirMenu();
+        cargaMenuJuego();
+    }//GEN-LAST:event_btMenuInicioActionPerformed
 
+    public void cargaCreaPartida()
+    {
+        PanelCrearPartida pcp = new PanelCrearPartida();
+        pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pcp);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+    }
+    
+    public void cargaMenuJuego()
+    {
+        PanelMenuJuego pmi = new PanelMenuJuego();
+        pmi.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pmi.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pmi);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+    }
+
+    public void cargaCargaPartida()
+    {
+        PanelCargarPartida pcp = new PanelCargarPartida();
+        pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pcp);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btCargarPartida;
+    private javax.swing.JButton btMenuInicio;
     private javax.swing.JButton btNuevaPartida;
-    private javax.swing.JButton btOpciones;
     private javax.swing.JButton btSalir;
     // End of variables declaration//GEN-END:variables
 }

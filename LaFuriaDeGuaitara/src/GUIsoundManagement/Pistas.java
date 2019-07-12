@@ -12,45 +12,45 @@ package GUIsoundManagement;
  */
 public class Pistas extends Sonido{
     public void playMainTheme(){
-        play("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\mainTheme.wav");
+        play(".\\build\\classes\\soundFiles\\mainTheme.wav");
     }
     public void stopMainTheme(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\mainTheme.wav");
+        stop(".\\build\\classes\\soundFiles\\mainTheme.wav");
     }
     public void playMenuTheme(){
-        play("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\menuTheme.wav");
+        play(".\\build\\classes\\soundFiles\\menuTheme.wav");
     }
     public void stopMenuTheme(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\menuTheme.wav");
+        stop(".\\build\\classes\\soundFiles\\menuTheme.wav");
     }
     public void playGamePlay(){
-        play("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\gamePlay[recortado].wav");
+        play(".\\build\\classes\\soundFiles\\gamePlay[recortado].wav");
     }
     public void stopGamePlay(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\gamePlay[recortado].wav");
+        stop(".\\build\\classes\\soundFiles\\gamePlay[recortado].wav");
     }
     public void playGamePlayTension(){
-        play("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\gamePlayTension[recortar].wav");
+        play(".\\build\\classes\\soundFiles\\gamePlayTension[recortar].wav");
     }
     public void stopGamePlayTension(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\gamePlayTension[recortar].wav");
+        stop(".\\build\\classes\\soundFiles\\gamePlayTension[recortar].wav");
     }
     public void playGamePlayCreepy(){
-        play("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\gamePlayCreepy[recortado].wav");
+        play(".\\build\\classes\\soundFiles\\gamePlayCreepy[recortado].wav");
     }
     public void stopGamePlayCreepy(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\gamePlayCreepy[recortado].wav");
+        stop(".\\build\\classes\\soundFiles\\gamePlayCreepy[recortado].wav");
     }
     public void playFinalPerder(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\finalPerder.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\finalPerder.wav");
     }
     public void stopFinalPerder(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\finalPerder.wav");
+        stop(".\\build\\classes\\soundFiles\\finalPerder.wav");
     }
     public void playFinalGanar(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\finalGanar.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\finalGanar.wav");
     }
     public void stopFinalGanar(){
-        stop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\finalGanar.wav");
+        stop(".\\build\\classes\\soundFiles\\finalGanar.wav");
     }
 }

@@ -6,6 +6,12 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
+import data.Jugador;
+import data.Partida;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,11 +19,15 @@ import GUIsoundManagement.Efectos;
  */
 public class PanelCrearPartida extends javax.swing.JPanel {
 
+    ArrayList<Partida> partidas = new ArrayList<>();
+    Partida partida = new Partida(0, null, null, null);
+    Jugador jugador = new Jugador(null, null, null);
     /**
      * Creates new form panelCrearPartida
      */
     public PanelCrearPartida() {
         initComponents();
+        
     }
 
     /**
@@ -29,6 +39,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgGrupo1 = new javax.swing.ButtonGroup();
         txtNombre = new javax.swing.JTextField();
         rbtFemale = new javax.swing.JRadioButton();
         rbtMale = new javax.swing.JRadioButton();
@@ -37,31 +48,35 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         btContinuar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtNombre.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("nombre");
+        txtNombre.setText("Pon tu nombre aquí");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 220, 30));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 370, 30));
 
         rbtFemale.setBackground(new java.awt.Color(153, 153, 255));
+        btgGrupo1.add(rbtFemale);
         rbtFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtFemaleActionPerformed(evt);
             }
         });
-        add(rbtFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+        add(rbtFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
         rbtMale.setBackground(new java.awt.Color(153, 153, 255));
-        add(rbtMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 20, -1));
+        btgGrupo1.add(rbtMale);
+        add(rbtMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 20, -1));
 
         rbtUndefined.setBackground(new java.awt.Color(153, 153, 255));
-        add(rbtUndefined, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, -1, -1));
+        btgGrupo1.add(rbtUndefined);
+        add(rbtUndefined, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
 
         btVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
         btVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +84,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
                 btVolverActionPerformed(evt);
             }
         });
-        add(btVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 150, 40));
+        add(btVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 150, 40));
 
         btContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btcontinuarr.png"))); // NOI18N
         btContinuar.setPreferredSize(new java.awt.Dimension(150, 40));
@@ -78,10 +93,10 @@ public class PanelCrearPartida extends javax.swing.JPanel {
                 btContinuarActionPerformed(evt);
             }
         });
-        add(btContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
+        add(btContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackNuevaPartida.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
@@ -96,20 +111,64 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playQuitarPausa();
+        cargaPantallaInicio();
     }//GEN-LAST:event_btVolverActionPerformed
 
     private void btContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContinuarActionPerformed
+        if(txtNombre.getText().equals("nombre") || txtNombre.getText().isEmpty()){
+            JOptionPane.showConfirmDialog(this, "nombre demasiado corto" , "error", 
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE);
+        }else{
+            jugador.setNombre(txtNombre.getText());
+        }
+        if(rbtFemale.isSelected()){
+            jugador.setGenero("Mujer");
+        }else if(rbtMale.isSelected()){
+            jugador.setGenero("Hombre");
+        }else if(rbtUndefined.isSelected()){
+            jugador.setGenero("Indefinido");
+        }
+        partida.setJugadorActual(jugador);
+        partidas.add(partida);
         
+        cargaCinematica();
     }//GEN-LAST:event_btContinuarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btContinuar;
     private javax.swing.JButton btVolver;
+    private javax.swing.ButtonGroup btgGrupo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton rbtFemale;
     private javax.swing.JRadioButton rbtMale;
     private javax.swing.JRadioButton rbtUndefined;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+    public void cargaCinematica()
+    {
+        PanelCine pcp = new PanelCine();
+        pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pcp);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+
+    }
+    
+    public void cargaPantallaInicio()
+    {
+        PanelInicio pcp = new PanelInicio();
+        pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pcp);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+
+    }
 }

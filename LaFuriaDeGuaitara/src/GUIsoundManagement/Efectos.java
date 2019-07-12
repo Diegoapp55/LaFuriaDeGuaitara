@@ -11,51 +11,51 @@ package GUIsoundManagement;
  */
 public class Efectos extends Sonido{
     public void playClickPositivo(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\clickPositivo.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\clickPositivo.wav");
     }
     public void playClickCerrar(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\cerrarCancelar.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\cerrarCancelar.wav");
     }
     public void playDialogoCura(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\dialogoCura.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\dialogoCura.wav");
     }
     public void playDialogoProta(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\dialogoProtagonista.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\dialogoProtagonista.wav");
     }
     public void playDialogoSecu(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\dialogoSecundario.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\dialogoSecundario.wav");
     }
     public void playTexto(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\lecturaTexto.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\lecturaTexto.wav");
     }
     public void playItem(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\recogerItem.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\recogerItem.wav");
     }
     public void playItemEspecial(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\itemEspecial.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\itemEspecial.wav");
     }
     public void playAbrirMenu(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\menuPrincipal.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\menuPrincipal.wav");
     }
     public void playPasosMadera(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\pasosMadera.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosMadera.wav");
     }
     public void playPasosPiedra(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\pasosPiedra.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedra.wav");
     }
     public void playPasosPiedraEco(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\pasosPiedraReverb.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedraReverb.wav");
     }
     public void playPasosTierra(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\pasosTierra.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosTierra.wav");
     }
     public void playPausa(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\pausa.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pausa.wav");
     }
     public void playQuitarPausa(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\quitarPausa.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\quitarPausa.wav");
     }
     public void playSalir(){
-        playNoLoop("C:\\Users\\HP\\Desktop\\La Furia\\LaFuriaDeGuaitara\\build\\classes\\soundFiles\\salirJuego.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\salirJuego.wav");
     }
 }

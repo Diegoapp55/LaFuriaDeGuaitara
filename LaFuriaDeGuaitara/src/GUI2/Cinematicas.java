@@ -47,7 +47,7 @@ public class Cinematicas extends javax.swing.JFrame {
 
         panelCine.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCiner.png"))); // NOI18N
+        siguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btcontinuarr.png"))); // NOI18N
         siguiente.setPreferredSize(new java.awt.Dimension(150, 40));
         siguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +76,7 @@ public class Cinematicas extends javax.swing.JFrame {
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         // TODO add your handling code here:
         PantallaJuego pj =  new PantallaJuego();
-        pj.setVisible(false);
+        pj.setVisible(true);
     }//GEN-LAST:event_siguienteActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

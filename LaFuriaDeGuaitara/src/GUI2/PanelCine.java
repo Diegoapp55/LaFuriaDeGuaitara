@@ -49,8 +49,9 @@ public class PanelCine extends javax.swing.JPanel {
 
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
         // TODO add your handling code here:
-        PantallaJuego pj =  new PantallaJuego();
-        pj.setVisible(false);
+        cargaTuto();
+        /*PantallaJuego pj =  new PantallaJuego();
+        pj.setVisible(true);*/
     }//GEN-LAST:event_siguienteActionPerformed
 
 
@@ -58,4 +59,17 @@ public class PanelCine extends javax.swing.JPanel {
     private javax.swing.JLabel background;
     private javax.swing.JButton siguiente;
     // End of variables declaration//GEN-END:variables
+
+    public void cargaTuto()
+    {
+        PanelTutorial tuto = new PanelTutorial();
+        tuto.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        tuto.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(tuto);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+
+    }
 }
