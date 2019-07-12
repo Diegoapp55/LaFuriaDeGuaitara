@@ -57,6 +57,5 @@ public class Efectos extends Sonido{
     }
     public void playSalir(){
         playNoLoop(".\\build\\classes\\soundFiles\\salirJuego.wav");
-
     }
 }

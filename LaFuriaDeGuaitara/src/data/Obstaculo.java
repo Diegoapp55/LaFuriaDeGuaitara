@@ -5,13 +5,11 @@
  */
 package data;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Diego
  */
-public class Obstaculo implements Serializable{
+public class Obstaculo {
     private double x;
     private double y;
     private boolean destructible;

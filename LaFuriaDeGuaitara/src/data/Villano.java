@@ -5,16 +5,14 @@
  */
 package data;
 
-
-
 /**
  *
  * @author Diego
  */
 public class Villano extends Personaje{
 
-    public Villano(String nombre, String genero, String[] dialogos) {
-        super(nombre, genero, dialogos);
+    public Villano(String nombre, String genero) {
+        super(nombre, genero);
     }
     
     public void ataque(){
@@ -25,10 +23,4 @@ public class Villano extends Personaje{
     public void moverse() {
         
     }
-
-    @Override
-    public String dialogo(String[] dialogos) {
-        return "";
-    }
-    
 }

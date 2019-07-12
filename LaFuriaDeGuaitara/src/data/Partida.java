@@ -5,13 +5,11 @@
  */
 package data;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Diego
  */
-public class Partida implements Serializable{
+public class Partida {
     private long tiempo;
     private PuntoDeGuardado puntoDeGuardadoActual;
     private Mapa mapaActual;
@@ -63,11 +61,5 @@ public class Partida implements Serializable{
         long tiempoActual = tiempoTranscurrido + 0;
         
         return tiempoActual;
-    }
-    
-    @Override
-    public String toString()
-    {
-        return jugadorActual + "   " + tiempo + ".";
     }
 }

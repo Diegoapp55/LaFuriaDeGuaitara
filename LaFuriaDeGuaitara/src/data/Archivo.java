@@ -7,56 +7,29 @@ package data;
 
 import java.io.*;
 import java.util.ArrayList;
-
 /**
  *
- * @author JuanDa
+ * @author Diego
  */
 public class Archivo {
-
-    public void escribeFichero(String fichero, Partida partidaGuardar)
-    {
-        try
-        {
-            ObjectOutputStream oos = new ObjectOutputStream(
-            new FileOutputStream(fichero));
-            oos.writeObject(partidaGuardar);
-            oos.close();
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+    private static File f1;
+    private static FileWriter fw;
+    private static BufferedWriter bw;
+    private static PrintWriter pw;
+    private FileReader fr;
+    private BufferedReader br;
+    
+    public void leer(String nombreArchivo){
+        
     }
-
-
-    public ArrayList<Partida> leeFichero(String fichero)
-    {
-        ArrayList<Partida> listaAux = new ArrayList<>();
-        Partida partAux = new Partida();
-        try
-        {
-            ObjectInputStream ois = new ObjectInputStream(
-                    new FileInputStream(fichero));
-            Object aux = ois.readObject();
-            
-            while (aux!=null)
-            {
-                if (aux instanceof Partida)
-                {
-                    aux = ois.readObject();
-                    partAux = (Partida) aux;
-                }
-            }
-            ois.close();
-        }
-        catch (EOFException e1)
-        {
-            System.out.println ("Fin de fichero");
-        }
-        catch (Exception e2)
-        {
-            e2.printStackTrace();
-        }
-        return listaAux;
+    
+    public void escribir(String nombreArchivo, ArrayList<Jugador> topPartidas){
+        
+    }
+    
+    public ArrayList<Partida> importar(String nombreArchivo){
+        ArrayList<Partida> partidas = new ArrayList<>();
+        
+        return partidas;
     }
 }

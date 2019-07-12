@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI2.MenuJuego;
 import businessLogic.Teclado;
 import data.Mapa;
 import javax.swing.*;
@@ -14,7 +15,6 @@ import javax.swing.*;
  * @author Diego
  */
 public class PantallaJuego extends VentanaMadre{
-    
     private Mapa mapa;
     
     public PantallaJuego(){
@@ -61,6 +61,5 @@ public class PantallaJuego extends VentanaMadre{
         if(valor == JOptionPane.YES_OPTION){
             setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         }
-        PantallaInicio nuevaPantallaInicio = new PantallaInicio();
     }
 }

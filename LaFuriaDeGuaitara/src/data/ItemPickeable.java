@@ -5,13 +5,11 @@
  */
 package data;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Diego
  */
-public class ItemPickeable implements Serializable{
+public class ItemPickeable {
     private String nombre;
     private String descripcion;
     private String tipo;
@@ -67,11 +65,6 @@ public class ItemPickeable implements Serializable{
     }
     
     public void insertarItem(double x, double y){
-        
-    }
-    
-    public ItemPickeable ()
-    {
         
     }
 }
