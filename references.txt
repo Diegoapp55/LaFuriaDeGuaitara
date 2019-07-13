@@ -1,2 +1,9 @@
 Icons: 
 <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"                 title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"                 title="Creative   Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+Sonidos tomados de Freesound:
+Puerta: https://freesound.org/s/339677/ 
+Rio: https://freesound.org/s/24511/
+Voces: https://freesound.org/s/193815/
+Wind: https://freesound.org/s/413549/
+Scream: https://freesound.org/s/135157/
+Llanto bebe: https://freesound.org/s/458646/

@@ -38,6 +38,7 @@ public class PanelInicio extends javax.swing.JPanel {
         btSalir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btNuevaPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btNuevaPartida.png"))); // NOI18N
