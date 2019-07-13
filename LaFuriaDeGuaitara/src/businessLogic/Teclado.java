@@ -1,6 +1,6 @@
 package businessLogic;
 
-import GUI2.MenuJuego;
+import GUI2.*;
 import GUIsoundManagement.Efectos;
 import data.Tecla;
 import java.awt.Color;
@@ -91,7 +91,7 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
             case KeyEvent.VK_ESCAPE:
                 Efectos e1 = new Efectos();
                 e1.playPausa();
-                MenuJuego menuJuego = new MenuJuego();
+                PanelMenuPausa menuJuego = new PanelMenuPausa();
                 break;
             case KeyEvent.VK_SPACE:
                 if((x >= 275 && x <= 325) && (y >= 185 && y <= 215)){
