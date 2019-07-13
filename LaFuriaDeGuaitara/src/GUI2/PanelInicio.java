@@ -106,7 +106,7 @@ public class PanelInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playAbrirMenu();
-        cargaMenuOpciones();
+        cargaInventario();
     }//GEN-LAST:event_btMenuOpcionesActionPerformed
 
     public void cargaCreaPartida()
@@ -121,9 +121,9 @@ public class PanelInicio extends javax.swing.JPanel {
         Window.getJpanel().repaint();
     }
     
-    public void cargaMenuOpciones()
+    public void cargaInventario()
     {
-        PanelMenuOpciones pmi = new PanelMenuOpciones();
+        PanelInventario pmi = new PanelInventario();
         pmi.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
         pmi.setLocation(0,0);
         

@@ -5,6 +5,9 @@
  */
 package data;
 
+import java.awt.*;
+import javax.swing.*;
+
 /**
  *
  * @author Diego
@@ -15,13 +18,16 @@ public class ItemPickeable {
     private String tipo;
     private double x;
     private double y;
+    private ImageIcon im;
 
-    public ItemPickeable(String nombre, String descripcion, String tipo, double x, double y) {
+    public ItemPickeable(String nombre, String descripcion, String tipo, double x, double y, String ruta) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
         this.x = x;
         this.y = y;
+        //im = new ImageIcon(this.getClass().getResource(ruta));
+        //this.setIm(im); 
     }
 
     public String getNombre() {
@@ -62,6 +68,14 @@ public class ItemPickeable {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public ImageIcon getIm() {
+        return im;
+    }
+
+    public void setIm(ImageIcon im) {
+        this.im = im;
     }
     
     public void insertarItem(double x, double y){
