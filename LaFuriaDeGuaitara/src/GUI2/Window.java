@@ -57,7 +57,6 @@ public class Window extends javax.swing.JFrame {
         });
 
         jMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jMain.setMaximumSize(new java.awt.Dimension(6543521, 321321));
         jMain.setMinimumSize(new java.awt.Dimension(800, 600));
         jMain.setPreferredSize(new java.awt.Dimension(800, 600));
 

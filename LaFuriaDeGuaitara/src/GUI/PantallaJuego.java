@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import GUI2.MenuJuego;
+import GUI2.*;
 import businessLogic.Teclado;
 import data.Mapa;
 import javax.swing.*;
@@ -47,10 +47,6 @@ public class PantallaJuego extends VentanaMadre{
     }
     
     public VentanaInventario inventario(){
-        return null;
-    }
-    
-    public MenuJuego opciones(){
         return null;
     }
     
