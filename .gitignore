@@ -1,3 +1,7 @@
 /LaFuriaDeGuaitara/build/
 /LaFuriaDeGuaitara/dist/
-/LaFuriaDeGuaitara/nbproject/
+/LaFuriaDeGuaitara/nbproject/private/
+/LaFuriaDeGuaitara/nbbuild/
+/LaFuriaDeGuaitara/nbdist/
+/LaFuriaDeGuaitara/nbactions.xml
+/LaFuriaDeGuaitara/nb-configuration.xml
