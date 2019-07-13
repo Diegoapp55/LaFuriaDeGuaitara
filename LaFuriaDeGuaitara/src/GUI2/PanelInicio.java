@@ -6,6 +6,7 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
+import GUIsoundManagement.Pistas;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,10 +14,12 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class PanelInicio extends javax.swing.JPanel {
+    //public static final Pistas TEMA_MENU = new Pistas();
     /**
      * Creates new form panelInicio
      */
     public PanelInicio() {
+        //TEMA_MENU.playMenuTheme();
         initComponents();
     }
 
@@ -31,7 +34,7 @@ public class PanelInicio extends javax.swing.JPanel {
 
         btNuevaPartida = new javax.swing.JButton();
         btCargarPartida = new javax.swing.JButton();
-        btMenuInicio = new javax.swing.JButton();
+        btMenuOpciones = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
@@ -53,13 +56,13 @@ public class PanelInicio extends javax.swing.JPanel {
         });
         add(btCargarPartida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 50));
 
-        btMenuInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btOpciones.png"))); // NOI18N
-        btMenuInicio.addActionListener(new java.awt.event.ActionListener() {
+        btMenuOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btOpciones.png"))); // NOI18N
+        btMenuOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btMenuInicioActionPerformed(evt);
+                btMenuOpcionesActionPerformed(evt);
             }
         });
-        add(btMenuInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 200, 50));
+        add(btMenuOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 200, 50));
 
         btSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btSalir.png"))); // NOI18N
         btSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -77,14 +80,14 @@ public class PanelInicio extends javax.swing.JPanel {
     private void btNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevaPartidaActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        e1.playClickPositivo();
+        e1.playAbrirMenu();
         cargaCreaPartida();
     }//GEN-LAST:event_btNuevaPartidaActionPerformed
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        e1.playClickCerrar();
+        e1.playSalir();
         int value = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "salir", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
         if(value == JOptionPane.YES_OPTION){
             System.exit(0);
@@ -94,16 +97,16 @@ public class PanelInicio extends javax.swing.JPanel {
     private void btCargarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarPartidaActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        e1.playClickPositivo();
+        e1.playAbrirMenu();
         cargaCargaPartida();
     }//GEN-LAST:event_btCargarPartidaActionPerformed
 
-    private void btMenuInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuInicioActionPerformed
+    private void btMenuOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuOpcionesActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playAbrirMenu();
-        cargaMenuJuego();
-    }//GEN-LAST:event_btMenuInicioActionPerformed
+        cargaMenuOpciones();
+    }//GEN-LAST:event_btMenuOpcionesActionPerformed
 
     public void cargaCreaPartida()
     {
@@ -117,9 +120,9 @@ public class PanelInicio extends javax.swing.JPanel {
         Window.getJpanel().repaint();
     }
     
-    public void cargaMenuJuego()
+    public void cargaMenuOpciones()
     {
-        PanelMenuJuego pmi = new PanelMenuJuego();
+        PanelMenuOpciones pmi = new PanelMenuOpciones();
         pmi.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
         pmi.setLocation(0,0);
         
@@ -143,7 +146,7 @@ public class PanelInicio extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btCargarPartida;
-    private javax.swing.JButton btMenuInicio;
+    private javax.swing.JButton btMenuOpciones;
     private javax.swing.JButton btNuevaPartida;
     private javax.swing.JButton btSalir;
     // End of variables declaration//GEN-END:variables

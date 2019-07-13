@@ -13,16 +13,17 @@ import javax.swing.JOptionPane;
 
 
 public class Sonido {
+    public Clip clip;
     public void play(String archivo){
-        InputStream music;
         try{
             File musicPath = new File(archivo);
             if(musicPath.exists()){
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
+                clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
+                
             }else{
                 JOptionPane.showMessageDialog(null, "error de sonido");
             } 
@@ -31,28 +32,18 @@ public class Sonido {
         }
     }
     
-    public void stop(String archivo){
-        InputStream music;
-        try{
-            File musicPath = new File(archivo);
-            if(musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.stop();
-            }
-        }catch(UnsupportedAudioFileException | IOException | LineUnavailableException e){
-            JOptionPane.showMessageDialog(null, "error de sonido");
+    public void stop(){
+        if(clip.isRunning()){
+            clip.stop();
         }
     }
     
     public void playNoLoop(String archivo){
-        InputStream music;
         try{
             File musicPath = new File(archivo);
             if(musicPath.exists()){
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
+                clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
             }else{

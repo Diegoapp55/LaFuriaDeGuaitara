@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author HP
  */
-public class PanelMenuJuego extends javax.swing.JPanel {
+public class PanelMenuPausa extends javax.swing.JPanel {
     int volMusica;
     int volEfectos;
     /**
      * Creates new form panelMenuJuego
      */
-    public PanelMenuJuego() {
+    public PanelMenuPausa() {
         initComponents();
     }
 

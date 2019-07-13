@@ -26,10 +26,6 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
     Tecla left = new Tecla(); 
     Tecla right = new Tecla(); 
     //boolean corriendo = false;
-    /*boolean mantieneUP = false;
-    boolean mantieneDOWN = false;
-    boolean mantieneLEFT = false;
-    boolean mantieneRIGHT = false;*/
     
     public Teclado(){
         tm.start();
@@ -47,9 +43,6 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        //x = x + velX;
-        //y = y + velY;
-        
         JPanel panel = new JPanel();
         panel.setLayout(null);
         this.add(panel);
@@ -79,35 +72,17 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //int c = e.getKeyCode();
-        //long tLeft = 0,tUp = 0,tRight = 0,tDown = 0;
-        switch(e.getKeyCode()){ //Falta mirar como hacer que se puedan mantener 2 teclas a la vez
+        switch(e.getKeyCode()){ //Falta mirar como hacer que se mueva diagonalmente
             case KeyEvent.VK_LEFT:
-                /*velX = -1;
-                velY = 0;
-                tLeft = System.currentTimeMillis()/1000;
-                mantieneLEFT = true;*/
                 left.teclaPulsada();
                 break;
             case KeyEvent.VK_UP:
-                /*velX = 0;
-                velY = -1;
-                tUp = System.currentTimeMillis()/1000;
-                mantieneUP = true;*/
                 up.teclaPulsada();
                 break;
             case KeyEvent.VK_RIGHT:
-                /*velX = 1;
-                velY = 0;
-                tRight = System.currentTimeMillis()/1000;
-                mantieneRIGHT = true;*/
                 right.teclaPulsada();
                 break;
             case KeyEvent.VK_DOWN:
-                /*velX = 0;
-                velY = 1;
-                tDown = System.currentTimeMillis()/1000;
-                mantieneDOWN = true;*/
                 down.teclaPulsada();
                 break;
             case KeyEvent.VK_SHIFT:
@@ -125,41 +100,7 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                     velY = 0;
                 }   
                 break;
-        }
-        /*if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            velX = -1;
-            velY = 0;
-        }
-        if(e.getKeyCode() == KeyEvent.VK_UP){
-            velX = 0;
-            velY = -1;
-        }
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-            velX = 1;
-            velY = 0;
-        }
-        if(e.getKeyCode() == KeyEvent.VK_DOWN){
-            velX = 0;
-            velY = 1;
-        }
-        if(e.getKeyCode() == KeyEvent.VK_SPACE){
-            if((x >= 275 && x <= 325) && (y >= 185 && y <= 215)){
-                JOptionPane.showMessageDialog(this, "Ganastes");
-                velX = 0;
-                velY = 0;
-            }   
-        }
-        
-        if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-            Efectos e1 = new Efectos();
-            e1.playPausa();
-            MenuJuego menuJuego = new MenuJuego();
-            
-        } 
-        if(e.getKeyCode() == KeyEvent.VK_SHIFT){
-            tm.setDelay(3);
-        }*/ 
-        
+        }        
     }
     
     @Override
@@ -184,101 +125,6 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                 tm.setDelay(5);
                 break;
         }
-        /*if(e.getKeyCode() == KeyEvent.VK_LEFT){
-            mantieneLEFT = false;
-            if(mantieneLEFT){
-                velX = -1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneRIGHT){
-                velX = 1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneUP){
-                velY = -1;
-            }else{
-                velY = 0;
-            }
-            if(mantieneDOWN){
-                velY = 1;
-            }else{
-                velY = 0;
-            }
-        }
-        if(e.getKeyCode() == KeyEvent.VK_UP){
-            mantieneUP = false;
-            if(mantieneLEFT){
-                velX = -1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneRIGHT){
-                velX = 1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneUP){
-                velY = -1;
-            }else{
-                velY = 0;
-            }
-            if(mantieneDOWN){
-                velY = 1;
-            }else{
-                velY = 0;
-            }
-        }
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-            mantieneRIGHT = false;
-            if(mantieneLEFT){
-                velX = -1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneRIGHT){
-                velX = 1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneUP){
-                velY = -1;
-            }else{
-                velY = 0;
-            }
-            if(mantieneDOWN){
-                velY = 1;
-            }else{
-                velY = 0;
-            }
-        }
-        if(e.getKeyCode() == KeyEvent.VK_DOWN){
-            mantieneDOWN = false;
-            if(mantieneLEFT){
-                velX = -1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneRIGHT){
-                velX = 1;
-            }else{
-                velX = 0;
-            }
-            if(mantieneUP){
-                velY = -1;
-            }else{
-                velY = 0;
-            }
-            if(mantieneDOWN){
-                velY = 1;
-            }else{
-                velY = 0;
-            }
-        }
-        if(e.getKeyCode() == KeyEvent.VK_SHIFT){
-            tm.setDelay(5);
-        }*/
     }
     
     private void determinarDireccion() {

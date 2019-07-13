@@ -34,8 +34,8 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         listaPartidas = new Lista();
-        buttonCargar = new javax.swing.JButton();
-        buttonSalir = new javax.swing.JButton();
+        btnCargar = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,23 +51,23 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 360, 205));
 
-        buttonCargar.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        buttonCargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCargar.png"))); // NOI18N
-        buttonCargar.addActionListener(new java.awt.event.ActionListener() {
+        btnCargar.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        btnCargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCargar.png"))); // NOI18N
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCargarActionPerformed(evt);
+                btnCargarActionPerformed(evt);
             }
         });
-        add(buttonCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 150, 40));
+        add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 150, 40));
 
-        buttonSalir.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
-        buttonSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuSalir.png"))); // NOI18N
-        buttonSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSalirActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        add(buttonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 150, 40));
+        add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 150, 40));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackCargarPartida.png"))); // NOI18N
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -77,11 +77,11 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
     }//GEN-LAST:event_listaPartidasValueChanged
 
-    private void buttonCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCargarActionPerformed
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
         int s = listaPartidas.getSelectedIndex();
         ArrayList<Partida> partidasRecargadas = new ArrayList<>();
-        this.cargarPartida(buttonCargar, partidasRecargadas.get(s));
-    }//GEN-LAST:event_buttonCargarActionPerformed
+        this.cargarPartida(btnCargar, partidasRecargadas.get(s));
+    }//GEN-LAST:event_btnCargarActionPerformed
 
     private Partida listaPartidaActionPerformed(java.awt.event.ActionEvent evt) {
         Partida seleccionada = new Partida();
@@ -90,15 +90,11 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         return seleccionada;
     }
     
-    private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
-        //botón salir
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         Efectos e1 = new Efectos();
         e1.playClickCerrar();
-        int valor = JOptionPane.showConfirmDialog(this, "¿Desea salir sin Guardar?", "Aviso", JOptionPane.YES_NO_OPTION);
-        if(valor == JOptionPane.YES_OPTION){
-            cargaPantallaInicio();
-        }
-    }//GEN-LAST:event_buttonSalirActionPerformed
+        cargaPantallaInicio();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     public Partida cargarPartida(JButton a, Partida carga){
         Partida cargaPartida = new Partida();
@@ -139,8 +135,8 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton buttonCargar;
-    private javax.swing.JButton buttonSalir;
+    private javax.swing.JButton btnCargar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaPartidas;
     // End of variables declaration//GEN-END:variables

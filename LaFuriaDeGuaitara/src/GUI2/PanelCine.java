@@ -6,6 +6,7 @@
 package GUI2;
 
 import GUI.PantallaJuego;
+import GUIsoundManagement.Pistas;
 
 /**
  *
@@ -17,6 +18,8 @@ public class PanelCine extends javax.swing.JPanel {
      * Creates new form panelCine
      */
     public PanelCine() {
+        Pistas e1 = new Pistas();
+        e1.playGamePlay();
         initComponents();
     }
 

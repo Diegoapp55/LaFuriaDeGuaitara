@@ -27,7 +27,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
      */
     public PanelCrearPartida() {
         initComponents();
-        
+        rbtUndefined.setSelected(true);
     }
 
     /**
@@ -53,21 +53,16 @@ public class PanelCrearPartida extends javax.swing.JPanel {
 
         txtNombre.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtNombre.setText("Pon tu nombre aquí");
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+        txtNombre.setText("Nombre");
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtNombreMouseClicked(evt);
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 370, 30));
 
         rbtFemale.setBackground(new java.awt.Color(153, 153, 255));
         btgGrupo1.add(rbtFemale);
-        rbtFemale.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtFemaleActionPerformed(evt);
-            }
-        });
         add(rbtFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
 
         rbtMale.setBackground(new java.awt.Color(153, 153, 255));
@@ -99,40 +94,42 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void rbtFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtFemaleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtFemaleActionPerformed
-
     private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
-        // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        e1.playQuitarPausa();
+        
+        e1.playClickCerrar();
         cargaPantallaInicio();
     }//GEN-LAST:event_btVolverActionPerformed
 
     private void btContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContinuarActionPerformed
-        if(txtNombre.getText().equals("nombre") || txtNombre.getText().isEmpty()){
-            JOptionPane.showConfirmDialog(this, "nombre demasiado corto" , "error", 
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE);
+        Efectos e1 = new Efectos();
+        if(txtNombre.getText().equals("Nombre") || txtNombre.getText().isEmpty()){
+            e1.playSalir();
+            JOptionPane.showConfirmDialog(this, "Nombre demasiado corto" , "Error", 
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
         }else{
+            Window.TEMA_MENU.stop();
+            e1.playClickPositivo();
+            
             jugador.setNombre(txtNombre.getText());
-        }
-        if(rbtFemale.isSelected()){
-            jugador.setGenero("Mujer");
-        }else if(rbtMale.isSelected()){
-            jugador.setGenero("Hombre");
-        }else if(rbtUndefined.isSelected()){
-            jugador.setGenero("Indefinido");
-        }
-        partida.setJugadorActual(jugador);
-        partidas.add(partida);
         
-        cargaCinematica();
+            if(rbtFemale.isSelected()){
+                jugador.setGenero("Mujer");
+            }else if(rbtMale.isSelected()){
+                jugador.setGenero("Hombre");
+            }else if(rbtUndefined.isSelected()){
+                jugador.setGenero("Indefinido");
+            }
+            partida.setJugadorActual(jugador);
+            partidas.add(partida);
+            
+            cargaCinematica();
+        } 
     }//GEN-LAST:event_btContinuarActionPerformed
+
+    private void txtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseClicked
+        txtNombre.setText("");
+    }//GEN-LAST:event_txtNombreMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

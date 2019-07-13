@@ -5,7 +5,10 @@
  */
 package GUI2;
 
+import GUIsoundManagement.Efectos;
+import GUIsoundManagement.Pistas;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -13,12 +16,19 @@ import javax.swing.JPanel;
  * @author jdoli
  */
 public class Window extends javax.swing.JFrame {
-
-     /**
+    public static final Pistas TEMA_PRINCIPAL = new Pistas();
+    public static final Pistas TEMA_MENU = new Pistas(); //Provisional
+    /**
      * Creates new form Window
      */
     public Window() {
+        /*temaPrincipal.playMainTheme(); /*Tocaria hacer un panel nuevo 
+                                         corriendo el llamado de PanelInicio
+                                         a ese nuevo panel para que se ponga
+                                         la cancion de inicio aca y al pulsar
+                                         ENTER se detenga y llame a PanelInicio*/
         initComponents();
+        TEMA_MENU.playMenuTheme(); //Provisional
         setTitle("La Furia de Guáitara");
         setLocationRelativeTo(null);
         setResizable(false);
@@ -40,6 +50,11 @@ public class Window extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jMain.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMain.setMaximumSize(new java.awt.Dimension(6543521, 321321));
@@ -74,6 +89,19 @@ public class Window extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        Efectos e1 = new Efectos();
+        e1.playSalir();
+        
+        int value = JOptionPane.showConfirmDialog(this,"¿Desea Salir?", "salir", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if(value == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }else if(value == JOptionPane.NO_OPTION){
+            setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

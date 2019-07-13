@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 public class MenuJuego extends javax.swing.JFrame {
     int volMusica;
     int volEfectos;
-    PanelMenuJuego pmj = new PanelMenuJuego();
+    PanelMenuPausa pmj = new PanelMenuPausa();
     /**
      * Creates new form MenuJuego
      */
