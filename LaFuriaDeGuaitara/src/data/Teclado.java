@@ -1,8 +1,7 @@
-package businessLogic;
+package data;
 
 import GUI2.*;
 import GUIsoundManagement.Efectos;
-import data.Tecla;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;

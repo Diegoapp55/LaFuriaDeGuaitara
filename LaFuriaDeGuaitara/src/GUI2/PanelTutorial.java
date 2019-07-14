@@ -37,7 +37,9 @@ public class PanelTutorial extends javax.swing.JPanel {
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
         PantallaJuego pj =  new PantallaJuego();
         pj.setVisible(true);
-        /*cargaJuego();*/
+        pj.dispose();
+        
+        cargaJuego();
     }//GEN-LAST:event_btSiguienteActionPerformed
 
 
@@ -49,14 +51,22 @@ public class PanelTutorial extends javax.swing.JPanel {
     
     /*public void cargaJuego()
     {
-        PanelTutorial tuto = new PanelTutorial();
-        tuto.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
-        tuto.setLocation(0,0);
+        PanelJuegoV2 pj = new PanelJuegoV2();
+        pj.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pj.setLocation(0,0);
         
         Window.getJpanel().removeAll();
-        Window.getJpanel().add(tuto);
+        Window.getJpanel().add(pj);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
 
     }*/
+    
+    public void cargaJuego()
+    {
+        //Window.jMain.removeAll();
+        //Window.jMain.revalidate();
+        //Window.jMain.repaint();
+        Window.cargaJuego().setVisible(true);
+    }
 }

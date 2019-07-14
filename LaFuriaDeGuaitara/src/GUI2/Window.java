@@ -17,7 +17,8 @@ import javax.swing.JPanel;
  */
 public class Window extends javax.swing.JFrame {
     public static final Pistas TEMA_PRINCIPAL = new Pistas();
-    public static final Pistas TEMA_MENU = new Pistas(); //Provisional
+    public static final Pistas TEMA_MENU = new Pistas();
+
     /**
      * Creates new form Window
      */
@@ -33,7 +34,10 @@ public class Window extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/Images/LFDGlogo.png")).getImage());
+        cargaJuego();
+        cargaJuego().setVisible(false);
         cargaInicio();
+        
     }
 
     /**
@@ -147,6 +151,22 @@ public class Window extends javax.swing.JFrame {
         jMain.add(pi);
         jMain.revalidate();
         jMain.repaint();
+        
+        pi.setVisible(true);
+    }
+    
+    public static JPanel cargaJuego()
+    {
+        PanelJuegoV2 pj = new PanelJuegoV2();
+        pj.setSize(jMain.getWidth(), jMain.getHeight());
+        pj.setLocation(0,0);
+        
+        jMain.removeAll();
+        jMain.add(pj);
+        jMain.revalidate();
+        jMain.repaint();
+        
+        return pj;
     }
     
     public static JPanel getJpanel()
@@ -156,5 +176,4 @@ public class Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JPanel jMain;
     // End of variables declaration//GEN-END:variables
-
 }
