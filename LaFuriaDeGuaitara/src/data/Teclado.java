@@ -1,13 +1,19 @@
 package data;
 
 import GUI2.*;
+import static GUI2.Window.jMain;
 import GUIsoundManagement.Efectos;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -18,12 +24,12 @@ import javax.swing.Timer;
  */
 public class Teclado extends JPanel implements ActionListener, KeyListener{
     //falta que el juego pare
-    Timer tm = new Timer(5, this);
-    int x = 0, y = 0, velX = 0, velY = 0;
-    Tecla up = new Tecla(); 
-    Tecla down = new Tecla(); 
-    Tecla left = new Tecla(); 
-    Tecla right = new Tecla(); 
+    public Timer tm = new Timer(5, this);
+    public int x = 0, y = 0, velX = 0, velY = 0;
+    public Tecla up = new Tecla(); 
+    public Tecla down = new Tecla(); 
+    public Tecla left = new Tecla(); 
+    public Tecla right = new Tecla(); 
     //boolean corriendo = false;
     
     public Teclado(){
@@ -66,12 +72,15 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
             velY = 0;
             y = 540;
         }
+        ImageIcon image = new ImageIcon(getClass().getResource("/Images/iglesia.png"));
+        JLabel fondo = new JLabel(image);
+        add(fondo);
         repaint();
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch(e.getKeyCode()){ //Falta mirar como hacer que se mueva diagonalmente
+        switch(e.getKeyCode()){
             case KeyEvent.VK_LEFT:
                 left.teclaPulsada();
                 break;
@@ -91,13 +100,6 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                 Efectos e1 = new Efectos();
                 e1.playPausa();
                 PanelMenuPausa menuJuego = new PanelMenuPausa();
-                break;
-            case KeyEvent.VK_SPACE:
-                if((x >= 275 && x <= 325) && (y >= 185 && y <= 215)){
-                    JOptionPane.showMessageDialog(this, "Ganastes");
-                    velX = 0;
-                    velY = 0;
-                }   
                 break;
         }        
     }
@@ -124,6 +126,7 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                 tm.setDelay(5);
                 break;
         }
+        puerta(e);
     }
     
     private void determinarDireccion() {
@@ -211,4 +214,30 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                 y += velY;
             }
 	}
+
+        public static JPanel cargaNext()
+        {
+            PanelJuego pj = new PanelJuego();
+            pj.setSize(jMain.getWidth(), jMain.getHeight());
+            pj.setLocation(0,0);
+        
+            jMain.removeAll();
+            jMain.add(pj);
+            jMain.revalidate();
+            jMain.repaint();
+        
+            return pj;
+        }
+        
+        public void puerta(KeyEvent e)
+        {
+           if (e.getKeyCode() == KeyEvent.VK_SPACE)
+           {
+               if((x >= 275 && x <= 325) && (y >= 185 && y <= 215)){
+                    JOptionPane.showMessageDialog(this, "Ganastes");
+                    velX = 0;
+                    velY = 0;
+                }   
+           }
+        }
 }

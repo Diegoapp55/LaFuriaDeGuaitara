@@ -21,7 +21,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
 
     ArrayList<Partida> partidas = new ArrayList<>();
     Partida partida = new Partida(0, null, null, null);
-    Jugador jugador = new Jugador(null, null, null);
+    Jugador jugador = new Jugador(null, null);
     /**
      * Creates new form panelCrearPartida
      */

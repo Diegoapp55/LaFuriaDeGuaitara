@@ -6,12 +6,29 @@
 package GUI2;
 
 import data.Teclado;
+import static data.Teclado.cargaNext;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 /**
  *
  * @author jdoli
  */
 public class PanelJuegoV2 extends Teclado{
-
+    
+@Override
+public void puerta(KeyEvent e)
+        {
+           if (e.getKeyCode() == KeyEvent.VK_SPACE)
+           {
+               if((x >= 275 && x <= 325) && (y >= 185 && y <= 215)){
+                    JOptionPane.showMessageDialog(this, "Ganastes");
+                    Window.cargaJuego().setVisible(false);
+                    Window.cargaP2().setVisible(true);
+                    velX = 0;
+                    velY = 0;
+                }   
+           }
+        }
 
     /**
      * Creates new form PanelJuegoV2

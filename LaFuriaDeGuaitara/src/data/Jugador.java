@@ -10,20 +10,19 @@ package data;
  * @author Diego
  */
 public class Jugador extends Personaje{
-    private Inventario inventario;
-
-    public Jugador(Inventario inventario, String nombre, String genero) {
+    //private Inventario inventario;
+    public Jugador(String nombre, String genero) {
         super(nombre, genero);
-        this.inventario = inventario;
+        //this.inventario = inventario;
     }
 
-    public Inventario getInventario() {
+    /*public Inventario getInventario() {
         return inventario;
     }
 
     public void setInventario(Inventario inventario) {
         this.inventario = inventario;
-    }
+    }*/
     
     @Override
     public void moverse() {

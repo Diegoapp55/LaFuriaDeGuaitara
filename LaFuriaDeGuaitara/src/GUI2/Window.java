@@ -7,6 +7,7 @@ package GUI2;
 
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
+import data.Teclado;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -36,8 +37,9 @@ public class Window extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/Images/LFDGlogo.png")).getImage());
         cargaJuego();
         cargaJuego().setVisible(false);
+        cargaP2();
+        cargaP2().setVisible(false);
         cargaInicio();
-        
     }
 
     /**
@@ -158,6 +160,19 @@ public class Window extends javax.swing.JFrame {
     public static JPanel cargaJuego()
     {
         PanelJuegoV2 pj = new PanelJuegoV2();
+        pj.setSize(jMain.getWidth(), jMain.getHeight());
+        pj.setLocation(0,0);
+        
+        jMain.removeAll();
+        jMain.add(pj);
+        jMain.revalidate();
+        jMain.repaint();
+        
+        return pj;
+    }
+    public static JPanel cargaP2()
+    {
+        PanelJuego pj = new PanelJuego();
         pj.setSize(jMain.getWidth(), jMain.getHeight());
         pj.setLocation(0,0);
         
