@@ -5,6 +5,8 @@
  */
 package GUI2;
 
+import static GUI2.Window.cargaP1;
+import static GUI2.Window.cargaP2;
 import GUIsoundManagement.Efectos;
 import javax.swing.JOptionPane;
 
@@ -116,7 +118,7 @@ public class PanelMenuPausa extends javax.swing.JPanel {
             "Guardar", JOptionPane.DEFAULT_OPTION);
         if(value == JOptionPane.OK_OPTION){
             e1.playQuitarPausa();
-            cargaPantallaInicio();
+            cargaRooms();
         }
     }//GEN-LAST:event_btGuardarActionPerformed
 
@@ -124,8 +126,7 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playQuitarPausa();
-        cargaPantallaInicio();
-        
+        cargaRooms();
     }//GEN-LAST:event_btVolverActionPerformed
 
 
@@ -149,5 +150,10 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         Window.getJpanel().add(pcp);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
+    }
+    public void cargaRooms()
+    {
+        cargaP1().setVisible(true);
+        cargaP2().setVisible(true);
     }
 }

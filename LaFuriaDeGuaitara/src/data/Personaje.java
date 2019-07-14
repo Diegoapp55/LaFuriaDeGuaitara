@@ -9,7 +9,7 @@ package data;
  *
  * @author Diego
  */
-public abstract class Personaje implements Accion{
+public abstract class Personaje{
     private String nombre;
     private String genero;
 

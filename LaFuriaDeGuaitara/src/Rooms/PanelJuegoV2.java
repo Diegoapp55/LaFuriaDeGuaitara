@@ -3,23 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI2;
+package Rooms;
 
+import GUI2.Window;
 import data.Teclado;
+import static data.Teclado.cargaNext;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 /**
  *
  * @author jdoli
  */
-public class PanelJuego extends Teclado{
-
+public class PanelJuegoV2 extends Teclado{
+    
+@Override
+public void eventos(KeyEvent e)
+        {
+           if (e.getKeyCode() == KeyEvent.VK_SPACE)
+           {
+               //Puerta
+                if((x >= 275 && x <= 325) && (y >= 185 && y <= 215)){
+                    JOptionPane.showMessageDialog(this, "Ganastes");
+                    Window.cargaP1().setVisible(false);
+                    Window.cargaP2().setVisible(true);
+                    velX = 0;
+                    velY = 0;
+                }
+                //Punto de guardado
+                if((x >= 375 && x <= 425) && (y >= 285 && y <= 315)){
+                    
+                    JOptionPane.showMessageDialog(this, "El juego se ha guardado correctamente");
+                    velX = 0;
+                    velY = 0;
+                }
+           }
+        }
 
     /**
-     * Creates new form PanelJuego
+     * Creates new form PanelJuegoV2
      */
- public PanelJuego()
- {
-     initComponents();
- }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,31 +52,21 @@ public class PanelJuego extends Teclado{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        jLabel1.setText("güenas");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(477, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(288, 288, 288))
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(jLabel1)
-                .addContainerGap(344, Short.MAX_VALUE))
+            .addGap(0, 600, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 
 }

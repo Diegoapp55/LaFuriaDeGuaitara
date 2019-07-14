@@ -30,9 +30,4 @@ class PuntoDeGuardado extends Personaje{
     public ArrayList<Partida> guardarPartida(ArrayList<Partida> partidas){
         return partidas;
     }
-
-    @Override
-    public void moverse() {
-        
-    }
 }

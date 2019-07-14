@@ -5,7 +5,8 @@
  */
 package data;
 
-import GUI.VentanaInventario;
+
+import GUI2.PanelInventario;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Inventario {
     private ArrayList<ItemPickeable> contenido;
-    private VentanaInventario enlaceGUI;
+    private PanelInventario enlaceGUI;
 
     public ArrayList<ItemPickeable> getContenido() {
         return contenido;
@@ -24,11 +25,11 @@ public class Inventario {
         this.contenido = contenido;
     }
 
-    public VentanaInventario getEnlaceGUI() {
+    public PanelInventario getEnlaceGUI() {
         return enlaceGUI;
     }
 
-    public void setEnlaceGUI(VentanaInventario enlaceGUI) {
+    public void setEnlaceGUI(PanelInventario enlaceGUI) {
         this.enlaceGUI = enlaceGUI;
     }
 }

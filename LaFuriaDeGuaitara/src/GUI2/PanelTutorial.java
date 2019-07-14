@@ -38,7 +38,6 @@ public class PanelTutorial extends javax.swing.JPanel {
         PantallaJuego pj =  new PantallaJuego();
         pj.setVisible(true);
         pj.dispose();
-        
         cargaJuego();
     }//GEN-LAST:event_btSiguienteActionPerformed
 
@@ -67,6 +66,6 @@ public class PanelTutorial extends javax.swing.JPanel {
         //Window.jMain.removeAll();
         //Window.jMain.revalidate();
         //Window.jMain.repaint();
-        Window.cargaJuego().setVisible(true);
+        Window.cargaP1().setVisible(true);
     }
 }

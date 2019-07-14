@@ -19,7 +19,6 @@ public class Villano extends Personaje{
         
     }
 
-    @Override
     public void moverse() {
         
     }

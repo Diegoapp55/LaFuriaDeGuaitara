@@ -5,6 +5,8 @@
  */
 package GUI2;
 
+import Rooms.PanelJuegoV2;
+import Rooms.PanelJuego;
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
 import data.Teclado;
@@ -35,10 +37,7 @@ public class Window extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/Images/LFDGlogo.png")).getImage());
-        cargaJuego();
-        cargaJuego().setVisible(false);
-        cargaP2();
-        cargaP2().setVisible(false);
+        cargaRooms();
         cargaInicio();
     }
 
@@ -157,7 +156,7 @@ public class Window extends javax.swing.JFrame {
         pi.setVisible(true);
     }
     
-    public static JPanel cargaJuego()
+    public static JPanel cargaP1()
     {
         PanelJuegoV2 pj = new PanelJuegoV2();
         pj.setSize(jMain.getWidth(), jMain.getHeight());
@@ -191,4 +190,13 @@ public class Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JPanel jMain;
     // End of variables declaration//GEN-END:variables
+
+    public void cargaRooms()
+    {
+        cargaP1();
+        cargaP1().setVisible(false);
+        cargaP2();
+        cargaP2().setVisible(false);
+    }
+
 }

@@ -1,11 +1,15 @@
 package data;
 
+import Rooms.PanelJuego;
 import GUI2.*;
+import static GUI2.Window.cargaP1;
+import static GUI2.Window.cargaP2;
 import static GUI2.Window.jMain;
 import GUIsoundManagement.Efectos;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -44,15 +48,14 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
         super.paintComponent(g);
         g.setColor(Color.RED);
         g.fillRect(x, y, 50, 30);
+        //Necesitamos una funcion que nos diga en donde vamos a pintar el personaje
+        //posicion(); //Esta función llama un punto, se sobreescribirá en cada panel
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        JPanel panel = new JPanel();
-        panel.setLayout(null);
-        this.add(panel);
-        panel.setBounds(275,185,50,30);
-        panel.setBackground(Color.yellow);
+        muestraPuerta();
+        muestraGuarda();
         
         determinarDireccion();
         
@@ -99,7 +102,14 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
             case KeyEvent.VK_ESCAPE:
                 Efectos e1 = new Efectos();
                 e1.playPausa();
-                PanelMenuPausa menuJuego = new PanelMenuPausa();
+                //PanelMenuPausa menuJuego = new PanelMenuPausa();
+                cargaMenuPausa();
+                break;
+            case KeyEvent.VK_I:
+                Efectos e2 = new Efectos();
+                e2.playPausa();
+                //PanelMenuPausa menuJuego = new PanelMenuPausa();
+                cargaInventario();
                 break;
         }        
     }
@@ -126,7 +136,7 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                 tm.setDelay(5);
                 break;
         }
-        puerta(e);
+        eventos(e);
     }
     
     private void determinarDireccion() {
@@ -229,7 +239,7 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
             return pj;
         }
         
-        public void puerta(KeyEvent e)
+        public void eventos(KeyEvent e)
         {
            if (e.getKeyCode() == KeyEvent.VK_SPACE)
            {
@@ -240,4 +250,62 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
                 }   
            }
         }
+        
+        public void cargaMenuPausa()
+        {
+            ocultaRooms();
+            PanelMenuPausa pj = new PanelMenuPausa();
+            pj.setSize(jMain.getWidth(), jMain.getHeight());
+            pj.setLocation(0,0);
+        
+            jMain.removeAll();
+            jMain.add(pj);
+            jMain.revalidate();
+            jMain.repaint();
+        }
+        
+        public void cargaInventario()
+        {
+            ocultaRooms();
+            PanelInventario pj = new PanelInventario();
+            pj.setSize(jMain.getWidth(), jMain.getHeight());
+            pj.setLocation(0,0);
+        
+            jMain.removeAll();
+            jMain.add(pj);
+            jMain.revalidate();
+            jMain.repaint();
+        }
+        
+        public void ocultaRooms()
+        {
+            cargaP1().setVisible(false);
+            cargaP2().setVisible(false);
+        }
+        
+    public void muestraPuerta()
+    {
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        this.add(panel);
+        panel.setBounds(275,185,50,30);
+        panel.setBackground(Color.yellow);
+    }
+    
+    public void muestraGuarda()
+    {  
+        JPanel pane2 = new JPanel();
+        pane2.setLayout(null);
+        this.add(pane2);
+        pane2.setBounds(375,285,50,30);
+        pane2.setBackground(Color.blue);
+    }
+    
+    public Point posicionP()
+    {
+        Point p = new Point();
+        p.x = 0;
+        p.y = 0;
+        return p;
+    }
 }

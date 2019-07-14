@@ -32,30 +32,5 @@ public class PantallaJuego extends VentanaMadre{
     public void stage_1(){
         Teclado t = new Teclado();
         this.add(t);
-    }
-    
-    public void stage_2(){
-        
-    }
-    
-    public void stage_n(){
-        
-    }
-    
-    public void cinematicasFinal(){
-        
-    }
-    
-    public VentanaInventario inventario(){
-        return null;
-    }
-    
-    @Override
-    public void confirmarSalida(){
-        VentanaMadre.botonSound.playSalir();
-        int valor = JOptionPane.showConfirmDialog(this, "¿Desea Salir?", "SALIR", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
-        if(valor == JOptionPane.YES_OPTION){
-            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        }
-    }
+    }  
 }

@@ -118,7 +118,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
             }else if(rbtMale.isSelected()){
                 jugador.setGenero("Hombre");
             }else if(rbtUndefined.isSelected()){
-                jugador.setGenero("Indefinido");
+                jugador.setGenero("Otro");
             }
             partida.setJugadorActual(jugador);
             partidas.add(partida);

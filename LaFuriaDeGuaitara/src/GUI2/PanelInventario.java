@@ -5,6 +5,8 @@
  */
 package GUI2;
 
+import static GUI2.Window.cargaP1;
+import static GUI2.Window.cargaP2;
 import GUIsoundManagement.Efectos;
 import data.Inventario;
 import data.ItemPickeable;
@@ -112,7 +114,7 @@ public class PanelInventario extends javax.swing.JPanel{
         Efectos e1 = new Efectos();
 
         e1.playClickCerrar();
-        cargaPantallaInicio();
+        cargaRooms();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void lstItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstItemsMouseClicked
@@ -153,7 +155,6 @@ public class PanelInventario extends javax.swing.JPanel{
         
     }*/
     
-    
     public ArrayList<ItemPickeable> getInv() {
         return inv;
     }
@@ -187,4 +188,11 @@ public class PanelInventario extends javax.swing.JPanel{
         }
         return conta;
     }*/
+    
+    public void cargaRooms()
+    {
+        cargaP1().setVisible(true);
+        cargaP2().setVisible(true);
+    }
+    
 }

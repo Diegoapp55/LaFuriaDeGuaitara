@@ -5,12 +5,16 @@
  */
 package data;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Diego
  */
 public class Jugador extends Personaje{
     //private Inventario inventario;
+    private ImageIcon sprite = new ImageIcon();
+    
     public Jugador(String nombre, String genero) {
         super(nombre, genero);
         //this.inventario = inventario;
@@ -24,8 +28,26 @@ public class Jugador extends Personaje{
         this.inventario = inventario;
     }*/
     
-    @Override
-    public void moverse() {
-        
+    public String rutaImagen(String genero)
+    {
+        String rutaImagen = "";
+        switch (genero)
+                {
+                    case "Hombre":
+                    rutaImagen = "";
+                    break;
+                    case "Mujer":
+                    rutaImagen = "";
+                    break;
+                    case "Otro":
+                    rutaImagen = "";
+                    break;
+                    default:
+                    rutaImagen = "";
+                    break;
+                }
+                                
+        return rutaImagen;
     }
+    
 }
