@@ -38,16 +38,16 @@ public class Efectos extends Sonido{
         playNoLoop(".\\build\\classes\\soundFiles\\menuPrincipal.wav");
     }
     public void playPasosMadera(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosMadera.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosMaderaSingular.wav");
     }
     public void playPasosPiedra(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedra.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedraSingular.wav");
     }
     public void playPasosPiedraEco(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedraReverb.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedraReverbSingular.wav");
     }
     public void playPasosTierra(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosTierra.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\pasosTierraSingular.wav");
     }
     public void playPausa(){
         playNoLoop(".\\build\\classes\\soundFiles\\pausa.wav");
@@ -57,5 +57,14 @@ public class Efectos extends Sonido{
     }
     public void playSalir(){
         playNoLoop(".\\build\\classes\\soundFiles\\salirJuego.wav");
+    }
+    public void playVoces(){
+        playNoLoop(".\\build\\classes\\soundFiles\\voces.wav");
+    }
+    public void playRio(){
+        playNoLoop(".\\build\\classes\\soundFiles\\rio.wav");
+    }
+    public void playPuerta(){
+        playNoLoop(".\\build\\classes\\soundFiles\\puerta.wav");
     }
 }

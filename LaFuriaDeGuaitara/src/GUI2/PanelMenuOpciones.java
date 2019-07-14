@@ -76,7 +76,8 @@ public class PanelMenuOpciones extends javax.swing.JPanel {
         int valor = JOptionPane.showConfirmDialog(this, "¿Desea salir sin Guardar?", "Aviso", JOptionPane.YES_NO_OPTION);
         if(valor == JOptionPane.YES_OPTION){
             e1.playClickCerrar();
-            cargaPantallaInicio();
+            Window.TEMA_MENU.stop();
+            cargaPantallaInicio();  
         }
     }//GEN-LAST:event_btVolverActionPerformed
 

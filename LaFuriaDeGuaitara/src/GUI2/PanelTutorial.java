@@ -35,6 +35,8 @@ public class PanelTutorial extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
+        Window.TEMA_CINE.stop();
+        Window.TEMA_JUEGO.playGamePlay();
         PantallaJuego pj =  new PantallaJuego();
         pj.setVisible(true);
         pj.dispose();
@@ -48,9 +50,9 @@ public class PanelTutorial extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     
-    /*public void cargaJuego()
+    public void cargaJuego()
     {
-        PanelJuegoV2 pj = new PanelJuegoV2();
+        PanelJuego pj = new PanelJuego();
         pj.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
         pj.setLocation(0,0);
         
@@ -59,13 +61,13 @@ public class PanelTutorial extends javax.swing.JPanel {
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
 
-    }*/
+    }
     
-    public void cargaJuego()
+    /*public void cargaJuego()
     {
         //Window.jMain.removeAll();
         //Window.jMain.revalidate();
         //Window.jMain.repaint();
         Window.cargaP1().setVisible(true);
-    }
+    }*/
 }

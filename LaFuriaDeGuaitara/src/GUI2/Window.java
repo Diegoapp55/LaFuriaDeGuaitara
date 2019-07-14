@@ -21,7 +21,9 @@ import javax.swing.JPanel;
 public class Window extends javax.swing.JFrame {
     public static final Pistas TEMA_PRINCIPAL = new Pistas();
     public static final Pistas TEMA_MENU = new Pistas();
-
+    public static final Pistas TEMA_CINE = new Pistas();
+    public static final Pistas TEMA_JUEGO = new Pistas();
+    
     /**
      * Creates new form Window
      */
@@ -32,7 +34,6 @@ public class Window extends javax.swing.JFrame {
                                          la cancion de inicio aca y al pulsar
                                          ENTER se detenga y llame a PanelInicio*/
         initComponents();
-        TEMA_MENU.playMenuTheme(); //Provisional
         setTitle("La Furia de Guáitara");
         setLocationRelativeTo(null);
         setResizable(false);
@@ -96,7 +97,7 @@ public class Window extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         Efectos e1 = new Efectos();
-        e1.playSalir();
+        e1.playClickCerrar();
         
         int value = JOptionPane.showConfirmDialog(this,"¿Desea Salir?", "salir", 
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);

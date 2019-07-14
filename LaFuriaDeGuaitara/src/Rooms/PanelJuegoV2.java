@@ -5,7 +5,9 @@
  */
 package Rooms;
 
+import GUI2.PanelCrearPartida;
 import GUI2.Window;
+import data.Jugador;
 import data.Teclado;
 import static data.Teclado.cargaNext;
 import java.awt.event.KeyEvent;
@@ -15,6 +17,11 @@ import javax.swing.JOptionPane;
  * @author jdoli
  */
 public class PanelJuegoV2 extends Teclado{
+    
+    /*public PanelJuegoV2()
+    {
+        add(PanelCrearPartida.jugador.spriteLabel);
+    }*/
     
 @Override
 public void eventos(KeyEvent e)

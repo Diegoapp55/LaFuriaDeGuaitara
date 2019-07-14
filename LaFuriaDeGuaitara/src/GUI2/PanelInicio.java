@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class PanelInicio extends javax.swing.JPanel {
-    //public static final Pistas TEMA_MENU = new Pistas();
     /**
      * Creates new form panelInicio
      */
     public PanelInicio() {
         //TEMA_MENU.playMenuTheme();
         initComponents();
+        Window.TEMA_PRINCIPAL.playMainTheme();
     }
 
     /**
@@ -82,6 +82,8 @@ public class PanelInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playAbrirMenu();
+        Window.TEMA_PRINCIPAL.stop();
+        Window.TEMA_MENU.playMenuTheme();
         cargaCreaPartida();
     }//GEN-LAST:event_btNuevaPartidaActionPerformed
 
@@ -99,6 +101,8 @@ public class PanelInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playAbrirMenu();
+        Window.TEMA_PRINCIPAL.stop();
+        Window.TEMA_MENU.playMenuTheme();
         cargaCargaPartida();
     }//GEN-LAST:event_btCargarPartidaActionPerformed
 
@@ -106,6 +110,8 @@ public class PanelInicio extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playAbrirMenu();
+        Window.TEMA_PRINCIPAL.stop();
+        Window.TEMA_MENU.playMenuTheme();
         cargaMenuOp();
     }//GEN-LAST:event_btMenuOpcionesActionPerformed
 

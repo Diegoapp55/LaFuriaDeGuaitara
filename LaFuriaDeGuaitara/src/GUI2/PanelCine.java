@@ -7,6 +7,7 @@ package GUI2;
 
 import GUI.PantallaJuego;
 import GUIsoundManagement.Pistas;
+import jdk.nashorn.internal.runtime.Context;
 
 /**
  *
@@ -18,9 +19,8 @@ public class PanelCine extends javax.swing.JPanel {
      * Creates new form panelCine
      */
     public PanelCine() {
-        Pistas e1 = new Pistas();
-        e1.playGamePlay();
         initComponents();
+        Window.TEMA_CINE.playWind();
     }
 
     /**

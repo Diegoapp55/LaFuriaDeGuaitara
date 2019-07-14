@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -43,11 +44,21 @@ public class Teclado extends JPanel implements ActionListener, KeyListener{
         setFocusTraversalKeysEnabled(false);
     }
     
-    @Override
+    /*@Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(Color.RED);
         g.fillRect(x, y, 50, 30);
+        //Necesitamos una funcion que nos diga en donde vamos a pintar el personaje
+        //posicion(); //Esta función llama un punto, se sobreescribirá en cada panel
+    }*/
+    
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        Toolkit t = Toolkit.getDefaultToolkit();
+        Image imagen = t.getImage("imagen1.jpg");
+        g.drawImage (imagen, 0, 0, this);
         //Necesitamos una funcion que nos diga en donde vamos a pintar el personaje
         //posicion(); //Esta función llama un punto, se sobreescribirá en cada panel
     }
