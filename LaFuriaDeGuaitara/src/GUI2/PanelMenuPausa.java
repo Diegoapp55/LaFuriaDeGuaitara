@@ -126,7 +126,6 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
-            
             cargarVolver();
         }
         
@@ -169,10 +168,12 @@ public class PanelMenuPausa extends javax.swing.JPanel {
     
     public void cargarVolver()
     {
-        JPanel pcp = new JPanel();
+        JPanel pcp;
         pcp = PanelCrearPartida.partida.getPanelActual();
         pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
         pcp.setLocation(0,0);
+        
+        PanelCrearPartida.l.setLocation(PanelCrearPartida.guardaPosX(), PanelCrearPartida.guardaPosY());
         
         Window.getJpanel().removeAll();
         Window.getJpanel().add(pcp);

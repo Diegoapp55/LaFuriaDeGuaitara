@@ -147,6 +147,7 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
             }
             
             case KeyEvent.VK_ESCAPE:{
+                PanelCrearPartida.partida.setPanelActual(this);
                 guardaPosX();
                 guardaPosY();
                 fx.playPausa();
@@ -155,6 +156,7 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
             }
             
             case KeyEvent.VK_I:{
+                PanelCrearPartida.partida.setPanelActual(this);
                 guardaPosX();
                 guardaPosY();
                 fx.playPausa();

@@ -115,7 +115,6 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
-            PanelCrearPartida.l.setLocation(PanelCrearPartida.guardaPosX(), PanelCrearPartida.guardaPosY());
             cargarVolver();
         }
     }//GEN-LAST:event_volverActionPerformed
@@ -190,10 +189,12 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
     
      public void cargarVolver()
     {
-        JPanel pcp = new JPanel();
+        JPanel pcp;
         pcp = PanelCrearPartida.partida.getPanelActual();
         pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
         pcp.setLocation(0,0);
+        
+        PanelCrearPartida.l.setLocation(PanelCrearPartida.guardaPosX(), PanelCrearPartida.guardaPosY());
         
         Window.getJpanel().removeAll();
         Window.getJpanel().add(pcp);
