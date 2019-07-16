@@ -6,13 +6,14 @@
 package data;
 
 import java.awt.*;
+import java.io.Serializable;
 import javax.swing.*;
 
 /**
  *
  * @author Diego
  */
-public class ItemPickeable {
+public class ItemPickeable implements Serializable{
     private String nombre;
     private String descripcion;
     private double x;

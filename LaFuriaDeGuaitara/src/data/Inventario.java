@@ -7,13 +7,14 @@ package data;
 
 
 import GUI2.PanelInventario;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Diego
  */
-public class Inventario {
+public class Inventario implements Serializable{
     private ArrayList<ItemPickeable> contenido;
     private PanelInventario enlaceGUI;
 

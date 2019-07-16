@@ -7,8 +7,10 @@ package GUI2;
 
 import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
+import data.Archivo;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -17,9 +19,7 @@ import javax.swing.JOptionPane;
  *
  * @author HP
  */
-public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
-    Icon img = new ImageIcon(getClass().getResource("/Images/sprites/" + 
-            PanelCrearPartida.jugador.getGenero() + ".gif"));
+public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Serializable{
     Efectos fx = new Efectos();
     
     int velocidad = 5;
@@ -42,15 +42,22 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
     private void initComponents() {
 
         l = new javax.swing.JLabel();
+        item2 = new javax.swing.JLabel();
         Profe = new javax.swing.JLabel();
         door = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setLayout(null);
 
-        l.setIcon(img);
+        PanelCrearPartida.l = l;
+        l.setIcon(PanelCrearPartida.img);
+        l.setLocation(PanelPasillo.guardaPosX(), PanelPasillo.guardaPosY());
         add(l);
         l.setBounds(80, 260, 50, 50);
+
+        item2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/saph.gif"))); // NOI18N
+        add(item2);
+        item2.setBounds(240, 220, 25, 30);
 
         Profe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sprites/Daniel_Salazar.gif"))); // NOI18N
         add(Profe);
@@ -70,6 +77,7 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JLabel Profe;
     private javax.swing.JLabel background;
     private javax.swing.JLabel door;
+    private javax.swing.JLabel item2;
     public static javax.swing.JLabel l;
     // End of variables declaration//GEN-END:variables
 
@@ -129,7 +137,10 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
                     int value = JOptionPane.showConfirmDialog(this, "¿Desea Guardar?" , 
                             "Punto de guardado", JOptionPane.YES_NO_OPTION);
                     if(value == JOptionPane.YES_OPTION){
-                        PanelCrearPartida.partida.setPanelActual(this);    
+                        PanelCrearPartida.partida.setPanelActual(this);
+                        PanelCrearPartida.partida.x = guardaPosX();
+                        PanelCrearPartida.partida.y = guardaPosY();
+                        Archivo.escribir();
                     }
                 }
                 break;

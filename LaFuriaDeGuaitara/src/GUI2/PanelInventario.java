@@ -115,7 +115,7 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
-            PanelIglesia.l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
+            PanelCrearPartida.l.setLocation(PanelCrearPartida.guardaPosX(), PanelCrearPartida.guardaPosY());
             cargarVolver();
         }
     }//GEN-LAST:event_volverActionPerformed

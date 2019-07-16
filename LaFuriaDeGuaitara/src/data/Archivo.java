@@ -5,6 +5,7 @@
  */
 package data;
 
+import GUI2.Window;
 import java.io.*;
 import java.util.ArrayList;
 /**
@@ -12,24 +13,47 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Archivo {
-    private static File f1;
-    private static FileWriter fw;
-    private static BufferedWriter bw;
-    private static PrintWriter pw;
-    private FileReader fr;
-    private BufferedReader br;
     
-    public void leer(String nombreArchivo){
+    
+    public static FileOutputStream fos = null;
+    public static FileInputStream fis = null;
+    
+    public static ArrayList<Partida> leer(){
+        ArrayList<Partida> partidasLoad = new ArrayList<>();
         
+        try {
+            fis = new FileInputStream("./src/partidas/Partidas.obj");
+            
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            
+            for (int i = 0; i < ois.available(); i++)
+            {
+                Partida partidaLoad = new Partida();
+                partidaLoad = (Partida) ois.readObject();
+                partidasLoad.add(partidaLoad);
+            }
+            
+            ois.close();
+            return partidasLoad;
+
+        } catch (Exception e) {
+            
+        }
+        return partidasLoad;
     }
     
-    public void escribir(String nombreArchivo, ArrayList<Jugador> topPartidas){
+    public static void escribir(){
         
-    }
-    
-    public ArrayList<Partida> importar(String nombreArchivo){
-        ArrayList<Partida> partidas = new ArrayList<>();
-        
-        return partidas;
+        try {
+            fos = new FileOutputStream("./src/partidas/Partidas.obj");
+            
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            
+            oos.writeObject(Window.partidaList);
+            
+            oos.close();
+        } catch (Exception e) {
+            
+        } 
     }
 }

@@ -5,15 +5,17 @@
  */
 package data;
 
+import java.io.Serializable;
 import javax.swing.JPanel;
 
 /**
  *
  * @author Diego
  */
-public class Partida {
+public class Partida implements Serializable{
     private JPanel panelActual;
     private Jugador jugadorActual;
+    public int x = 0, y = 0;
 
     public Partida(JPanel panelActual, Jugador jugadorActual) {
         this.panelActual = panelActual;
@@ -22,7 +24,6 @@ public class Partida {
         
     public Partida(){
     }
-        
 
     public Jugador getJugadorActual() {
         return jugadorActual;

@@ -7,6 +7,7 @@ package GUI2;
 
 import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
+import data.Archivo;
 import data.Jugador;
 import data.Mapa;
 import data.Partida;
@@ -16,16 +17,20 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author HP
  */
 public class PanelCargarPartida extends javax.swing.JPanel {
-    private String fichero = ".\\src\\savedFiles\\Saved.obj";
 
+    private DefaultTableModel modelo; 
+    
     public PanelCargarPartida() {
         initComponents();
+        mostrar();
+
     }
 
     @SuppressWarnings("unchecked")
@@ -33,23 +38,27 @@ public class PanelCargarPartida extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaPartidas = new Lista();
+        tblCarga = new javax.swing.JTable();
         btnCargar = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        listaPartidas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 4));
-        listaPartidas.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        listaPartidas.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                listaPartidasValueChanged(evt);
-            }
-        });
-        jScrollPane1.setViewportView(listaPartidas);
+        tblCarga.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 360, 205));
+            }
+        ));
+        jScrollPane1.setViewportView(tblCarga);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 400, 190));
 
         btnCargar.setFont(new java.awt.Font("Consolas", 0, 18)); // NOI18N
         btnCargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCargar.png"))); // NOI18N
@@ -73,14 +82,19 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listaPartidasValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPartidasValueChanged
-
-    }//GEN-LAST:event_listaPartidasValueChanged
-
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-        int s = listaPartidas.getSelectedIndex();
-        ArrayList<Partida> partidasRecargadas = new ArrayList<>();
-        this.cargarPartida(btnCargar, partidasRecargadas.get(s));
+        try {
+            int posicion = 0;
+        
+            Partida partIn = new Partida();
+            posicion = tblCarga.getSelectedRow();
+            partIn = Archivo.leer().get(posicion);
+        
+            cargaJuego(partIn);
+        } catch (Exception e) {
+            
+        }
+        
     }//GEN-LAST:event_btnCargarActionPerformed
 
     private Partida listaPartidaActionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,30 +111,6 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         cargaPantallaInicio();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    public Partida cargarPartida(JButton a, Partida carga){
-        Partida cargaPartida = new Partida();
-        //Jugador cargaJugador = new Jugador(null, null, null, null);
-        Mapa carganuevoMapa = new Mapa(null,null,null);  
-        long tiempoTotal = System.currentTimeMillis();
-
-        ActionListener action = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                /*cargaJugador.setNombre(b.getText());
-                cargaJugador.setGenero(c.getSelection().toString());
-                cargaPartida.setTiempo((System.currentTimeMillis()-tiempoTotal)/1000);
-                cargaPartida.setJugadorActual(nuevoJugador);
-                PantallaJuego cargaPantalla = new PantallaJuego();
-                estado = true;
-                System.out.println(estado);
-                //CAMBIO DE PANEL
-                */
-            }
-        };
-        a.addActionListener(action);
-        return cargaPartida;
-    }
-    
     public void cargaPantallaInicio()
     {
         PanelInicio pcp = new PanelInicio();
@@ -139,12 +129,26 @@ public class PanelCargarPartida extends javax.swing.JPanel {
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList<String> listaPartidas;
+    private javax.swing.JTable tblCarga;
     // End of variables declaration//GEN-END:variables
 
-    private static class Lista extends JList<String> {
-
-        public Lista() {
+    public void cargaJuego(Partida in)
+    {
+        in.getPanelActual().setVisible(true);
+    }
+    
+    private void mostrar()
+    {
+        String[] titulos = {"Nombre de Partida"};
+        String[] registro = new String[1];
+        
+        modelo = new DefaultTableModel(null, titulos);
+        
+            for(Partida f: Window.partidaList){
+                registro[0] = f.getJugadorActual().getNombre();
+                /*Se añade al modelo*/
+                modelo.addRow(registro);
+                } 
+            tblCarga.setModel(modelo);
         }
     }
-}

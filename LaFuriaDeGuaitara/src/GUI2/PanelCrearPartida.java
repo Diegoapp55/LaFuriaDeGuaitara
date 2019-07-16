@@ -11,6 +11,8 @@ import data.ItemPickeable;
 import data.Jugador;
 import data.Partida;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,7 +22,7 @@ import javax.swing.JPanel;
  * @author HP
  */
 public class PanelCrearPartida extends javax.swing.JPanel {
-
+    public static Icon img;
     public static Partida partida = new Partida(null, null);
     public static Jugador jugador = new Jugador(null, null);
     public static ArrayList<ItemPickeable> inventario = new ArrayList<>();
@@ -44,6 +46,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
     private void initComponents() {
 
         btgGrupo1 = new javax.swing.ButtonGroup();
+        l = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         rbtFemale = new javax.swing.JRadioButton();
         rbtMale = new javax.swing.JRadioButton();
@@ -54,6 +57,9 @@ public class PanelCrearPartida extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        l.setIcon(img);
+        add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 60, 60));
 
         txtNombre.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
@@ -126,7 +132,8 @@ public class PanelCrearPartida extends javax.swing.JPanel {
             }
             partida.setJugadorActual(jugador);
             Window.partidaList.add(partida);
-            
+            img = new ImageIcon(getClass().getResource("/Images/sprites/" + 
+            jugador.getGenero() + ".gif"));
             cargaCinematica();
         } 
     }//GEN-LAST:event_btContinuarActionPerformed
@@ -141,6 +148,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
     private javax.swing.JButton btVolver;
     private javax.swing.ButtonGroup btgGrupo1;
     private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel l;
     private javax.swing.JRadioButton rbtFemale;
     private javax.swing.JRadioButton rbtMale;
     private javax.swing.JRadioButton rbtUndefined;
@@ -170,6 +178,19 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         Window.getJpanel().add(pcp);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
-
+    }
+    
+    public static int guardaPosX()
+    {
+        int posX = 0;
+        posX = l.getX();
+        return posX;
+    }
+    
+    public static int guardaPosY()
+    {
+        int posY = 0;
+        posY = l.getY();
+        return posY;
     }
 }

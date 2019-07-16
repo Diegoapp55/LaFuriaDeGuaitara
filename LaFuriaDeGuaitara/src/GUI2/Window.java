@@ -7,6 +7,7 @@ package GUI2;
 
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
+import data.Archivo;
 import data.Jugador;
 import data.Partida;
 import java.util.ArrayList;
@@ -34,6 +35,8 @@ public class Window extends javax.swing.JFrame {
                                          a ese nuevo panel para que se ponga
                                          la cancion de inicio aca y al pulsar
                                          ENTER se detenga y llame a PanelInicio*/
+        partidaList = Archivo.leer();
+        
         initComponents();
         setTitle("La Furia de Guáitara");
         setLocationRelativeTo(null);

@@ -8,6 +8,7 @@ package GUI2;
 import GUIsoundManagement.Efectos;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
  *
  * @author HP
  */
-public class PanelWin extends javax.swing.JPanel implements KeyListener{
+public class PanelWin extends javax.swing.JPanel implements KeyListener, Serializable{
     Icon img = new ImageIcon(getClass().getResource("/Images/sprites/" + 
             PanelCrearPartida.jugador.getGenero() + ".gif"));
     Efectos fx = new Efectos();

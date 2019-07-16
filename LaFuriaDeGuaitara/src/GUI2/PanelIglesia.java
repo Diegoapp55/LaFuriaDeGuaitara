@@ -11,20 +11,16 @@ import data.ItemPickeable;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.Serializable;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 /**
  *
  * @author HP
  */
-public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
-    Icon img = new ImageIcon(getClass().getResource("/Images/sprites/" + 
-    PanelCrearPartida.jugador.getGenero() + ".gif"));
+public class PanelIglesia extends javax.swing.JPanel implements KeyListener, Serializable{
+    Icon img;
     Efectos fx = new Efectos();
     
     int velocidad = 5;
@@ -34,6 +30,7 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
      * Creates new form PanelJuego
      */
     public PanelIglesia() {
+        img = PanelCrearPartida.img;
         initComponents();
         PanelCrearPartida.partida.setPanelActual(this);
         addKeyListener(this);
@@ -56,7 +53,9 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
 
         setLayout(null);
 
-        l.setIcon(img);
+        PanelCrearPartida.l = l;
+        l.setIcon(PanelCrearPartida.img);
+        l.setPreferredSize(new java.awt.Dimension(50, 50));
         l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
         add(l);
         l.setBounds(150, 270, 60, 60);
@@ -132,6 +131,7 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
                     PantallaJuego pj =  new PantallaJuego();
                     pj.setVisible(true);
                     pj.dispose();
+                    this.setVisible(false);
                     cargarPasillo();
                 }
                 //

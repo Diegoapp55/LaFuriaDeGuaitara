@@ -5,6 +5,7 @@
  */
 package data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -13,7 +14,7 @@ import javax.swing.JLabel;
  *
  * @author Diego
  */
-public class Jugador extends Personaje{
+public class Jugador extends Personaje implements Serializable{
     //private Inventario inventario;
     //public ImageIcon sprite = getPersonaje(this.getGenero());
     //public JLabel spriteLabel = new JLabel(sprite);
