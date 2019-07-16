@@ -6,6 +6,7 @@
 package data;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -13,41 +14,59 @@ import javax.swing.ImageIcon;
  */
 public class Jugador extends Personaje{
     //private Inventario inventario;
-    private ImageIcon sprite = new ImageIcon();
+    //public ImageIcon sprite = getPersonaje(this.getGenero());
+    //public JLabel spriteLabel = new JLabel(sprite);
     
     public Jugador(String nombre, String genero) {
         super(nombre, genero);
+        //spriteLabel.setSize(25, 25);
         //this.inventario = inventario;
     }
-
-    /*public Inventario getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
-    }*/
     
-    public String rutaImagen(String genero)
+   /* public ImageIcon getPersonaje(String genero)
     {
-        String rutaImagen = "";
+        ImageIcon s;
         switch (genero)
                 {
                     case "Hombre":
-                    rutaImagen = "";
+                    s = new ImageIcon("/src/Images/sprites/ProtaMascFront.gif");
                     break;
                     case "Mujer":
-                    rutaImagen = "";
+                    s = new ImageIcon("/src/Images/sprites/ProtaFemFront.gif");
                     break;
                     case "Otro":
-                    rutaImagen = "";
+                    s = new ImageIcon("/src/Images/sprites/ProtaAndroFront.gif");
                     break;
                     default:
-                    rutaImagen = "";
+                    s = new ImageIcon("/src/Images/sprites/ProtaMascFront.gif");
                     break;
                 }
                                 
-        return rutaImagen;
+        return s;
+    }*/
+    public String getPersonaje(String genero)
+    {
+        String s = "";
+        switch (genero)
+                {
+                    case "Hombre":
+                    s = "/src/Images/sprites/ProtaMascFront.gif";
+                    break;
+                    case "Mujer":
+                    s = "/src/Images/sprites/ProtaFemFront.gif";
+                    break;
+                    case "Otro":
+                    s = "/src/Images/sprites/ProtaAndroFront.gif";
+                    break;
+                    default:
+                    s = "/src/Images/sprites/ProtaMascFront.gif";
+                    break;
+                }
+                                
+        return s;
     }
-    
+    /*public JLabel labelImagen()
+    {
+        return spriteLabel;
+    }*/
 }

@@ -6,7 +6,6 @@
 package GUI;
 
 import GUI2.*;
-import data.Teclado;
 import data.Mapa;
 import javax.swing.*;
 
@@ -30,7 +29,5 @@ public class PantallaJuego extends VentanaMadre{
     }
     
     public void stage_1(){
-        Teclado t = new Teclado();
-        this.add(t);
     }  
 }

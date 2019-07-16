@@ -5,22 +5,26 @@
  */
 package GUI2;
 
-import static GUI2.Window.cargaP1;
-import static GUI2.Window.cargaP2;
 import GUIsoundManagement.Efectos;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
 
 /**
  *
  * @author HP
  */
 public class PanelMenuPausa extends javax.swing.JPanel {
-    int volMusica;
-    int volEfectos;
+    public static int volMusica ;
+    public static int volEfectos;
     /**
      * Creates new form panelMenuJuego
      */
     public PanelMenuPausa() {
+        Window.TEMA_JUEGO.stop();
+        Window.TEMA_CINE.stop();
         initComponents();
     }
 
@@ -90,11 +94,12 @@ public class PanelMenuPausa extends javax.swing.JPanel {
 
     private void btInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInicioActionPerformed
         Efectos e1 = new Efectos();
-        e1.playClickCerrar();
-        int value = JOptionPane.showConfirmDialog(this, "Opción no disponible aún~",
-            "No disponible", JOptionPane.DEFAULT_OPTION);
-        if(value == JOptionPane.OK_OPTION){
+        e1.playSalir();
+        int value = JOptionPane.showConfirmDialog(this, "          ¿Desea volver al menú?\nSe perderá el progreso no guardado",
+            "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if(value == JOptionPane.YES_OPTION){
             e1.playQuitarPausa();
+            Window.TEMA_JUEGO.stop();
             cargaPantallaInicio();
         }
     }//GEN-LAST:event_btInicioActionPerformed
@@ -102,8 +107,9 @@ public class PanelMenuPausa extends javax.swing.JPanel {
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        e1.playClickCerrar();
-        int value = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "Salir", JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
+        e1.playSalir();
+        int value = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "Salir",
+                JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
         if(value == JOptionPane.YES_OPTION){
             System.exit(0);
         }
@@ -112,21 +118,29 @@ public class PanelMenuPausa extends javax.swing.JPanel {
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        volMusica = sliderMusica.getValue();
-        volEfectos = sliderEfectos.getValue();
+        e1.playClickPositivo();
+        sliderMusica.setValue(volMusica);
+        sliderEfectos.setValue(volEfectos);
         int value = JOptionPane.showConfirmDialog(this, "Los cambios se han guardado",
             "Guardar", JOptionPane.DEFAULT_OPTION);
         if(value == JOptionPane.OK_OPTION){
+            Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
-            cargaRooms();
+            cargarVolver();
         }
+        
     }//GEN-LAST:event_btGuardarActionPerformed
 
     private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
-        e1.playQuitarPausa();
-        cargaRooms();
+         int value = JOptionPane.showConfirmDialog(this, "Volver al Juego",
+            "Volver", JOptionPane.DEFAULT_OPTION);
+        if(value == JOptionPane.OK_OPTION){
+            Window.TEMA_JUEGO.playGamePlay();
+            e1.playQuitarPausa();
+            cargarVolver();
+        }
     }//GEN-LAST:event_btVolverActionPerformed
 
 
@@ -151,9 +165,33 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
     }
-    public void cargaRooms()
+    
+    public void cargarVolver()
     {
-        cargaP1().setVisible(true);
-        cargaP2().setVisible(true);
+        JPanel pcp = new JPanel();
+        pcp = PanelCrearPartida.partida.getPanelActual();
+        pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pcp);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
     }
+
+    public JSlider getSliderEfectos() {
+        return sliderEfectos;
+    }
+
+    public void setSliderEfectos(JSlider sliderEfectos) {
+        this.sliderEfectos = sliderEfectos;
+    }
+
+    public JSlider getSliderMusica() {
+        return sliderMusica;
+    }
+
+    public void setSliderMusica(JSlider sliderMusica) {
+        this.sliderMusica = sliderMusica;
+    }  
 }

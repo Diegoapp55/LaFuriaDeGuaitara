@@ -5,49 +5,24 @@
  */
 package data;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Diego
  */
 public class Partida {
-    private long tiempo;
-    private PuntoDeGuardado puntoDeGuardadoActual;
-    private Mapa mapaActual;
+    private JPanel panelActual;
     private Jugador jugadorActual;
 
-    public Partida(long tiempo, PuntoDeGuardado puntoDeGuardadoActual, Mapa mapaActual, Jugador jugadorActual) {
-        this.tiempo = tiempo;
-        this.puntoDeGuardadoActual = puntoDeGuardadoActual;
-        this.mapaActual = mapaActual;
+    public Partida(JPanel panelActual, Jugador jugadorActual) {
+        this.panelActual = panelActual;
         this.jugadorActual = jugadorActual;
     }
         
     public Partida(){
     }
         
-    public long getTiempo() {
-        return tiempo;
-    }
-
-    public void setTiempo(long tiempo) {
-        this.tiempo = tiempo;
-    }
-
-    public PuntoDeGuardado getPuntoDeGuardadoActual() {
-        return puntoDeGuardadoActual;
-    }
-
-    public void setPuntoDeGuardadoActual(PuntoDeGuardado puntoDeGuardadoActual) {
-        this.puntoDeGuardadoActual = puntoDeGuardadoActual;
-    }
-
-    public Mapa getMapaActual() {
-        return mapaActual;
-    }
-
-    public void setMapaActual(Mapa mapaActual) {
-        this.mapaActual = mapaActual;
-    }
 
     public Jugador getJugadorActual() {
         return jugadorActual;
@@ -56,10 +31,14 @@ public class Partida {
     public void setJugadorActual(Jugador jugadorActual) {
         this.jugadorActual = jugadorActual;
     }
-    
-    public long contarTiempo(long tiempoTranscurrido){
-        long tiempoActual = tiempoTranscurrido + 0;
-        
-        return tiempoActual;
+
+    public JPanel getPanelActual() {
+        return panelActual;
     }
+
+    public void setPanelActual(JPanel panelActual) {
+        this.panelActual = panelActual;
+    }
+    
+    
 }

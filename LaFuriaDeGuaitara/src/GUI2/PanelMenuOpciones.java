@@ -19,6 +19,7 @@ public class PanelMenuOpciones extends javax.swing.JPanel {
      * Creates new form PanelMenuJuego2
      */
     public PanelMenuOpciones() {
+        Window.TEMA_PRINCIPAL.stop();
         initComponents();
     }
 
@@ -76,7 +77,8 @@ public class PanelMenuOpciones extends javax.swing.JPanel {
         int valor = JOptionPane.showConfirmDialog(this, "¿Desea salir sin Guardar?", "Aviso", JOptionPane.YES_NO_OPTION);
         if(valor == JOptionPane.YES_OPTION){
             e1.playClickCerrar();
-            cargaPantallaInicio();
+            Window.TEMA_MENU.stop();
+            cargaPantallaInicio();  
         }
     }//GEN-LAST:event_btVolverActionPerformed
 
@@ -89,6 +91,7 @@ public class PanelMenuOpciones extends javax.swing.JPanel {
             "Guardar", JOptionPane.DEFAULT_OPTION);
         if(value == JOptionPane.OK_OPTION){
             e1.playClickCerrar();
+            Window.TEMA_MENU.stop();
             cargaPantallaInicio();
         }
     }//GEN-LAST:event_btGuardarActionPerformed

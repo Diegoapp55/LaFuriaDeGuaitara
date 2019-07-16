@@ -32,15 +32,15 @@ public class Run {
         
         
         ItemPickeable item1 = new ItemPickeable("Abstracción", "Un topacio que crea "
-            + "versiones digitales de lo que sea que toque.", "Gema", 0, 0, "/src/Images/Sprites/item/1_topazSheet.ong");
+            + "versiones digitales de lo que sea que toque.", 0, 0, "/src/Images/Sprites/item/1_topazSheet.ong");
         ItemPickeable item2 = new ItemPickeable("Encapsulación", "Este rubí de sangre"
-            + " puede aislar a su portador del mundo real.", "Gema", 0, 0, "/src/Images/Sprites/item/2_rubySheet.png");
+            + " puede aislar a su portador del mundo real.", 0, 0, "/src/Images/Sprites/item/2_rubySheet.png");
         ItemPickeable item3 = new ItemPickeable("Herencia", "El safiro más preciado"
             + " del mundo, puede obtener la habilidad de cualquiera de sus gemas "
-            + "gemelas.", "Gema", 0, 0, "/src/Images/Sprites/item/3_saphSheet.png");
+            + "gemelas.", 0, 0, "/src/Images/Sprites/item/3_saphSheet.png");
         ItemPickeable item4 = new ItemPickeable("Polimorfismo", "El poder comportarse"
             + " de una manera dependiendo de su ambiente es la gran habilidad"
-            + " de esta esmeralda", "Gema", 0, 0, "/src/Images/Sprites/item/4_emeraldSheet.png");
+            + " de esta esmeralda", 0, 0, "/src/Images/Sprites/item/4_emeraldSheet.png");
     
         ArrayList<ItemPickeable> invent = new ArrayList<>();
         invent.add(item1);

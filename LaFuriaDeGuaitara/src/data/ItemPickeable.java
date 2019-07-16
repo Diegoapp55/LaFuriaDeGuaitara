@@ -15,15 +15,14 @@ import javax.swing.*;
 public class ItemPickeable {
     private String nombre;
     private String descripcion;
-    private String tipo;
     private double x;
     private double y;
+    boolean recogido = false;
     private ImageIcon im;
 
-    public ItemPickeable(String nombre, String descripcion, String tipo, double x, double y, String ruta) {
+    public ItemPickeable(String nombre, String descripcion, double x, double y, String ruta) {
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.tipo = tipo;
         this.x = x;
         this.y = y;
         //im = new ImageIcon(this.getClass().getResource(ruta));
@@ -45,15 +44,7 @@ public class ItemPickeable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
+    
     public double getX() {
         return x;
     }
@@ -78,7 +69,11 @@ public class ItemPickeable {
         this.im = im;
     }
     
-    public void insertarItem(double x, double y){
-        
+    public boolean spawn(){
+        if(recogido){
+            return false;
+        }else{
+            return true;
+        }
     }
 }

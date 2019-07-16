@@ -93,6 +93,7 @@ public class PanelCargarPartida extends javax.swing.JPanel {
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         Efectos e1 = new Efectos();
         e1.playClickCerrar();
+        Window.TEMA_MENU.stop();
         cargaPantallaInicio();
     }//GEN-LAST:event_btnVolverActionPerformed
 

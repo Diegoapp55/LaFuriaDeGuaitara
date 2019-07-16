@@ -5,8 +5,6 @@
  */
 package GUI2;
 
-import static GUI2.Window.cargaP1;
-import static GUI2.Window.cargaP2;
 import GUIsoundManagement.Efectos;
 import data.Inventario;
 import data.ItemPickeable;
@@ -17,6 +15,9 @@ import javax.swing.JLabel;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.event.ListSelectionListener;
 
 /**
@@ -24,7 +25,11 @@ import javax.swing.event.ListSelectionListener;
  * @author jdoli
  */
 public class PanelInventario extends javax.swing.JPanel{
-
+    Icon emerald = new ImageIcon(getClass().getResource("/Images/objetos/emerald.png"));
+    Icon ruby = new ImageIcon(getClass().getResource("/Images/objetos/ruby.png"));
+    Icon topaz = new ImageIcon(getClass().getResource("/Images/objetos/topaz.png"));
+    Icon sap = new ImageIcon(getClass().getResource("/Images/objetos/sap.png"));
+    
     private DefaultListModel modelo;
     private static ArrayList<ItemPickeable> inv = new ArrayList<>();
     
@@ -32,6 +37,7 @@ public class PanelInventario extends javax.swing.JPanel{
      * Creates new form PanelInventario
      */
     public PanelInventario() {
+        Window.TEMA_JUEGO.stop();
         initComponents();
         muestraInfo();
         //muestraClick();
@@ -46,11 +52,11 @@ public class PanelInventario extends javax.swing.JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblDescrip = new javax.swing.JLabel();
+        item = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         lstItems = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
+        mostrar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -58,9 +64,8 @@ public class PanelInventario extends javax.swing.JPanel{
         setMinimumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblDescrip.setFont(new java.awt.Font("Press Start 2P", 0, 12)); // NOI18N
-        lblDescrip.setText("jLabel1");
-        add(lblDescrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 150, 50));
+        item.setFont(new java.awt.Font("Press Start 2P", 0, 12)); // NOI18N
+        add(item, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 150, 50));
 
         jScrollPane1.setFont(new java.awt.Font("Press Start 2P", 0, 12)); // NOI18N
 
@@ -79,21 +84,21 @@ public class PanelInventario extends javax.swing.JPanel{
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 250, 150));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
+        volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                volverActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 150, 40));
+        add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 150, 40));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuMostrar.png"))); // NOI18N
+        mostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                mostrarActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 150, 40));
+        add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 150, 40));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackInventario.png"))); // NOI18N
         fondo.setText("jLabel1");
@@ -103,19 +108,25 @@ public class PanelInventario extends javax.swing.JPanel{
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
+        Efectos e2 = new Efectos();
+        e2.playItem();
         int posicion = lstItems.getSelectedIndex();
         lstItems.remove(posicion);
         
         muestraInfo();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_mostrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         Efectos e1 = new Efectos();
-
-        e1.playClickCerrar();
-        cargaRooms();
-    }//GEN-LAST:event_jButton1ActionPerformed
+         int value = JOptionPane.showConfirmDialog(this, "Volver al Juego",
+            "Volver", JOptionPane.DEFAULT_OPTION);
+        if(value == JOptionPane.OK_OPTION){
+            Window.TEMA_JUEGO.playGamePlay();
+            e1.playQuitarPausa();
+            cargarVolver();
+        }
+    }//GEN-LAST:event_volverActionPerformed
 
     private void lstItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstItemsMouseClicked
 
@@ -163,17 +174,28 @@ public class PanelInventario extends javax.swing.JPanel{
         PanelInventario.inv = inv;
     }
     
-
+     public void cargarVolver()
+    {
+        JPanel pcp = new JPanel();
+        pcp = PanelCrearPartida.partida.getPanelActual();
+        pcp.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pcp.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pcp);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+    }
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel item;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDescrip;
-    private javax.swing.JList<String> lstItems;
+    public static javax.swing.JList<String> lstItems;
+    private javax.swing.JButton mostrar;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 
     /*public int muestraDato()
@@ -188,11 +210,5 @@ public class PanelInventario extends javax.swing.JPanel{
         }
         return conta;
     }*/
-    
-    public void cargaRooms()
-    {
-        cargaP1().setVisible(true);
-        cargaP2().setVisible(true);
-    }
     
 }

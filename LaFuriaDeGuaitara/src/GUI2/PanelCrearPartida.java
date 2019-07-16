@@ -19,9 +19,8 @@ import javax.swing.JPanel;
  */
 public class PanelCrearPartida extends javax.swing.JPanel {
 
-    ArrayList<Partida> partidas = new ArrayList<>();
-    Partida partida = new Partida(0, null, null, null);
-    Jugador jugador = new Jugador(null, null);
+    public static Partida partida = new Partida(null, null);
+    public static Jugador jugador = new Jugador(null, null);
     /**
      * Creates new form panelCrearPartida
      */
@@ -96,8 +95,8 @@ public class PanelCrearPartida extends javax.swing.JPanel {
 
     private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
         Efectos e1 = new Efectos();
-        
         e1.playClickCerrar();
+        Window.TEMA_MENU.stop();
         cargaPantallaInicio();
     }//GEN-LAST:event_btVolverActionPerformed
 
@@ -121,7 +120,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
                 jugador.setGenero("Otro");
             }
             partida.setJugadorActual(jugador);
-            partidas.add(partida);
+            Window.partidaList.add(partida);
             
             cargaCinematica();
         } 
