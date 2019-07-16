@@ -5,9 +5,11 @@
  */
 package GUI2;
 
+import static GUI2.PanelIglesia.l;
 import GUIsoundManagement.Efectos;
 import data.Inventario;
 import data.ItemPickeable;
+import data.Jugador;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -15,28 +17,32 @@ import javax.swing.JLabel;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author jdoli
  */
-public class PanelInventario extends javax.swing.JPanel{
+public class PanelInventario extends javax.swing.JPanel implements KeyListener{
     Icon emerald = new ImageIcon(getClass().getResource("/Images/objetos/emerald.png"));
     Icon ruby = new ImageIcon(getClass().getResource("/Images/objetos/ruby.png"));
     Icon topaz = new ImageIcon(getClass().getResource("/Images/objetos/topaz.png"));
     Icon sap = new ImageIcon(getClass().getResource("/Images/objetos/sap.png"));
     
-    private DefaultListModel modelo;
+    private DefaultTableModel modelo;
     private static ArrayList<ItemPickeable> inv = new ArrayList<>();
     
     /**
      * Creates new form PanelInventario
      */
     public PanelInventario() {
+        inv = Jugador.inventario;
         Window.TEMA_JUEGO.stop();
         initComponents();
         muestraInfo();
@@ -52,37 +58,28 @@ public class PanelInventario extends javax.swing.JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        item = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lstItems = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblInv = new javax.swing.JTable();
         volver = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        item.setFont(new java.awt.Font("Press Start 2P", 0, 12)); // NOI18N
-        add(item, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 150, 50));
+        tblInv.setFont(new java.awt.Font("Press Start 2P", 0, 11)); // NOI18N
+        tblInv.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        jScrollPane1.setFont(new java.awt.Font("Press Start 2P", 0, 12)); // NOI18N
+            },
+            new String [] {
 
-        lstItems.setFont(new java.awt.Font("Press Start 2P", 0, 12)); // NOI18N
-        lstItems.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        lstItems.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lstItemsMouseClicked(evt);
             }
-        });
-        jScrollPane1.setViewportView(lstItems);
+        ));
+        jScrollPane2.setViewportView(tblInv);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 250, 150));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 420, 190));
 
         volver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuVolver.png"))); // NOI18N
         volver.addActionListener(new java.awt.event.ActionListener() {
@@ -98,23 +95,17 @@ public class PanelInventario extends javax.swing.JPanel{
                 mostrarActionPerformed(evt);
             }
         });
-        add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 150, 40));
+        add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 150, 40));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackInventario.png"))); // NOI18N
         fondo.setText("jLabel1");
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         Efectos e2 = new Efectos();
         e2.playItem();
-        int posicion = lstItems.getSelectedIndex();
-        lstItems.remove(posicion);
-        
-        muestraInfo();
+
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -124,14 +115,19 @@ public class PanelInventario extends javax.swing.JPanel{
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
+            PanelIglesia.l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
             cargarVolver();
         }
     }//GEN-LAST:event_volverActionPerformed
 
-    private void lstItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstItemsMouseClicked
-
-    }//GEN-LAST:event_lstItemsMouseClicked
-
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()){
+            case KeyEvent.VK_I :
+                cargarVolver();
+                break;
+        }
+    }
     
     public void cargaPantallaInicio()
     {
@@ -146,17 +142,35 @@ public class PanelInventario extends javax.swing.JPanel{
 
     }
     
+
+    
     public void muestraInfo()
     {
-        String registro = "";
+        /*for (int i = 0; i = tblInv.getColumnCount(); i++)
+        {
+            if (i == 0)
+            {
+                tblInv.set
+            }
+        }
+        column = tblInv.getColumnCount();
+        
+        
+        String[] titulo = {"", "", ""};
+        String[] registro = new String[2];
+        Icon[] icons = new Icon[1];
 
-        modelo = new DefaultListModel();
+ 
+        modelo = new DefaultTableModel(null, titulo);
         for (ItemPickeable item: inv)
         {
-            registro = item.getNombre();
-            modelo.add(0, registro);
+            //icons[0] = item.getIm();
+            registro[0] = item.getNombre();
+            registro[1] = item.getDescripcion();
+            //modelo.add
+            modelo.addRow(registro);
         }
-        lstItems.setModel(modelo);
+        tblInv.setModel(modelo);*/
     }
     
     /*public void muestraClick()
@@ -190,13 +204,19 @@ public class PanelInventario extends javax.swing.JPanel{
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel item;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    public static javax.swing.JList<String> lstItems;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton mostrar;
+    private javax.swing.JTable tblInv;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        }
 
     /*public int muestraDato()
     {

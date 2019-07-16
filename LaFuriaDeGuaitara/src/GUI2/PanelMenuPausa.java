@@ -126,6 +126,7 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
+            PanelIglesia.l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
             cargarVolver();
         }
         
@@ -139,6 +140,7 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
+            PanelIglesia.l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
             cargarVolver();
         }
     }//GEN-LAST:event_btVolverActionPerformed

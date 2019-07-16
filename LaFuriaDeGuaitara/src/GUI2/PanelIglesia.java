@@ -28,7 +28,7 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
     Efectos fx = new Efectos();
     
     int velocidad = 5;
-    ItemPickeable rubi = new ItemPickeable("Rubí", "Este rubí de sangre"
+    ItemPickeable rubi = new ItemPickeable("Encapsulita", "Este rubí de sangre"
             + " puede aislar a su portador del mundo real.", 0, 0, "/src/Images/Sprites/item/2_rubySheet.png");
     /**
      * Creates new form PanelJuego
@@ -54,27 +54,32 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
         rubiObj = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         l.setIcon(img);
-        add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+        l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
+        add(l);
+        l.setBounds(150, 270, 60, 60);
 
         door.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/door.png"))); // NOI18N
-        add(door, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 50, 90));
+        add(door);
+        door.setBounds(640, 250, 50, 90);
 
-        rubiObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/ruby.png"))); // NOI18N
+        rubiObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/ruby.gif"))); // NOI18N
         rubiObj.setToolTipText("");
-        add(rubiObj, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 110, -1, -1));
+        add(rubiObj);
+        rubiObj.setBounds(585, 110, 25, 25);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Mapas/iglesia.png"))); // NOI18N
-        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        add(background);
+        background.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JLabel door;
-    private javax.swing.JLabel l;
+    public static javax.swing.JLabel l;
     private javax.swing.JLabel rubiObj;
     // End of variables declaration//GEN-END:variables
 
@@ -131,18 +136,27 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
                 }
                 //
                 else if((l.getX() >= 539 && l.getX() <= 610) && (l.getY() >= 92 && l.getY() <= 135)){
+                    guardaPosX();
+                    guardaPosY();
+                    l.setLocation(guardaPosX(), guardaPosY());
                     rubiObj.setVisible(false);
+                    PanelCrearPartida.inventario.add(rubi);
+                    l.setLocation(guardaPosX(), guardaPosY());
                 }
                 break;
             
             
             case KeyEvent.VK_ESCAPE:
+                guardaPosX();
+                guardaPosY();
                 fx.playPausa();
                 cargarPausa();
                 break;
             
             
             case KeyEvent.VK_I:
+                guardaPosX();
+                guardaPosY();
                 fx.playPausa();
                 cargarInventario();
                 break;
@@ -190,6 +204,20 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener{
         Window.getJpanel().add(pm);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
+    }
+    
+    public static int guardaPosX()
+    {
+        int posX = 0;
+        posX = l.getX();
+        return posX;
+    }
+    
+    public static int guardaPosY()
+    {
+        int posY = 0;
+        posY = l.getY();
+        return posY;
     }
     
 }

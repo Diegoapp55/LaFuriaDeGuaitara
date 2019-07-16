@@ -46,19 +46,23 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
         door = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         l.setIcon(img);
-        add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 50, 50));
+        add(l);
+        l.setBounds(80, 260, 50, 50);
 
         Profe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sprites/Daniel_Salazar.gif"))); // NOI18N
-        add(Profe, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 60, 50));
+        add(Profe);
+        Profe.setBounds(370, 220, 60, 50);
 
         door.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/door.png"))); // NOI18N
-        add(door, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 50, 70));
+        add(door);
+        door.setBounds(700, 250, 50, 70);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Mapas/Pasillo.png"))); // NOI18N
-        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        add(background);
+        background.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -66,7 +70,7 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
     private javax.swing.JLabel Profe;
     private javax.swing.JLabel background;
     private javax.swing.JLabel door;
-    private javax.swing.JLabel l;
+    public static javax.swing.JLabel l;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -132,12 +136,16 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
             }
             
             case KeyEvent.VK_ESCAPE:{
+                guardaPosX();
+                guardaPosY();
                 fx.playPausa();
                 cargarPausa();
                 break;
             }
             
             case KeyEvent.VK_I:{
+                guardaPosX();
+                guardaPosY();
                 fx.playPausa();
                 cargarInventario();
                 break;
@@ -185,5 +193,19 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener{
         Window.getJpanel().add(pm);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
+    }
+    
+        public static int guardaPosX()
+    {
+        int posX = 0;
+        posX = l.getX();
+        return posX;
+    }
+    
+    public static int guardaPosY()
+    {
+        int posY = 0;
+        posY = l.getY();
+        return posY;
     }
 }

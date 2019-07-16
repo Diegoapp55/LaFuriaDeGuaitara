@@ -5,7 +5,9 @@
  */
 package GUI2;
 
+import static GUI2.PanelCrearPartida.jugador;
 import GUIsoundManagement.Efectos;
+import data.ItemPickeable;
 import data.Jugador;
 import data.Partida;
 import java.util.ArrayList;
@@ -21,10 +23,13 @@ public class PanelCrearPartida extends javax.swing.JPanel {
 
     public static Partida partida = new Partida(null, null);
     public static Jugador jugador = new Jugador(null, null);
+    public static ArrayList<ItemPickeable> inventario = new ArrayList<>();
+    
     /**
      * Creates new form panelCrearPartida
      */
     public PanelCrearPartida() {
+        jugador.inventario = inventario;
         initComponents();
         rbtUndefined.setSelected(true);
     }
