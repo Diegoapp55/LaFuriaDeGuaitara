@@ -54,6 +54,7 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener, Ser
         setLayout(null);
 
         PanelCrearPartida.l = l;
+        l.setVisible(true);
         l.setIcon(PanelCrearPartida.img);
         l.setPreferredSize(new java.awt.Dimension(50, 50));
         l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());
@@ -134,12 +135,13 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener, Ser
                     this.setVisible(false);
                     cargarPasillo();
                 }
-                //
+                //Item
                 else if((l.getX() >= 539 && l.getX() <= 610) && (l.getY() >= 92 && l.getY() <= 135)){
                     guardaPosX();
                     guardaPosY();
                     l.setLocation(guardaPosX(), guardaPosY());
                     rubiObj.setVisible(false);
+                    fx.playItem();
                     PanelCrearPartida.inventario.add(rubi);
                     l.setLocation(guardaPosX(), guardaPosY());
                 }

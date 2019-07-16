@@ -8,13 +8,14 @@ package GUI2;
 import GUI2.PanelInicio;
 import GUI2.Window;
 import GUIsoundManagement.Efectos;
+import data.Fuente;
 
 /**
  *
  * @author Diego
  */
 public class PanelTop5 extends javax.swing.JPanel {
-
+    Fuente tipo = new Fuente();
     /**
      * Creates new form PanelTop5
      */
@@ -52,8 +53,17 @@ public class PanelTop5 extends javax.swing.JPanel {
         });
         add(btVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 150, 40));
 
+        tblTop5.setFont(tipo.fuente(tipo.PressStart, 0, 11));
         tblTop5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -67,7 +77,7 @@ public class PanelTop5 extends javax.swing.JPanel {
                 java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -80,9 +90,10 @@ public class PanelTop5 extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblTop5);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, 200));
 
-        temp1.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
+        temp1.setFont(tipo.fuente(tipo.PressStart, 0, 35)
+        );
         temp1.setForeground(new java.awt.Color(255, 204, 0));
         temp1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         temp1.setText("Mejores Puntajes");

@@ -26,6 +26,7 @@ public class Window extends javax.swing.JFrame {
     public static final Pistas TEMA_CINE = new Pistas();
     public static final Pistas TEMA_JUEGO = new Pistas();
     
+    public static long time;
     /**
      * Creates new form Window
      */

@@ -8,6 +8,7 @@ package GUI2;
 import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
 import data.Archivo;
+import data.Fuente;
 import data.Jugador;
 import data.Mapa;
 import data.Partida;
@@ -26,11 +27,12 @@ import javax.swing.table.DefaultTableModel;
 public class PanelCargarPartida extends javax.swing.JPanel {
 
     private DefaultTableModel modelo; 
+    Fuente tipo = new Fuente();
     
     public PanelCargarPartida() {
         initComponents();
-        mostrar();
-
+        //mostrar();
+        cargarDatos();
     }
 
     @SuppressWarnings("unchecked")
@@ -92,7 +94,7 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         
             cargaJuego(partIn);
         } catch (Exception e) {
-            
+            System.out.println("Fallo al cargar");
         }
         
     }//GEN-LAST:event_btnCargarActionPerformed
@@ -146,6 +148,24 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         
             for(Partida f: Window.partidaList){
                 registro[0] = f.getJugadorActual().getNombre();
+                /*Se añade al modelo*/
+                modelo.addRow(registro);
+                } 
+            tblCarga.setModel(modelo);
+        }
+    
+    private void cargarDatos()
+    {
+        String[] titulos = {"Nombre","Género"};
+        String[] registro = new String[2];
+        
+        modelo = new DefaultTableModel(null, titulos);
+        
+       System.out.println("size " + Window.partidaList.size());
+            for(Partida p: Window.partidaList){
+                //System.out.println("size " + Window.partidaList.size());
+                registro[0] = p.getJugadorActual().getNombre();
+                registro[1] = p.getJugadorActual().getGenero();
                 /*Se añade al modelo*/
                 modelo.addRow(registro);
                 } 

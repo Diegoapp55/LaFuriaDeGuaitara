@@ -37,6 +37,7 @@ public class PanelTutorial extends javax.swing.JPanel {
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
         Window.TEMA_CINE.stop();
         Window.TEMA_JUEGO.playGamePlay();
+        Window.time = System.currentTimeMillis();
         PantallaJuego pj =  new PantallaJuego();
         pj.setVisible(true);
         pj.dispose();

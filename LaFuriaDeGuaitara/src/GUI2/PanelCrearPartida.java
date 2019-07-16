@@ -59,6 +59,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         l.setIcon(img);
+        l.setVisible(false);
         add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 60, 60));
 
         txtNombre.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
@@ -116,6 +117,10 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         if(txtNombre.getText().equals("Nombre") || txtNombre.getText().isEmpty()){
             e1.playSalir();
             JOptionPane.showConfirmDialog(this, "Nombre demasiado corto" , "Error", 
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+        }else if(txtNombre.getText().length() > 10){
+            e1.playSalir();
+            JOptionPane.showConfirmDialog(this, "Por favor ingresa un nombre de\n       10 caracteres o menos" , "Error", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
         }else{
             Window.TEMA_MENU.stop();

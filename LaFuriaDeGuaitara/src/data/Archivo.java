@@ -26,14 +26,11 @@ public class Archivo {
             
             ObjectInputStream ois = new ObjectInputStream(fis);
             
-            for (int i = 0; i < ois.available(); i++)
-            {
-                Partida partidaLoad = new Partida();
-                partidaLoad = (Partida) ois.readObject();
-                partidasLoad.add(partidaLoad);
-            }
+            Object input = ois.readObject();
+            partidasLoad = (ArrayList<Partida>) input;
             
             ois.close();
+            Window.partidaList = partidasLoad;
             return partidasLoad;
 
         } catch (Exception e) {
@@ -49,7 +46,10 @@ public class Archivo {
             
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             
-            oos.writeObject(Window.partidaList);
+            for (Partida partAux: Window.partidaList)
+            {
+                oos.writeObject(partAux);
+            }
             
             oos.close();
         } catch (Exception e) {

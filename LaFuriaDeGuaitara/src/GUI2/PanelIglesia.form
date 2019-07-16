@@ -28,7 +28,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="PanelCrearPartida.l = l;"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="PanelCrearPartida.l = l;&#xa;l.setVisible(true);"/>
         <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="l.setLocation(PanelIglesia.guardaPosX(), PanelIglesia.guardaPosY());"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>

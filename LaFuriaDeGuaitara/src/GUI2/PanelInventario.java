@@ -10,6 +10,7 @@ import GUIsoundManagement.Efectos;
 import data.Inventario;
 import data.ItemPickeable;
 import data.Jugador;
+import data.Partida;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -217,6 +218,22 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
 
     @Override
     public void keyReleased(KeyEvent e) {
+        }
+    
+    private void cargarDatos()
+    {
+        String[] titulos = {"Nombre","Descripción"};
+        String[] registro = new String[2];
+        
+        modelo = new DefaultTableModel(null, titulos);
+        
+            for(ItemPickeable ip: PanelCrearPartida.inventario){
+                registro[0] = ip.getNombre();
+                registro[1] = ip.getDescripcion();
+                /*Se añade al modelo*/
+                modelo.addRow(registro);
+                } 
+            tblInv.setModel(modelo);
         }
 
     /*public int muestraDato()

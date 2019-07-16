@@ -57,7 +57,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="210" width="-1" height="100"/>
+          <AbsoluteConstraints x="180" y="210" width="-1" height="200"/>
         </Constraint>
       </Constraints>
 
@@ -65,10 +65,13 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tblTop5">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="tipo.fuente(tipo.PressStart, 0, 11)" type="code"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
+              <Table columnCount="3" rowCount="12">
                 <Column editable="false" title="Nombre" type="java.lang.String"/>
-                <Column editable="true" title="Tiempo Obtenido" type="java.lang.Integer"/>
+                <Column editable="false" title="Tiempo Obtenido" type="java.lang.Integer"/>
                 <Column editable="false" title="Items" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -100,8 +103,8 @@
     </Container>
     <Component class="javax.swing.JLabel" name="temp1">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Consolas" size="48" style="1"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="tipo.fuente(tipo.PressStart, 0, 35)&#xd;&#xa;" type="code"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="cc" red="ff" type="rgb"/>

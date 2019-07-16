@@ -6,18 +6,37 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
+import data.Fuente;
+import java.awt.Image;
+import java.util.Random;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
  * @author HP
  */
 public class PanelScore extends javax.swing.JPanel {
-
+    Icon img = new ImageIcon(getClass().getResource("/Images/" + 
+        PanelCrearPartida.jugador.getGenero() + "Head.png"));
+    Fuente tipo = new Fuente();
+   
+    long tiempo = PanelCrearPartida.jugador.getTiempo();
+    String tiempoTotal = tiempo + "s";
+    
     /**
      * Creates new form PanelScore
      */
     public PanelScore() {
         initComponents();
+        
+        /*ImageIcon crono = new ImageIcon(this.getClass().getResource("/Images/clock.png"));
+        crono = new ImageIcon(crono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
+        JLabel cronometro = new JLabel(crono);
+        cronometro.setLocation(150,430);
+        add(cronometro);*/
+        
     }
 
     /**
@@ -29,30 +48,75 @@ public class PanelScore extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        continuar = new javax.swing.JButton();
+        btnContinuar = new javax.swing.JButton();
+        lbPlayerFace = new javax.swing.JLabel();
+        lbPartidaActual = new javax.swing.JLabel();
+        lblCronometer = new javax.swing.JLabel();
+        lblTiempo = new javax.swing.JLabel();
+        lblEncabezadoBonus = new javax.swing.JLabel();
+        lblEjemploObjetos3 = new javax.swing.JLabel();
+        lblEjemploObjetos1 = new javax.swing.JLabel();
+        lblEjemploObjetos2 = new javax.swing.JLabel();
+        lblEjemploObjetos4 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        continuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btcontinuarr.png"))); // NOI18N
-        continuar.addActionListener(new java.awt.event.ActionListener() {
+        btnContinuar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btcontinuarr.png"))); // NOI18N
+        btnContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                continuarActionPerformed(evt);
+                btnContinuarActionPerformed(evt);
             }
         });
-        add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, 150, 40));
+        add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, 150, 40));
+
+        lbPlayerFace.setIcon(img);
+        add(lbPlayerFace, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+
+        lbPartidaActual.setFont(tipo.fuente(tipo.PressStart, 0, 25));
+        lbPartidaActual.setForeground(new java.awt.Color(255, 204, 0));
+        lbPartidaActual.setText(PanelCrearPartida.partida.getJugadorActual().getNombre());
+        lbPartidaActual.setToolTipText("");
+        add(lbPartidaActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 290, 50));
+
+        lblCronometer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/clock.png"))); // NOI18N
+        lblCronometer.setToolTipText("");
+        add(lblCronometer, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 100, 100));
+
+        lblTiempo.setFont(tipo.fuente(tipo.PressStart, 0, 35));
+        lblTiempo.setForeground(new java.awt.Color(255, 204, 0));
+        lblTiempo.setText(tiempoTotal);
+        add(lblTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 180, 80));
+
+        lblEncabezadoBonus.setFont(tipo.fuente(tipo.PressStart, 0, 35));
+        lblEncabezadoBonus.setForeground(new java.awt.Color(255, 204, 0));
+        lblEncabezadoBonus.setText("Bonus:");
+        add(lblEncabezadoBonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, 60));
+
+        lblEjemploObjetos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/topaz.png"))); // NOI18N
+        add(lblEjemploObjetos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
+
+        lblEjemploObjetos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/ruby.png"))); // NOI18N
+        add(lblEjemploObjetos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+
+        lblEjemploObjetos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/emerald.png"))); // NOI18N
+        add(lblEjemploObjetos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
+
+        lblEjemploObjetos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/sap.png"))); // NOI18N
+        add(lblEjemploObjetos4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Puntaje.png"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
+    private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
         Window.TEMA_JUEGO.stop();
         Efectos fx = new Efectos();
         fx.playClickPositivo();
         cargarInicio();
-    }//GEN-LAST:event_continuarActionPerformed
+    }//GEN-LAST:event_btnContinuarActionPerformed
 
     public void cargarInicio(){
         PanelInicio pj = new PanelInicio();
@@ -66,7 +130,16 @@ public class PanelScore extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton continuar;
+    private javax.swing.JButton btnContinuar;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel lbPartidaActual;
+    private javax.swing.JLabel lbPlayerFace;
+    private javax.swing.JLabel lblCronometer;
+    private javax.swing.JLabel lblEjemploObjetos1;
+    private javax.swing.JLabel lblEjemploObjetos2;
+    private javax.swing.JLabel lblEjemploObjetos3;
+    private javax.swing.JLabel lblEjemploObjetos4;
+    private javax.swing.JLabel lblEncabezadoBonus;
+    private javax.swing.JLabel lblTiempo;
     // End of variables declaration//GEN-END:variables
 }

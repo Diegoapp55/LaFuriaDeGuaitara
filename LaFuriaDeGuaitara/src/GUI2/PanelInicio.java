@@ -39,6 +39,7 @@ public class PanelInicio extends javax.swing.JPanel {
         btSalir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

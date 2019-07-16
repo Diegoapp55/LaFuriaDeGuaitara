@@ -12,12 +12,13 @@ import GUIsoundManagement.Efectos;
  * @author HP
  */
 public class PanelPerder extends javax.swing.JPanel {
-    
+    long tiempo = System.currentTimeMillis()/1000 - Window.time/1000;
     /**
      * Creates new form panelPerder
      */
     public PanelPerder() {
         initComponents();
+        PanelCrearPartida.jugador.setTiempo(tiempo);
     }
 
     /**
