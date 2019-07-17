@@ -36,7 +36,7 @@ public class Window extends javax.swing.JFrame {
                                          a ese nuevo panel para que se ponga
                                          la cancion de inicio aca y al pulsar
                                          ENTER se detenga y llame a PanelInicio*/
-        partidaList = Archivo.leer();
+        //partidaList = Archivo.leer();
         
         initComponents();
         setTitle("La Furia de Guáitara");

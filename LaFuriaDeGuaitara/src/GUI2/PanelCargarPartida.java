@@ -6,6 +6,7 @@
 package GUI2;
 
 import GUI.PantallaJuego;
+import static GUI2.Window.jMain;
 import GUIsoundManagement.Efectos;
 import data.Archivo;
 import data.Fuente;
@@ -26,13 +27,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PanelCargarPartida extends javax.swing.JPanel {
 
+    public static ArrayList<Partida> partidasCargaList1;
+    public static ArrayList<Partida> partidasCargaList2;
+    public static ArrayList<Partida> partidasCargaList3;
     private DefaultTableModel modelo; 
     Fuente tipo = new Fuente();
     
     public PanelCargarPartida() {
+        
         initComponents();
-        //mostrar();
-        cargarDatos();
+        mostrar();
+        //cargarDatos();
     }
 
     @SuppressWarnings("unchecked")
@@ -90,7 +95,7 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         
             Partida partIn = new Partida();
             posicion = tblCarga.getSelectedRow();
-            partIn = Archivo.leer().get(posicion);
+            partIn = partidasCargaList1.get(posicion);
         
             cargaJuego(partIn);
         } catch (Exception e) {
@@ -136,25 +141,44 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
     public void cargaJuego(Partida in)
     {
-        in.getPanelActual().setVisible(true);
+        PanelInicio pi = (PanelInicio) in.getPanelActual();
+        pi.setSize(jMain.getWidth(), jMain.getHeight());
+        pi.setLocation(0,0);
+        
+        jMain.removeAll();
+        jMain.add(pi);
+        jMain.revalidate();
+        jMain.repaint();
+        
+        pi.setVisible(true);
     }
     
     private void mostrar()
     {
+        //partidasCargaList1 = Archivo.getInputPartidas();
+        //partidasCargaList2 = Archivo.getInputPartidas();
+        //partidasCargaList3 = Archivo.getInputPartidas();
+        
         String[] titulos = {"Nombre de Partida"};
         String[] registro = new String[1];
         
         modelo = new DefaultTableModel(null, titulos);
         
+        System.out.println(Window.partidaList);
+        System.out.println(partidasCargaList1);
+        System.out.println(Archivo.inputPartidas);
+        System.out.println(Archivo.getInputPartidas());
+        System.out.println(Archivo.leer());
+        
             for(Partida f: Window.partidaList){
                 registro[0] = f.getJugadorActual().getNombre();
-                /*Se añade al modelo*/
+                //Se añade al modelo
                 modelo.addRow(registro);
-                } 
+                }
             tblCarga.setModel(modelo);
         }
     
-    private void cargarDatos()
+    /*private void cargarDatos()
     {
         String[] titulos = {"Nombre","Género"};
         String[] registro = new String[2];
@@ -166,9 +190,9 @@ public class PanelCargarPartida extends javax.swing.JPanel {
                 //System.out.println("size " + Window.partidaList.size());
                 registro[0] = p.getJugadorActual().getNombre();
                 registro[1] = p.getJugadorActual().getGenero();
-                /*Se añade al modelo*/
+                /*Se añade al modelo
                 modelo.addRow(registro);
                 } 
             tblCarga.setModel(modelo);
-        }
+        }*/
     }

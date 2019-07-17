@@ -5,6 +5,7 @@
  */
 package data;
 
+import GUI2.PanelCargarPartida;
 import GUI2.Window;
 import java.io.*;
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ import java.util.ArrayList;
  * @author Diego
  */
 public class Archivo {
+    public static ArrayList<Partida> inputPartidas;
     
-    
-    public static FileOutputStream fos = null;
-    public static FileInputStream fis = null;
+    public static FileOutputStream fos;
+    public static FileInputStream fis;
     
     public static ArrayList<Partida> leer(){
         ArrayList<Partida> partidasLoad = new ArrayList<>();
@@ -30,8 +31,9 @@ public class Archivo {
             partidasLoad = (ArrayList<Partida>) input;
             
             ois.close();
+            
+            inputPartidas = partidasLoad;
             Window.partidaList = partidasLoad;
-            return partidasLoad;
 
         } catch (Exception e) {
             
@@ -56,4 +58,13 @@ public class Archivo {
             
         } 
     }
+
+    public static ArrayList<Partida> getInputPartidas() {
+        return inputPartidas;
+    }
+
+    public static void setInputPartidas(ArrayList<Partida> inputPartidas) {
+        Archivo.inputPartidas = inputPartidas;
+    }
+    
 }
