@@ -5,10 +5,15 @@
  */
 package GUI2;
 
+import static GUI2.PanelCrearPartida.jugador;
 import GUIsoundManagement.Efectos;
+import data.ItemPickeable;
 import data.Jugador;
 import data.Partida;
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,15 +22,20 @@ import javax.swing.JPanel;
  *
  * @author HP
  */
-public class PanelCrearPartida extends javax.swing.JPanel {
 
-    ArrayList<Partida> partidas = new ArrayList<>();
-    Partida partida = new Partida(0, null, null, null);
+
+public class PanelCrearPartida extends javax.swing.JPanel implements Serializable{
+    public static Icon img;
+    public static Partida partida = new Partida(null, null);
     public static Jugador jugador = new Jugador(null, null);
+    public static ArrayList<ItemPickeable> inventario = new ArrayList<>();
+    
+
     /**
      * Creates new form panelCrearPartida
      */
     public PanelCrearPartida() {
+        jugador.inventario = inventario;
         initComponents();
         rbtUndefined.setSelected(true);
     }
@@ -40,6 +50,7 @@ public class PanelCrearPartida extends javax.swing.JPanel {
     private void initComponents() {
 
         btgGrupo1 = new javax.swing.ButtonGroup();
+        l = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         rbtFemale = new javax.swing.JRadioButton();
         rbtMale = new javax.swing.JRadioButton();
@@ -51,12 +62,22 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        l.setIcon(img);
+        l.setVisible(false);
+        add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, 60, 60));
+
         txtNombre.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(153, 153, 153));
         txtNombre.setText("Nombre");
         txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtNombreMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNombreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtNombreMouseExited(evt);
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 370, 30));
@@ -107,6 +128,10 @@ public class PanelCrearPartida extends javax.swing.JPanel {
             e1.playSalir();
             JOptionPane.showConfirmDialog(this, "Nombre demasiado corto" , "Error", 
                     JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+        }else if(txtNombre.getText().length() > 10){
+            e1.playSalir();
+            JOptionPane.showConfirmDialog(this, "Por favor ingresa un nombre de\n       10 caracteres o menos" , "Error", 
+                    JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
         }else{
             Window.TEMA_MENU.stop();
             e1.playClickPositivo();
@@ -121,8 +146,9 @@ public class PanelCrearPartida extends javax.swing.JPanel {
                 jugador.setGenero("Otro");
             }
             partida.setJugadorActual(jugador);
-            partidas.add(partida);
-            
+            Window.partidaList.add(partida);
+            img = new ImageIcon(getClass().getResource("/Images/sprites/" + 
+            jugador.getGenero() + ".gif"));
             cargaCinematica();
         } 
     }//GEN-LAST:event_btContinuarActionPerformed
@@ -131,12 +157,22 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         txtNombre.setText("");
     }//GEN-LAST:event_txtNombreMouseClicked
 
+    private void txtNombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseEntered
+        // TODO add your handling code here:
+        txtNombre.setText("");
+    }//GEN-LAST:event_txtNombreMouseEntered
+
+    private void txtNombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseExited
+
+    }//GEN-LAST:event_txtNombreMouseExited
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btContinuar;
     private javax.swing.JButton btVolver;
     private javax.swing.ButtonGroup btgGrupo1;
     private javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel l;
     private javax.swing.JRadioButton rbtFemale;
     private javax.swing.JRadioButton rbtMale;
     private javax.swing.JRadioButton rbtUndefined;
@@ -166,6 +202,19 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         Window.getJpanel().add(pcp);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
-
+    }
+    
+    public static int guardaPosX()
+    {
+        int posX = 0;
+        posX = l.getX();
+        return posX;
+    }
+    
+    public static int guardaPosY()
+    {
+        int posY = 0;
+        posY = l.getY();
+        return posY;
     }
 }

@@ -37,6 +37,7 @@ public class PanelTutorial extends javax.swing.JPanel {
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
         Window.TEMA_CINE.stop();
         Window.TEMA_JUEGO.playGamePlay();
+        Window.time = System.currentTimeMillis();
         PantallaJuego pj =  new PantallaJuego();
         pj.setVisible(true);
         pj.dispose();
@@ -52,7 +53,7 @@ public class PanelTutorial extends javax.swing.JPanel {
     
     public void cargaJuego()
     {
-        PanelJuego pj = new PanelJuego();
+        PanelIglesia pj = new PanelIglesia();
         pj.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
         pj.setLocation(0,0);
         

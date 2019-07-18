@@ -16,20 +16,8 @@ public class Efectos extends Sonido{
     public void playClickCerrar(){
         playNoLoop(".\\build\\classes\\soundFiles\\cerrarCancelar.wav");
     }
-    public void playDialogoCura(){
-        playNoLoop(".\\build\\classes\\soundFiles\\dialogoCura.wav");
-    }
-    public void playDialogoProta(){
-        playNoLoop(".\\build\\classes\\soundFiles\\dialogoProtagonista.wav");
-    }
-    public void playDialogoSecu(){
-        playNoLoop(".\\build\\classes\\soundFiles\\dialogoSecundario.wav");
-    }
-    public void playTexto(){
-        playNoLoop(".\\build\\classes\\soundFiles\\lecturaTexto.wav");
-    }
     public void playItem(){
-        playNoLoop(".\\build\\classes\\soundFiles\\recogerItem.wav");
+        playNoLoop(".\\build\\classes\\soundFiles\\recorgerItem.wav");
     }
     public void playItemEspecial(){
         playNoLoop(".\\build\\classes\\soundFiles\\itemEspecial.wav");

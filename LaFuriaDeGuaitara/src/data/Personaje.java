@@ -5,11 +5,13 @@
  */
 package data;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Diego
  */
-public abstract class Personaje{
+public abstract class Personaje implements Serializable{
     private String nombre;
     private String genero;
 

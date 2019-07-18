@@ -19,6 +19,7 @@ public class PanelMenuOpciones extends javax.swing.JPanel {
      * Creates new form PanelMenuJuego2
      */
     public PanelMenuOpciones() {
+        Window.TEMA_PRINCIPAL.stop();
         initComponents();
     }
 
@@ -90,6 +91,7 @@ public class PanelMenuOpciones extends javax.swing.JPanel {
             "Guardar", JOptionPane.DEFAULT_OPTION);
         if(value == JOptionPane.OK_OPTION){
             e1.playClickCerrar();
+            Window.TEMA_MENU.stop();
             cargaPantallaInicio();
         }
     }//GEN-LAST:event_btGuardarActionPerformed

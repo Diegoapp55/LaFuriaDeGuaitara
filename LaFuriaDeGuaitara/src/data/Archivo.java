@@ -5,31 +5,65 @@
  */
 package data;
 
+import GUI2.PanelCargarPartida;
+import GUI2.Window;
 import java.io.*;
 import java.util.ArrayList;
 /**
  *
  * @author Diego
  */
-public class Archivo {
-    private static File f1;
-    private static FileWriter fw;
-    private static BufferedWriter bw;
-    private static PrintWriter pw;
-    private FileReader fr;
-    private BufferedReader br;
+public class Archivo implements Serializable{
+    public static ArrayList<Partida> inputPartidas;
     
-    public void leer(String nombreArchivo){
-        
+    public static FileOutputStream fos;
+    public static FileInputStream fis;
+    
+    public static ArrayList<Partida> leer(){
+        ArrayList<Partida> partidasLoad = new ArrayList<>();
+        try {
+            fis = new FileInputStream("./src/partidas/Partidas.obj");
+            
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            
+            Object input = ois.readObject();
+            partidasLoad = (ArrayList<Partida>) input;
+            
+            ois.close();
+            
+            inputPartidas = partidasLoad;
+            Window.partidaList = partidasLoad;
+
+        } catch (Exception e) {
+            
+        }
+        return partidasLoad;
     }
     
-    public void escribir(String nombreArchivo, ArrayList<Jugador> topPartidas){
+    public static void escribir(){
         
+        try {
+            fos = new FileOutputStream("./src/partidas/Partidas.obj");
+            
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            
+            for (Partida partAux: inputPartidas)
+            {
+                oos.writeObject(partAux);
+            }
+            
+            oos.close();
+        } catch (Exception e) {
+
+        } 
+    }
+
+    public static ArrayList<Partida> getInputPartidas() {
+        return inputPartidas;
+    }
+
+    public static void setInputPartidas(ArrayList<Partida> inputPartidas) {
+        Archivo.inputPartidas = inputPartidas;
     }
     
-    public ArrayList<Partida> importar(String nombreArchivo){
-        ArrayList<Partida> partidas = new ArrayList<>();
-        
-        return partidas;
-    }
 }

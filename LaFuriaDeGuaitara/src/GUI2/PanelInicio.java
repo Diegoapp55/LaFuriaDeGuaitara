@@ -7,19 +7,22 @@ package GUI2;
 
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author HP
  */
-public class PanelInicio extends javax.swing.JPanel {
+
+public class PanelInicio extends javax.swing.JPanel implements Serializable{
     /**
      * Creates new form panelInicio
      */
     public PanelInicio() {
         //TEMA_MENU.playMenuTheme();
-        initComponents();
+        initComponents(); 
+
         Window.TEMA_PRINCIPAL.playMainTheme();
     }
 
@@ -32,14 +35,27 @@ public class PanelInicio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnTop5 = new javax.swing.JButton();
         btNuevaPartida = new javax.swing.JButton();
         btCargarPartida = new javax.swing.JButton();
         btMenuOpciones = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 0, 0));
         setMaximumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnTop5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btCopa.png"))); // NOI18N
+        btnTop5.setMaximumSize(new java.awt.Dimension(60, 60));
+        btnTop5.setMinimumSize(new java.awt.Dimension(60, 60));
+        btnTop5.setPreferredSize(new java.awt.Dimension(60, 60));
+        btnTop5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTop5ActionPerformed(evt);
+            }
+        });
+        add(btnTop5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, 60, 60));
 
         btNuevaPartida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btNuevaPartida.png"))); // NOI18N
         btNuevaPartida.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +131,14 @@ public class PanelInicio extends javax.swing.JPanel {
         cargaMenuOp();
     }//GEN-LAST:event_btMenuOpcionesActionPerformed
 
+    private void btnTop5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTop5ActionPerformed
+        Efectos e1 = new Efectos();
+        e1.playClickPositivo();
+        Window.TEMA_PRINCIPAL.stop();
+        Window.TEMA_MENU.playMenuTheme();
+        cargaTop5();
+    }//GEN-LAST:event_btnTop5ActionPerformed
+
     public void cargaCreaPartida()
     {
         PanelCrearPartida pcp = new PanelCrearPartida();
@@ -150,11 +174,23 @@ public class PanelInicio extends javax.swing.JPanel {
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
     }
+    
+    public void cargaTop5() {
+        PanelTop5 pt5 = new PanelTop5();
+        pt5.setSize(Window.getJpanel().getWidth(), Window.getJpanel().getHeight());
+        pt5.setLocation(0,0);
+        
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pt5);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btCargarPartida;
     private javax.swing.JButton btMenuOpciones;
     private javax.swing.JButton btNuevaPartida;
     private javax.swing.JButton btSalir;
+    private javax.swing.JButton btnTop5;
     // End of variables declaration//GEN-END:variables
 }

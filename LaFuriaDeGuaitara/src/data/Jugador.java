@@ -5,6 +5,8 @@
  */
 package data;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -12,17 +14,38 @@ import javax.swing.JLabel;
  *
  * @author Diego
  */
-public class Jugador extends Personaje{
+public class Jugador extends Personaje implements Serializable{
     //private Inventario inventario;
     //public ImageIcon sprite = getPersonaje(this.getGenero());
     //public JLabel spriteLabel = new JLabel(sprite);
+
+    private long tiempo;
+    public static ArrayList<ItemPickeable> inventario = new ArrayList<>();
+
     
     public Jugador(String nombre, String genero) {
         super(nombre, genero);
         //spriteLabel.setSize(25, 25);
         //this.inventario = inventario;
     }
-    
+
+
+    public long getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(long tiempo) {
+        this.tiempo = tiempo;
+    }
+
+    public static ArrayList<ItemPickeable> getInventario() {
+        return inventario;
+    }
+
+    public static void setInventario(ArrayList<ItemPickeable> inventario) {
+        Jugador.inventario = inventario;
+    }
+
    /* public ImageIcon getPersonaje(String genero)
     {
         ImageIcon s;

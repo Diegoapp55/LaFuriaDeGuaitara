@@ -35,4 +35,10 @@ public class Pistas extends Sonido{
     public void playWind(){
         play(".\\build\\classes\\soundFiles\\wind.wav");
     }
+    public void playRio(){
+        playNoLoop(".\\build\\classes\\soundFiles\\rio.wav");
+    }
+    public void playVoces(){
+        play(".\\build\\classes\\soundFiles\\voces.wav");
+    }
 }

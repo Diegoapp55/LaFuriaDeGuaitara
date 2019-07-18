@@ -5,11 +5,13 @@
  */
 package GUI2;
 
-import Rooms.PanelJuegoV2;
-import Rooms.PanelJuego;
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
-import data.Teclado;
+import data.Archivo;
+import data.Jugador;
+import data.Partida;
+import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,12 +20,14 @@ import javax.swing.JPanel;
  *
  * @author jdoli
  */
-public class Window extends javax.swing.JFrame {
+public class Window extends javax.swing.JFrame implements Serializable{
+    public static ArrayList<Partida> partidaList = new ArrayList<>();
     public static final Pistas TEMA_PRINCIPAL = new Pistas();
     public static final Pistas TEMA_MENU = new Pistas();
     public static final Pistas TEMA_CINE = new Pistas();
     public static final Pistas TEMA_JUEGO = new Pistas();
-    
+   
+    public static long time;
     /**
      * Creates new form Window
      */
@@ -33,12 +37,13 @@ public class Window extends javax.swing.JFrame {
                                          a ese nuevo panel para que se ponga
                                          la cancion de inicio aca y al pulsar
                                          ENTER se detenga y llame a PanelInicio*/
+        //partidaList = Archivo.leer();
+        
         initComponents();
         setTitle("La Furia de Guáitara");
         setLocationRelativeTo(null);
         setResizable(false);
         setIconImage(new ImageIcon(getClass().getResource("/Images/LFDGlogo.png")).getImage());
-        cargaRooms();
         cargaInicio();
     }
 
@@ -157,33 +162,6 @@ public class Window extends javax.swing.JFrame {
         pi.setVisible(true);
     }
     
-    public static JPanel cargaP1()
-    {
-        PanelJuegoV2 pj = new PanelJuegoV2();
-        pj.setSize(jMain.getWidth(), jMain.getHeight());
-        pj.setLocation(0,0);
-        
-        jMain.removeAll();
-        jMain.add(pj);
-        jMain.revalidate();
-        jMain.repaint();
-        
-        return pj;
-    }
-    public static JPanel cargaP2()
-    {
-        PanelJuego pj = new PanelJuego();
-        pj.setSize(jMain.getWidth(), jMain.getHeight());
-        pj.setLocation(0,0);
-        
-        jMain.removeAll();
-        jMain.add(pj);
-        jMain.revalidate();
-        jMain.repaint();
-        
-        return pj;
-    }
-    
     public static JPanel getJpanel()
     {
         return jMain;
@@ -192,12 +170,5 @@ public class Window extends javax.swing.JFrame {
     public static javax.swing.JPanel jMain;
     // End of variables declaration//GEN-END:variables
 
-    public void cargaRooms()
-    {
-        cargaP1();
-        cargaP1().setVisible(false);
-        cargaP2();
-        cargaP2().setVisible(false);
-    }
 
 }
