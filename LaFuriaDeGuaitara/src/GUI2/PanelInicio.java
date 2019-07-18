@@ -7,13 +7,14 @@ package GUI2;
 
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author HP
  */
-public class PanelInicio extends javax.swing.JPanel {
+public class PanelInicio extends javax.swing.JPanel implements Serializable{
     /**
      * Creates new form panelInicio
      */

@@ -24,12 +24,14 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener, Ser
     Efectos fx = new Efectos();
     
     int velocidad = 5;
-    ItemPickeable rubi = new ItemPickeable("Encapsulita", "Este rubí de sangre"
+    public static ItemPickeable rubi = new ItemPickeable("Encapsulita", "Este rubí de sangre"
             + " puede aislar a su portador del mundo real.", 0, 0, "/src/Images/Sprites/item/2_rubySheet.png");
     /**
      * Creates new form PanelJuego
      */
     public PanelIglesia() {
+        Window.TEMA_JUEGO.stop();
+        Window.TEMA_JUEGO.playGamePlay();
         img = PanelCrearPartida.img;
         initComponents();
         PanelCrearPartida.partida.setPanelActual(this);
@@ -128,6 +130,7 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener, Ser
             case KeyEvent.VK_SPACE:
                 //Puerta
                 if((l.getX() >= 608 && l.getX() <= 650) && (l.getY() >= 260 && l.getY() <= 322)){
+                    //Window.TEMA_JUEGO.stop();
                     fx.playPuerta();
                     PantallaJuego pj =  new PantallaJuego();
                     pj.setVisible(true);
@@ -136,7 +139,8 @@ public class PanelIglesia extends javax.swing.JPanel implements KeyListener, Ser
                     cargarPasillo();
                 }
                 //Item
-                else if((l.getX() >= 539 && l.getX() <= 610) && (l.getY() >= 92 && l.getY() <= 135)){
+                if((l.getX() >= 539 && l.getX() <= 610) && (l.getY() >= 92 && l.getY() <= 135)){
+                    rubi.setRecogido(true);
                     guardaPosX();
                     guardaPosY();
                     l.setLocation(guardaPosX(), guardaPosY());

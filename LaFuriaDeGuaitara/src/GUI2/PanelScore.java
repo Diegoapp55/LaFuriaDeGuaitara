@@ -8,6 +8,7 @@ package GUI2;
 import GUIsoundManagement.Efectos;
 import data.Fuente;
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -17,7 +18,7 @@ import javax.swing.JLabel;
  *
  * @author HP
  */
-public class PanelScore extends javax.swing.JPanel {
+public class PanelScore extends javax.swing.JPanel implements Serializable{
     Icon img = new ImageIcon(getClass().getResource("/Images/" + 
         PanelCrearPartida.jugador.getGenero() + "Head.png"));
     Fuente tipo = new Fuente();
@@ -30,7 +31,6 @@ public class PanelScore extends javax.swing.JPanel {
      */
     public PanelScore() {
         initComponents();
-        
         /*ImageIcon crono = new ImageIcon(this.getClass().getResource("/Images/clock.png"));
         crono = new ImageIcon(crono.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH));
         JLabel cronometro = new JLabel(crono);
@@ -54,10 +54,11 @@ public class PanelScore extends javax.swing.JPanel {
         lblCronometer = new javax.swing.JLabel();
         lblTiempo = new javax.swing.JLabel();
         lblEncabezadoBonus = new javax.swing.JLabel();
-        lblEjemploObjetos3 = new javax.swing.JLabel();
-        lblEjemploObjetos1 = new javax.swing.JLabel();
-        lblEjemploObjetos2 = new javax.swing.JLabel();
-        lblEjemploObjetos4 = new javax.swing.JLabel();
+        lblRubi = new javax.swing.JLabel();
+        lblEsmeralda = new javax.swing.JLabel();
+        lblTopaz = new javax.swing.JLabel();
+        lblSafiro = new javax.swing.JLabel();
+        desmotivacionesCom = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -94,17 +95,29 @@ public class PanelScore extends javax.swing.JPanel {
         lblEncabezadoBonus.setText("Bonus:");
         add(lblEncabezadoBonus, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, 60));
 
-        lblEjemploObjetos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/topaz.png"))); // NOI18N
-        add(lblEjemploObjetos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
+        lblRubi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/ruby.png"))); // NOI18N
+        lblRubi.setEnabled(false);
+        add(lblRubi, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
 
-        lblEjemploObjetos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/ruby.png"))); // NOI18N
-        add(lblEjemploObjetos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+        lblEsmeralda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/emerald.png"))); // NOI18N
+        lblEsmeralda.setEnabled(false);
+        add(lblEsmeralda, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
 
-        lblEjemploObjetos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/emerald.png"))); // NOI18N
-        add(lblEjemploObjetos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, -1, -1));
+        lblTopaz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/topaz.png"))); // NOI18N
+        lblTopaz.setEnabled(false);
+        add(lblTopaz, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
 
-        lblEjemploObjetos4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/sap.png"))); // NOI18N
-        add(lblEjemploObjetos4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
+        lblSafiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/sap.png"))); // NOI18N
+        lblSafiro.setEnabled(false);
+        add(lblSafiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
+
+        desmotivacionesCom.setFont(tipo.fuente(tipo.PressStart, 1, 11)
+        );
+        desmotivacionesCom.setForeground(new java.awt.Color(255, 204, 0));
+        desmotivacionesCom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        desmotivacionesCom.setText(getItemsRecogidos());
+        desmotivacionesCom.setToolTipText("");
+        add(desmotivacionesCom, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 300, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Puntaje.png"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
@@ -131,15 +144,58 @@ public class PanelScore extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContinuar;
+    private javax.swing.JLabel desmotivacionesCom;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel lbPartidaActual;
     private javax.swing.JLabel lbPlayerFace;
     private javax.swing.JLabel lblCronometer;
-    private javax.swing.JLabel lblEjemploObjetos1;
-    private javax.swing.JLabel lblEjemploObjetos2;
-    private javax.swing.JLabel lblEjemploObjetos3;
-    private javax.swing.JLabel lblEjemploObjetos4;
     private javax.swing.JLabel lblEncabezadoBonus;
+    private javax.swing.JLabel lblEsmeralda;
+    private javax.swing.JLabel lblRubi;
+    private javax.swing.JLabel lblSafiro;
     private javax.swing.JLabel lblTiempo;
+    private javax.swing.JLabel lblTopaz;
     // End of variables declaration//GEN-END:variables
+
+    private String getItemsRecogidos() {
+        String frase = "";
+        int cont = 0;
+        
+        if(PanelIglesia.rubi.isRecogido()){
+            lblRubi.setEnabled(true);
+            cont += 1;
+        }
+        if(PanelPasillo.safiro.isRecogido()){
+            lblSafiro.setEnabled(true);
+            cont += 1;
+        }
+        if(PanelWin.topaz.isRecogido()){
+        lblTopaz.setEnabled(true);
+            cont += 1;
+        }
+        if(PanelWin.esmeralda.isRecogido()){
+        lblEsmeralda.setEnabled(true);
+            cont += 1;
+        }
+        
+        switch(cont){
+            case 1:
+                frase = "¿Viniste a Clase?";
+                break;
+            case 2:
+                frase = "No Está Mal";
+                break;
+            case 3:
+                frase = "Olvidaste Algo...";
+                break;
+            case 4:
+                frase = "¡Maestro en POO!";
+                break;
+            case 0:
+                frase = "";
+                break;
+        }
+        System.out.println(cont);
+        return frase;
+    }
 }

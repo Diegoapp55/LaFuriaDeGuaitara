@@ -16,18 +16,6 @@ public class Efectos extends Sonido{
     public void playClickCerrar(){
         playNoLoop(".\\build\\classes\\soundFiles\\cerrarCancelar.wav");
     }
-    public void playDialogoCura(){
-        playNoLoop(".\\build\\classes\\soundFiles\\dialogoCura.wav");
-    }
-    public void playDialogoProta(){
-        playNoLoop(".\\build\\classes\\soundFiles\\dialogoProtagonista.wav");
-    }
-    public void playDialogoSecu(){
-        playNoLoop(".\\build\\classes\\soundFiles\\dialogoSecundario.wav");
-    }
-    public void playTexto(){
-        playNoLoop(".\\build\\classes\\soundFiles\\lecturaTexto.wav");
-    }
     public void playItem(){
         playNoLoop(".\\build\\classes\\soundFiles\\recorgerItem.wav");
     }
@@ -37,18 +25,6 @@ public class Efectos extends Sonido{
     public void playAbrirMenu(){
         playNoLoop(".\\build\\classes\\soundFiles\\menuPrincipal.wav");
     }
-    public void playPasosMadera(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosMaderaSingular.wav");
-    }
-    public void playPasosPiedra(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedraSingular.wav");
-    }
-    public void playPasosPiedraEco(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosPiedraReverbSingular.wav");
-    }
-    public void playPasosTierra(){
-        playNoLoop(".\\build\\classes\\soundFiles\\pasosTierraSingular.wav");
-    }
     public void playPausa(){
         playNoLoop(".\\build\\classes\\soundFiles\\pausa.wav");
     }
@@ -57,9 +33,6 @@ public class Efectos extends Sonido{
     }
     public void playSalir(){
         playNoLoop(".\\build\\classes\\soundFiles\\salirJuego.wav");
-    }
-    public void playVoces(){
-        playNoLoop(".\\build\\classes\\soundFiles\\voces.wav");
     }
     public void playPuerta(){
         playNoLoop(".\\build\\classes\\soundFiles\\puerta.wav");

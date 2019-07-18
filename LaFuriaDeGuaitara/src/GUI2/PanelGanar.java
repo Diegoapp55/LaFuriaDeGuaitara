@@ -6,12 +6,13 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
+import java.io.Serializable;
 
 /**
  *
  * @author HP
  */
-public class PanelGanar extends javax.swing.JPanel {
+public class PanelGanar extends javax.swing.JPanel implements Serializable{
     //public final int plus = 1000;
     
     long tiempo = System.currentTimeMillis()/1000 - Window.time/1000;

@@ -7,7 +7,7 @@ package GUI2;
 
 import static GUI2.PanelIglesia.l;
 import GUIsoundManagement.Efectos;
-import data.Inventario;
+import data.Fuente;
 import data.ItemPickeable;
 import data.Jugador;
 import data.Partida;
@@ -20,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -30,12 +31,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author jdoli
  */
-public class PanelInventario extends javax.swing.JPanel implements KeyListener{
+public class PanelInventario extends javax.swing.JPanel implements KeyListener, Serializable{
     Icon emerald = new ImageIcon(getClass().getResource("/Images/objetos/emerald.png"));
     Icon ruby = new ImageIcon(getClass().getResource("/Images/objetos/ruby.png"));
     Icon topaz = new ImageIcon(getClass().getResource("/Images/objetos/topaz.png"));
     Icon sap = new ImageIcon(getClass().getResource("/Images/objetos/sap.png"));
-    
+    Fuente tipo = new Fuente();
+
     private DefaultTableModel modelo;
     private static ArrayList<ItemPickeable> inv = new ArrayList<>();
     
@@ -45,9 +47,11 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
     public PanelInventario() {
         inv = Jugador.inventario;
         Window.TEMA_JUEGO.stop();
+        Window.TEMA_CINE.stop();
         initComponents();
-        muestraInfo();
+        //muestraInfo();
         //muestraClick();
+        cargarDatos();
     }
 
     /**
@@ -63,13 +67,15 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
         tblInv = new javax.swing.JTable();
         volver = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
+        show = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblInv.setFont(new java.awt.Font("Press Start 2P", 0, 11)); // NOI18N
+        tblInv.setFont(tipo.fuente(tipo.PressStart, 0, 11)
+        );
         tblInv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -88,7 +94,7 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
                 volverActionPerformed(evt);
             }
         });
-        add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 150, 40));
+        add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 150, 40));
 
         mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btMenuMostrar.png"))); // NOI18N
         mostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +103,7 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
             }
         });
         add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 150, 40));
+        add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 25, 25));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/BackInventario.png"))); // NOI18N
         fondo.setText("jLabel1");
@@ -106,12 +113,11 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
         Efectos e2 = new Efectos();
         e2.playItem();
-
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         Efectos e1 = new Efectos();
-         int value = JOptionPane.showConfirmDialog(this, "Volver al Juego",
+        int value = JOptionPane.showConfirmDialog(this, "Volver al Juego",
             "Volver", JOptionPane.DEFAULT_OPTION);
         if(value == JOptionPane.OK_OPTION){
             Window.TEMA_JUEGO.playGamePlay();
@@ -203,11 +209,11 @@ public class PanelInventario extends javax.swing.JPanel implements KeyListener{
         Window.getJpanel().repaint();
     }
     
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton mostrar;
+    private javax.swing.JLabel show;
     private javax.swing.JTable tblInv;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables

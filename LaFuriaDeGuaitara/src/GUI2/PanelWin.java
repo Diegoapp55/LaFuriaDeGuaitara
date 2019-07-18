@@ -6,6 +6,7 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
+import data.ItemPickeable;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
@@ -18,17 +19,22 @@ import javax.swing.JOptionPane;
  * @author HP
  */
 public class PanelWin extends javax.swing.JPanel implements KeyListener, Serializable{
+    Efectos fx = new Efectos();
     Icon img = new ImageIcon(getClass().getResource("/Images/sprites/" + 
             PanelCrearPartida.jugador.getGenero() + ".gif"));
-    Efectos fx = new Efectos();
+    public static ItemPickeable topaz = new ItemPickeable("Abstractum", "Un topacio que crea "
+            + "versiones digitales de lo que sea que toque.", 0, 0, "/src/Images/Sprites/item/1_topazSheet.png");
+    public static ItemPickeable esmeralda = new ItemPickeable("Cambia-Formas", "El poder comportarse"
+            + " de una manera dependiendo de su ambiente es la gran habilidad"
+            + " de esta esmeralda", 0, 0, "/src/Images/Sprites/item/4_emeraldSheet.png");
     
     int velocidad = 5;
     /**
      * Creates new form panelWin
      */
     public PanelWin() {
-        Window.TEMA_CINE.playRio();
         Window.TEMA_JUEGO.stop();
+        Window.TEMA_CINE.playRio();
         initComponents();
         addKeyListener(this);
         setFocusable(true);
@@ -45,26 +51,41 @@ public class PanelWin extends javax.swing.JPanel implements KeyListener, Seriali
 
         l = new javax.swing.JLabel();
         Profe = new javax.swing.JLabel();
+        esmeraldaObj = new javax.swing.JLabel();
+        topazObj = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         l.setIcon(img);
-        add(l, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 50, 60));
+        add(l);
+        l.setBounds(170, 270, 50, 60);
 
         Profe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sprites/Daniel_Salazar.gif"))); // NOI18N
-        add(Profe, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 50, 60));
+        add(Profe);
+        Profe.setBounds(270, 10, 50, 60);
+
+        esmeraldaObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/eme.gif"))); // NOI18N
+        add(esmeraldaObj);
+        esmeraldaObj.setBounds(180, 70, 25, 30);
+
+        topazObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/topaz.gif"))); // NOI18N
+        add(topazObj);
+        topazObj.setBounds(260, 510, 25, 30);
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Mapas/FinalWin.png"))); // NOI18N
-        add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+        add(fondo);
+        fondo.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Profe;
+    private javax.swing.JLabel esmeraldaObj;
     private javax.swing.JLabel fondo;
-    private javax.swing.JLabel l;
+    public static javax.swing.JLabel l;
+    private javax.swing.JLabel topazObj;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -115,24 +136,56 @@ public class PanelWin extends javax.swing.JPanel implements KeyListener, Seriali
                     int value = JOptionPane.showConfirmDialog(this, "¿Desea Pasar?" , 
                             "Punto de guardado", JOptionPane.YES_NO_OPTION);
                     if(value == JOptionPane.YES_OPTION){
+                        Window.TEMA_CINE.stop();
+                        Window.TEMA_JUEGO.stop();
                         Window.TEMA_JUEGO.playFinalGanar();
                         PanelCrearPartida.partida.setPanelActual(this);   
                         cargarGanar();
                     }else{
+                        Window.TEMA_CINE.stop();
+                        Window.TEMA_JUEGO.stop();
                         Window.TEMA_JUEGO.playFinalPerder();
                         cargarPerder();
                     }
+                }
+                //Item topaz
+                if((l.getX() >= 149 && l.getX() <= 236) && (l.getY() >= 55 && l.getY() <= 105)){
+                    esmeralda.setRecogido(true);
+                    guardaPosX();
+                    guardaPosY();
+                    l.setLocation(guardaPosX(), guardaPosY());
+                    esmeraldaObj.setVisible(false);
+                    fx.playItem();
+                    PanelCrearPartida.inventario.add(esmeralda);
+                    l.setLocation(guardaPosX(), guardaPosY());
+                }
+                //Item esmeralda
+                if((l.getX() >= 229 && l.getX() <= 316) && (l.getY() >= 470 && l.getY() <= 530)){
+                    topaz.setRecogido(true);
+                    guardaPosX();
+                    guardaPosY();
+                    l.setLocation(guardaPosX(), guardaPosY());
+                    topazObj.setVisible(false);
+                    fx.playItem();
+                    PanelCrearPartida.inventario.add(topaz);
+                    l.setLocation(guardaPosX(), guardaPosY());
                 }
                 break;
             
             
             case KeyEvent.VK_ESCAPE:
+                PanelCrearPartida.partida.setPanelActual(this);
+                guardaPosX();
+                guardaPosY();
                 fx.playPausa();
                 cargarPausa();
                 break;
             
             
             case KeyEvent.VK_I:
+                PanelCrearPartida.partida.setPanelActual(this);
+                guardaPosX();
+                guardaPosY();
                 fx.playPausa();
                 cargarInventario();
                 break;
@@ -191,5 +244,19 @@ public class PanelWin extends javax.swing.JPanel implements KeyListener, Seriali
         Window.getJpanel().add(pj);
         Window.getJpanel().revalidate();
         Window.getJpanel().repaint();
+    }
+    
+    public static int guardaPosX()
+    {
+        int posX = 0;
+        posX = l.getX();
+        return posX;
+    }
+    
+    public static int guardaPosY()
+    {
+        int posY = 0;
+        posY = l.getY();
+        return posY;
     }
 }

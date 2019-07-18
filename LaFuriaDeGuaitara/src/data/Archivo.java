@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Diego
  */
-public class Archivo {
+public class Archivo implements Serializable{
     public static ArrayList<Partida> inputPartidas;
     
     public static FileOutputStream fos;
@@ -21,7 +21,6 @@ public class Archivo {
     
     public static ArrayList<Partida> leer(){
         ArrayList<Partida> partidasLoad = new ArrayList<>();
-        
         try {
             fis = new FileInputStream("./src/partidas/Partidas.obj");
             
@@ -48,14 +47,14 @@ public class Archivo {
             
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             
-            for (Partida partAux: Window.partidaList)
+            for (Partida partAux: inputPartidas)
             {
                 oos.writeObject(partAux);
             }
             
             oos.close();
         } catch (Exception e) {
-            
+
         } 
     }
 

@@ -10,6 +10,7 @@ import GUI2.*;
 import data.*;
 import GUIsoundManagement.*;
 import java.awt.Graphics;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author Diego
  */
-public class Run {
+public class Run implements Serializable{
 
     /**
      * @param args the command line arguments
@@ -32,7 +33,7 @@ public class Run {
         
         
         ItemPickeable item1 = new ItemPickeable("Abstracción", "Un topacio que crea "
-            + "versiones digitales de lo que sea que toque.", 0, 0, "/src/Images/Sprites/item/1_topazSheet.ong");
+            + "versiones digitales de lo que sea que toque.", 0, 0, "/src/Images/Sprites/item/1_topazSheet.png");
         ItemPickeable item2 = new ItemPickeable("Encapsulación", "Este rubí de sangre"
             + " puede aislar a su portador del mundo real.", 0, 0, "/src/Images/Sprites/item/2_rubySheet.png");
         ItemPickeable item3 = new ItemPickeable("Herencia", "El safiro más preciado"

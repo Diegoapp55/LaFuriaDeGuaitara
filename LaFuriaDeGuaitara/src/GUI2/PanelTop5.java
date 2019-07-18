@@ -9,12 +9,13 @@ import GUI2.PanelInicio;
 import GUI2.Window;
 import GUIsoundManagement.Efectos;
 import data.Fuente;
+import java.io.Serializable;
 
 /**
  *
  * @author Diego
  */
-public class PanelTop5 extends javax.swing.JPanel {
+public class PanelTop5 extends javax.swing.JPanel implements Serializable{
     Fuente tipo = new Fuente();
     /**
      * Creates new form PanelTop5
@@ -35,7 +36,7 @@ public class PanelTop5 extends javax.swing.JPanel {
         btVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTop5 = new javax.swing.JTable();
-        temp1 = new javax.swing.JLabel();
+        back = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(42, 22, 79));
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -51,7 +52,7 @@ public class PanelTop5 extends javax.swing.JPanel {
                 btVolverActionPerformed(evt);
             }
         });
-        add(btVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 520, 150, 40));
+        add(btVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 150, 40));
 
         tblTop5.setFont(tipo.fuente(tipo.PressStart, 0, 11));
         tblTop5.setModel(new javax.swing.table.DefaultTableModel(
@@ -90,14 +91,10 @@ public class PanelTop5 extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblTop5);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, 200));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, 220));
 
-        temp1.setFont(tipo.fuente(tipo.PressStart, 0, 35)
-        );
-        temp1.setForeground(new java.awt.Color(255, 204, 0));
-        temp1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        temp1.setText("Mejores Puntajes");
-        add(temp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 64, 790, 50));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/mejoresPuntajes.png"))); // NOI18N
+        add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
@@ -118,9 +115,9 @@ public class PanelTop5 extends javax.swing.JPanel {
         Window.getJpanel().repaint();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel back;
     private javax.swing.JButton btVolver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblTop5;
-    private javax.swing.JLabel temp1;
     // End of variables declaration//GEN-END:variables
 }

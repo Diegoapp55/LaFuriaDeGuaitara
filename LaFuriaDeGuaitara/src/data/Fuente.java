@@ -7,12 +7,13 @@ package data;
 
 import java.awt.Font;
 import java.io.InputStream;
+import java.io.Serializable;
 
 /**
  *
  * @author Diego
  */
-public class Fuente {
+public class Fuente implements Serializable{
     private Font font = null;
     public String PressStart = "/Fonts/PressStart2P.ttf";
 

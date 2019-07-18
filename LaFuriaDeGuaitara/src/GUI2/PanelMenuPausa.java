@@ -8,6 +8,7 @@ package GUI2;
 import GUIsoundManagement.Efectos;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -16,7 +17,7 @@ import javax.swing.JSlider;
  *
  * @author HP
  */
-public class PanelMenuPausa extends javax.swing.JPanel {
+public class PanelMenuPausa extends javax.swing.JPanel implements Serializable{
     public static int volMusica ;
     public static int volEfectos;
     /**
@@ -108,7 +109,7 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         // TODO add your handling code here:
         Efectos e1 = new Efectos();
         e1.playSalir();
-        int value = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "Salir",
+        int value = JOptionPane.showConfirmDialog(this, "¿Desea salir del juego?", "Salir",
                 JOptionPane.YES_NO_OPTION , JOptionPane.WARNING_MESSAGE);
         if(value == JOptionPane.YES_OPTION){
             System.exit(0);
@@ -124,7 +125,7 @@ public class PanelMenuPausa extends javax.swing.JPanel {
         int value = JOptionPane.showConfirmDialog(this, "Los cambios se han guardado",
             "Guardar", JOptionPane.DEFAULT_OPTION);
         if(value == JOptionPane.OK_OPTION){
-            Window.TEMA_JUEGO.playGamePlay();
+            //Window.TEMA_JUEGO.playGamePlay();
             e1.playQuitarPausa();
             cargarVolver();
         }

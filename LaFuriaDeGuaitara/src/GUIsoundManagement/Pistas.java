@@ -20,12 +20,6 @@ public class Pistas extends Sonido{
     public void playGamePlay(){
         play(".\\build\\classes\\soundFiles\\gamePlay[recortado].wav");
     }
-    public void playGamePlayTension(){
-        play(".\\build\\classes\\soundFiles\\gamePlayTension[recortar].wav");
-    }
-    public void playGamePlayCreepy(){
-        play(".\\build\\classes\\soundFiles\\gamePlayCreepy[recortado].wav");
-    }
     public void playFinalPerder(){
         playNoLoop(".\\build\\classes\\soundFiles\\finalPerder.wav");
     }
@@ -37,5 +31,8 @@ public class Pistas extends Sonido{
     }
     public void playRio(){
         playNoLoop(".\\build\\classes\\soundFiles\\rio.wav");
+    }
+    public void playVoces(){
+        play(".\\build\\classes\\soundFiles\\voces.wav");
     }
 }

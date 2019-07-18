@@ -6,17 +6,21 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
+import GUIsoundManagement.Pistas;
+import java.io.Serializable;
 
 /**
  *
  * @author HP
  */
-public class PanelPerder extends javax.swing.JPanel {
+public class PanelPerder extends javax.swing.JPanel implements Serializable{
     long tiempo = System.currentTimeMillis()/1000 - Window.time/1000;
+    Pistas voces = new Pistas();
     /**
      * Creates new form panelPerder
      */
     public PanelPerder() {
+        voces.playVoces();
         initComponents();
         PanelCrearPartida.jugador.setTiempo(tiempo);
     }
@@ -48,7 +52,7 @@ public class PanelPerder extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
-        // TODO add your handling code here:
+        voces.stop();
         Efectos fx = new Efectos();
         fx.playQuitarPausa();
         Window.TEMA_CINE.stop();

@@ -6,7 +6,6 @@
 package GUI;
 
 import GUI2.*;
-import data.Mapa;
 import javax.swing.*;
 
 /**

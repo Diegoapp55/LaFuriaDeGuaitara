@@ -10,6 +10,7 @@ import GUIsoundManagement.Efectos;
 import data.ItemPickeable;
 import data.Jugador;
 import data.Partida;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,7 +22,7 @@ import javax.swing.JPanel;
  *
  * @author HP
  */
-public class PanelCrearPartida extends javax.swing.JPanel {
+public class PanelCrearPartida extends javax.swing.JPanel implements Serializable{
     public static Icon img;
     public static Partida partida = new Partida(null, null);
     public static Jugador jugador = new Jugador(null, null);
@@ -68,6 +69,12 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtNombreMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNombreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtNombreMouseExited(evt);
             }
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 370, 30));
@@ -147,6 +154,15 @@ public class PanelCrearPartida extends javax.swing.JPanel {
         txtNombre.setText("");
     }//GEN-LAST:event_txtNombreMouseClicked
 
+    private void txtNombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseEntered
+        // TODO add your handling code here:
+        txtNombre.setText("");
+    }//GEN-LAST:event_txtNombreMouseEntered
+
+    private void txtNombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseExited
+
+    }//GEN-LAST:event_txtNombreMouseExited
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btContinuar;

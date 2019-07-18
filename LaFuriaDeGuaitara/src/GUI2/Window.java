@@ -10,6 +10,7 @@ import GUIsoundManagement.Pistas;
 import data.Archivo;
 import data.Jugador;
 import data.Partida;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
  *
  * @author jdoli
  */
-public class Window extends javax.swing.JFrame {
+public class Window extends javax.swing.JFrame implements Serializable{
     public static ArrayList<Partida> partidaList = new ArrayList<>();
     public static final Pistas TEMA_PRINCIPAL = new Pistas();
     public static final Pistas TEMA_MENU = new Pistas();

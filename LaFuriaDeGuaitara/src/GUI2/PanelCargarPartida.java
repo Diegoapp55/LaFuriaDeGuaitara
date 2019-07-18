@@ -11,21 +11,23 @@ import GUIsoundManagement.Efectos;
 import data.Archivo;
 import data.Fuente;
 import data.Jugador;
-import data.Mapa;
+import GUI.Mapa;
 import data.Partida;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author HP
  */
-public class PanelCargarPartida extends javax.swing.JPanel {
+public class PanelCargarPartida extends javax.swing.JPanel implements Serializable{
 
     public static ArrayList<Partida> partidasCargaList1;
     public static ArrayList<Partida> partidasCargaList2;
@@ -37,7 +39,6 @@ public class PanelCargarPartida extends javax.swing.JPanel {
         
         initComponents();
         mostrar();
-        //cargarDatos();
     }
 
     @SuppressWarnings("unchecked")
@@ -52,6 +53,8 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblCarga.setFont(tipo.fuente(tipo.PressStart, 0, 11)
+        );
         tblCarga.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -141,14 +144,14 @@ public class PanelCargarPartida extends javax.swing.JPanel {
 
     public void cargaJuego(Partida in)
     {
-        PanelInicio pi = (PanelInicio) in.getPanelActual();
+        JPanel pi = in.getPanelActual();
         pi.setSize(jMain.getWidth(), jMain.getHeight());
         pi.setLocation(0,0);
         
-        jMain.removeAll();
-        jMain.add(pi);
-        jMain.revalidate();
-        jMain.repaint();
+        Window.getJpanel().removeAll();
+        Window.getJpanel().add(pi);
+        Window.getJpanel().revalidate();
+        Window.getJpanel().repaint();
         
         pi.setVisible(true);
     }

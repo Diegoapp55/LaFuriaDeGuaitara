@@ -8,6 +8,7 @@ package GUI2;
 import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
 import data.Archivo;
+import data.ItemPickeable;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
@@ -21,6 +22,10 @@ import javax.swing.JOptionPane;
  */
 public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Serializable{
     Efectos fx = new Efectos();
+    
+    public static ItemPickeable safiro = new ItemPickeable("Eterno-Linaje", "El safiro más preciado"
+            + " del mundo, puede obtener la habilidad de cualquiera de sus gemas "
+            + "gemelas.", 0, 0, "/src/Images/Sprites/item/3_saphSheet.png");
     
     int velocidad = 5;
     /**
@@ -42,7 +47,7 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
     private void initComponents() {
 
         l = new javax.swing.JLabel();
-        item2 = new javax.swing.JLabel();
+        safiroObj = new javax.swing.JLabel();
         Profe = new javax.swing.JLabel();
         door = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
@@ -55,9 +60,9 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
         add(l);
         l.setBounds(80, 260, 50, 50);
 
-        item2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/saph.gif"))); // NOI18N
-        add(item2);
-        item2.setBounds(240, 220, 25, 30);
+        safiroObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/objetos/saph.gif"))); // NOI18N
+        add(safiroObj);
+        safiroObj.setBounds(240, 220, 25, 30);
 
         Profe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sprites/Daniel_Salazar.gif"))); // NOI18N
         add(Profe);
@@ -77,8 +82,8 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
     private javax.swing.JLabel Profe;
     private javax.swing.JLabel background;
     private javax.swing.JLabel door;
-    private javax.swing.JLabel item2;
     public static javax.swing.JLabel l;
+    private javax.swing.JLabel safiroObj;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -125,13 +130,15 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
 
             case KeyEvent.VK_SPACE:{
                 //Puerta
-                if((l.getX() >= 672 && l.getX() <= 700) && (l.getY() >= 239 && l.getY() <= 274)){
+                if((l.getX() >= 672 && l.getX() <= 720) && (l.getY() >= 239 && l.getY() <= 274)){
                     fx.playPuerta();
+                    //Window.TEMA_JUEGO.stop();
                     PantallaJuego pj = new PantallaJuego();
                     pj.setVisible(true);
                     pj.dispose();
                     cargarWin();
                 }
+                //Punto de guardado
                 if((l.getX() >= 369 && l.getX() <= 442) && (l.getY() >= 217 && l.getY() <= 330)){
                     fx.playItemEspecial();
                     int value = JOptionPane.showConfirmDialog(this, "¿Desea Guardar?" , 
@@ -142,6 +149,17 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
                         PanelCrearPartida.partida.y = guardaPosY();
                         Archivo.escribir();
                     }
+                }
+                //Item
+                if((l.getX() >= 209 && l.getX() <= 296) && (l.getY() >= 202 && l.getY() <= 255)){
+                    safiro.setRecogido(true);
+                    guardaPosX();
+                    guardaPosY();
+                    l.setLocation(guardaPosX(), guardaPosY());
+                    safiroObj.setVisible(false);
+                    fx.playItem();
+                    PanelCrearPartida.inventario.add(safiro);
+                    l.setLocation(guardaPosX(), guardaPosY());
                 }
                 break;
             }
@@ -208,7 +226,7 @@ public class PanelPasillo extends javax.swing.JPanel implements KeyListener, Ser
         Window.getJpanel().repaint();
     }
     
-        public static int guardaPosX()
+    public static int guardaPosX()
     {
         int posX = 0;
         posX = l.getX();

@@ -19,6 +19,7 @@ public class ItemPickeable implements Serializable{
     private double x;
     private double y;
     boolean recogido = false;
+
     private ImageIcon im;
 
     public ItemPickeable(String nombre, String descripcion, double x, double y, String ruta) {
@@ -30,6 +31,14 @@ public class ItemPickeable implements Serializable{
         //this.setIm(im); 
     }
 
+    public void setRecogido(boolean recogido) {
+        this.recogido = recogido;
+    }
+
+    public boolean isRecogido() {
+        return recogido;
+    }
+    
     public String getNombre() {
         return nombre;
     }
