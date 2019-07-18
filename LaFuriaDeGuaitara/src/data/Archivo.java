@@ -5,7 +5,6 @@
  */
 package data;
 
-import GUI2.PanelCargarPartida;
 import GUI2.Window;
 import java.io.*;
 import java.util.ArrayList;

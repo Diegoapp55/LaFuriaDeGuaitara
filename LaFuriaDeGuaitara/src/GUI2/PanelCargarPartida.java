@@ -5,21 +5,13 @@
  */
 package GUI2;
 
-import GUI.PantallaJuego;
 import static GUI2.Window.jMain;
 import GUIsoundManagement.Efectos;
 import data.Archivo;
 import data.Fuente;
-import data.Jugador;
-import GUI.Mapa;
 import data.Partida;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.Serializable;
 import java.util.ArrayList;
-import javax.swing.JButton;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,8 +22,6 @@ import javax.swing.table.DefaultTableModel;
 public class PanelCargarPartida extends javax.swing.JPanel implements Serializable{
 
     public static ArrayList<Partida> partidasCargaList1;
-    public static ArrayList<Partida> partidasCargaList2;
-    public static ArrayList<Partida> partidasCargaList3;
     private DefaultTableModel modelo; 
     Fuente tipo = new Fuente();
     

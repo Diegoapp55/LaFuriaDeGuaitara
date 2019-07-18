@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import GUI.PantallaJuego;
 import data.ItemPickeable;
 import java.io.Serializable;
 

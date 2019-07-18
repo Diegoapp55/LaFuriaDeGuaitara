@@ -14,23 +14,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 /**
  *
  * @author HP
  */
-
-
 public class PanelCrearPartida extends javax.swing.JPanel implements Serializable{
     public static Icon img;
     public static Partida partida = new Partida(null, null);
     public static Jugador jugador = new Jugador(null, null);
     public static ArrayList<ItemPickeable> inventario = new ArrayList<>();
     
-
     /**
      * Creates new form panelCrearPartida
      */

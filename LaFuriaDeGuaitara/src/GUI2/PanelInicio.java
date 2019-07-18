@@ -6,7 +6,6 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
-import GUIsoundManagement.Pistas;
 import java.io.Serializable;
 import javax.swing.JOptionPane;
 
@@ -14,7 +13,6 @@ import javax.swing.JOptionPane;
  *
  * @author HP
  */
-
 public class PanelInicio extends javax.swing.JPanel implements Serializable{
     /**
      * Creates new form panelInicio
@@ -22,7 +20,6 @@ public class PanelInicio extends javax.swing.JPanel implements Serializable{
     public PanelInicio() {
         //TEMA_MENU.playMenuTheme();
         initComponents(); 
-
         Window.TEMA_PRINCIPAL.playMainTheme();
     }
 

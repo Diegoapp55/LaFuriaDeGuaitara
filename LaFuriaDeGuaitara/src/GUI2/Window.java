@@ -7,8 +7,6 @@ package GUI2;
 
 import GUIsoundManagement.Efectos;
 import GUIsoundManagement.Pistas;
-import data.Archivo;
-import data.Jugador;
 import data.Partida;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,7 +24,7 @@ public class Window extends javax.swing.JFrame implements Serializable{
     public static final Pistas TEMA_MENU = new Pistas();
     public static final Pistas TEMA_CINE = new Pistas();
     public static final Pistas TEMA_JUEGO = new Pistas();
-   
+    
     public static long time;
     /**
      * Creates new form Window
@@ -102,7 +100,7 @@ public class Window extends javax.swing.JFrame implements Serializable{
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         Efectos e1 = new Efectos();
-        e1.playClickCerrar();
+        e1.playSalir();
         
         int value = JOptionPane.showConfirmDialog(this,"¿Desea Salir?", "salir", 
                 JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);

@@ -6,8 +6,6 @@
 package GUI2;
 
 import GUIsoundManagement.Efectos;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.Serializable;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

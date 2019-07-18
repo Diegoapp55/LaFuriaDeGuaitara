@@ -8,12 +8,10 @@ package GUI2;
 import GUI.PantallaJuego;
 import GUIsoundManagement.Efectos;
 import data.ItemPickeable;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.Serializable;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 
 /**
  *

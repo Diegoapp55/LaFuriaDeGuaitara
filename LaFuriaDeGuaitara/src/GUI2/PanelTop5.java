@@ -5,8 +5,6 @@
  */
 package GUI2;
 
-import GUI2.PanelInicio;
-import GUI2.Window;
 import GUIsoundManagement.Efectos;
 import data.Fuente;
 import java.io.Serializable;

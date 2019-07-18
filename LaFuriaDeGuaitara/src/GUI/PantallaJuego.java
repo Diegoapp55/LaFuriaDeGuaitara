@@ -5,9 +5,6 @@
  */
 package GUI;
 
-import GUI2.*;
-import javax.swing.*;
-
 /**
  *
  * @author Diego

@@ -5,7 +5,6 @@
  */
 package GUIsoundManagement;
 
-import java.applet.AudioClip;
 import java.awt.HeadlessException;
 import java.io.*;
 import javax.sound.sampled.*;

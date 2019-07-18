@@ -7,12 +7,9 @@ package GUI2;
 
 import GUIsoundManagement.Efectos;
 import data.Fuente;
-import java.awt.Image;
 import java.io.Serializable;
-import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *

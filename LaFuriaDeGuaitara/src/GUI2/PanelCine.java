@@ -5,10 +5,6 @@
  */
 package GUI2;
 
-import GUI.PantallaJuego;
-import GUIsoundManagement.Pistas;
-import jdk.nashorn.internal.runtime.Context;
-
 /**
  *
  * @author HP
