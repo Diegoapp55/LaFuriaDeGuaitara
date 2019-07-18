@@ -13,4 +13,4 @@ de la Universidad Nacional de Colombia en el primer semestre de 2019 (2019-1)
 Todos los recursos de este proyecto pueden ser utilizados de manera libre y no están sujetos a derechos de autor.
 Para más información sobre el proyecto puedes dar clic [aquí](https://www.lucidchart.com/documents/view/81cc0eee-79b4-4216-942a-da2121683ecd/0)
 
-![Fallo al Abrir la Imagen](https://ibb.co/fqqMRXc "__Electrónica al Poder - 2019__")
+![EAP Logo](https://user-images.githubusercontent.com/42362277/61469442-cf29bc80-a944-11e9-97e6-0e3cd2add46f.png "__Electrónica al Poder - 2019__")
